@@ -20,8 +20,8 @@ public class CaTissueBaseTestCase extends BaseTestCase{
 	 * @throws java.lang.Exception
 	 */
 
-	public static final String USER_NAME = "e";
-	public static final String PASSWORD = "Login123";
+	public static final String USER_NAME = "ppreddy@uab.edu";
+	public static final String PASSWORD = "hard2Guess";
 
 	static ApplicationService appService = null;
 	public CaTissueBaseTestCase(){
@@ -38,7 +38,7 @@ public class CaTissueBaseTestCase extends BaseTestCase{
 		ClientSession cs = ClientSession.getInstance();
 		try
 		{
-			cs.startSession("e", "Login123");
+			cs.startSession("ppreddy@uab.edu", "hard2Guess");
 		}
 
 		catch (Exception ex)

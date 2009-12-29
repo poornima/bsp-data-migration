@@ -21,16 +21,15 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
 	 */
 	public static void registerParticipantsWithSpecimen() throws Exception {
 		try {
-			System.out
-					.println("---------START ExcelTestCaseUtility.registerParticipantsWithSpecimen-----------");
-//			System.out.println("user.dir  " + System.getProperty("user.dir"));
+			System.out.println("---------START ExcelTestCaseUtility.registerParticipantsWithSpecimen-----------");
+			System.out.println("user.dir  " + System.getProperty("user.dir"));
 			String excelFilePath = System.getProperty("user.dir")
 			+ "/excelFiles/Data_Source.xls";
 			ExcelFileReader EX_CP = new ExcelFileReader();
 			String allexcel[][] = EX_CP.setInfo(excelFilePath);
-			new DataMigrationUtil().registerAndCollectSCG(allexcel);
-			System.out
-					.println("---------END ExcelTestCaseUtility.registerPart-----------");
+			// new DataMigrationUtil().registerAndCollectSCG(allexcel);
+			new DataMigrationUtil().initParticipant(allexcel);
+			System.out.println("---------END ExcelTestCaseUtility.registerPart-----------");
 		} catch (Exception e) {
 			System.out.println("Exception in registerPart");
 			e.printStackTrace();
