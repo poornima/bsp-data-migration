@@ -41,17 +41,12 @@ public class ExcelDataMigrationTestCase extends CaTissueBaseTestCase {
 
 
 	/**
-	 * This test will try to register a participant, create a specimen
-	 * for the participant and will create aliquotes of the specimen as specified in the source data.
-	 * Assumption: Before populating the excel sheet user will have to create
-	 * 1. Collection protocol
-	 * 2. Site
-	 * 3. Storage Container
-	 * 4. A specimen and an aliquote under the collection protocol.
+	 * This test will try to register a participant
+	 * as specified in the source data.
 	 */
 	public void testRegisterPart(){
 		try{
-			ExcelTestCaseUtility.registerParticipantsWithSpecimen();
+			ExcelTestCaseUtility.registerParticipants();
 			//we can check here whether the participants are properly registered or not.
 			assertTrue("Successed", true);
 		 }

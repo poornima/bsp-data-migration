@@ -14,62 +14,29 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
 
 	/**
 	 * This method will read the source data from the excel sheet with
-	 * pre-decided format and will try to create participants with their
-	 * corresponding specimens and aliquotes as specified in the data source
+	 * pre-decided format and will try to create participants
+	 * as specified in the data source
 	 *
 	 * @throws Exception
 	 */
-	public static void registerParticipantsWithSpecimen() throws Exception {
+	public static void registerParticipants() throws Exception {
 		try {
-			System.out.println("---------START ExcelTestCaseUtility.registerParticipantsWithSpecimen-----------");
+			System.out.println("---------START ExcelTestCaseUtility.initParticipant-----------");
 			System.out.println("user.dir  " + System.getProperty("user.dir"));
 			String excelFilePath = System.getProperty("user.dir")
-			+ "/excelFiles/Data_Source.xls";
+			//+ "/excelFiles/PD-PartPmiRace-5.xls";
+			// + "/excelFiles/Data_Source.xls";
+			 + "/excelFiles/Workbook1.xls";
 			ExcelFileReader EX_CP = new ExcelFileReader();
 			String allexcel[][] = EX_CP.setInfo(excelFilePath);
-			// new DataMigrationUtil().registerAndCollectSCG(allexcel);
-			new DataMigrationUtil().initParticipant(allexcel);
-			System.out.println("---------END ExcelTestCaseUtility.registerPart-----------");
+                        int rowCount = EX_CP.getRowCount();
+			new DataMigrationUtil().initParticipant(allexcel, rowCount);
+			System.out.println("---------END ExcelTestCaseUtility.initParticipant-----------");
 		} catch (Exception e) {
-			System.out.println("Exception in registerPart");
+			System.out.println("Exception in initParticipant");
 			e.printStackTrace();
 			throw e;
 		}
 	}
-//
-//	public static void createStorageContainer()
-//	{
-//		try{
-//			StorageContainer storageContainer= BaseTestCaseUtility.initStorageContainer();
-//			storageContainer.setName("test_contaner");
-//			System.out.println(storageContainer);
-//
-//			Collection holdsStorageTypeCollection = new HashSet();
-//			StorageType sttype = new StorageType();
-//			sttype.setId(3L);
-//			holdsStorageTypeCollection.add(sttype);
-//			//storageContainer.setHoldsStorageTypeCollection(holdsStorageTypeCollection);*/
-//			storageContainer.setStorageType(sttype);
-//			Site site = new Site();
-//			site.setId(2L);
-//			storageContainer.setSite(site);
-//
-//			CollectionProtocol collectionProtocol = new CollectionProtocol();
-//			collectionProtocol.setId(3L);
-//			Collection collectionProtocolCollection = new HashSet();
-//			collectionProtocolCollection.add(collectionProtocol);
-//			storageContainer.setCollectionProtocolCollection(collectionProtocolCollection);
-//
-//
-//			storageContainer = (StorageContainer) appService.createObject(storageContainer);
-//			System.out.println("container name "+ storageContainer.getName());
-//			System.out.println("Object created successfully");
-//			assertTrue("Object added successfully", true);
-//		 }
-//		 catch(Exception e){
-//			 e.printStackTrace();
-//			 assertFalse("could not add object", true);
-//		 }
-//	}
 
 }
