@@ -76,8 +76,7 @@
 	<target name="runJunitTestCases" depends="compile_junit_TestCases">
         <mkdir dir="${report.dir}/Nightly_Build_Report" />
 		<mkdir dir="${report.dir}/Nightly_Build_Report/Html_reports" />
-
-		
+			
 		<junit printsummary="yes" fork="yes" haltonfailure="no">
 			<formatter type="xml" />
 			<sysproperty key="net.sourceforge.cobertura.datafile" file="${cobertura.dir}/coverage.ser" />
@@ -113,17 +112,4 @@
 			<report todir="${report.dir}/Nightly_Build_Report/Html_reports" />
 		</junitreport>
 	</target>
-	
-	<target name="createJavaDoc">
-			<javadoc destdir="${client.dir}/JavaDoc"
-	   			author="true"
-	   			version="true"
-	   			use="true"
-	   			windowtitle="JavaDoc">
-		  	 	<fileset dir="${project.src.domain}">
-		  	 		<include name="**/DebounDataMigration.java" />
-		  	    </fileset>
-		    </javadoc>
-		</target>
-	
 </project>

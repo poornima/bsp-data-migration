@@ -41,10 +41,9 @@ import edu.wustl.catissuecore.domain.Institution;
 import edu.wustl.catissuecore.domain.MolecularSpecimen;
 import edu.wustl.catissuecore.domain.OrderDetails;
 import edu.wustl.catissuecore.domain.Participant;
-import edu.wustl.catissuecore.domain.ReceivedEventParameters;
-import edu.wustl.catissuecore.domain.SpecimenRequirement;
-import edu.wustl.catissuecore.domain.Site;
 import edu.wustl.catissuecore.domain.Race;
+import edu.wustl.catissuecore.domain.ReceivedEventParameters;
+import edu.wustl.catissuecore.domain.Site;
 import edu.wustl.catissuecore.domain.Specimen;
 import edu.wustl.catissuecore.domain.SpecimenArray;
 import edu.wustl.catissuecore.domain.SpecimenArrayContent;
@@ -52,6 +51,7 @@ import edu.wustl.catissuecore.domain.SpecimenArrayType;
 import edu.wustl.catissuecore.domain.SpecimenCharacteristics;
 import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
 import edu.wustl.catissuecore.domain.SpecimenObjectFactory;
+import edu.wustl.catissuecore.domain.SpecimenRequirement;
 import edu.wustl.catissuecore.domain.StorageContainer;
 import edu.wustl.catissuecore.domain.StorageType;
 import edu.wustl.catissuecore.domain.TissueSpecimen;
@@ -63,9 +63,11 @@ import edu.wustl.catissuecore.domain.pathology.TextContent;
 import edu.wustl.catissuecore.namegenerator.LabelGenerator;
 import edu.wustl.catissuecore.namegenerator.LabelGeneratorFactory;
 import edu.wustl.catissuecore.util.EventsUtil;
+import edu.wustl.catissuecore.util.global.Constants;
 import edu.wustl.common.exception.AssignDataException;
 import edu.wustl.common.util.Utility;
-import edu.wustl.common.util.global.Constants;
+import edu.wustl.common.util.global.CommonServiceLocator;
+import edu.wustl.common.util.global.Status;
 import edu.wustl.common.util.logger.Logger;
 
 public class BaseTestCaseUtility {
@@ -143,7 +145,7 @@ public class BaseTestCaseUtility {
 		collectionProtocolEvent.setStudyCalendarEventPoint(new Double(1.0));
 		collectionProtocolEvent.setCollectionPointLabel("PreStudy1"+ Math.random());
 		collectionProtocolEvent.setClinicalStatus("Operative");		
-		collectionProtocolEvent.setActivityStatus(Constants.ACTIVITY_STATUS_ACTIVE);
+		collectionProtocolEvent.setActivityStatus(Status.ACTIVITY_STATUS_ACTIVE.toString());
 		collectionProtocolEvent.setClinicalDiagnosis("Abdominal fibromatosis (disorder)");
 		Collection specimenCollection =null;
 		CollectionProtocolEventBean cpEventBean = new CollectionProtocolEventBean();
@@ -310,7 +312,7 @@ public class BaseTestCaseUtility {
 		
 		userObj.setRoleId("1");
 		userObj.setActivityStatus("Active");
-		userObj.setPageOf(Constants.PAGEOF_SIGNUP);
+		userObj.setPageOf(Constants.PAGE_OF_SIGNUP);
 
 		return userObj;
 	}
@@ -497,8 +499,8 @@ public class BaseTestCaseUtility {
 		//Logger.configure("");
 		CollectionProtocolRegistration collectionProtocolRegistration = new CollectionProtocolRegistration();
 
-		CollectionProtocol collectionProtocol =(CollectionProtocol)TestCaseUtility.getObjectMap(CollectionProtocol.class); 
-		//new CollectionProtocol();
+		CollectionProtocol collectionProtocol =  (CollectionProtocol)TestCaseUtility.getObjectMap(CollectionProtocol.class); 
+		//CollectionProtocol collectionProtocol = new CollectionProtocol();
 		//collectionProtocol.setId(new Long(3));
 		collectionProtocolRegistration.setCollectionProtocol(collectionProtocol);
 
@@ -533,14 +535,17 @@ public class BaseTestCaseUtility {
 		
 		Collection consentTierResponseCollection = new HashSet();
 		Collection consentTierCollection = collectionProtocol.getConsentTierCollection();
-		Iterator consentTierItr = consentTierCollection.iterator();
-		while(consentTierItr.hasNext())
+		if(consentTierCollection != null)
 		{
-			ConsentTier consentTier = (ConsentTier)consentTierItr.next();
-			ConsentTierResponse consentResponse = new ConsentTierResponse();
-			consentResponse.setConsentTier(consentTier);
-			consentResponse.setResponse("Yes");
-			consentTierResponseCollection.add(consentResponse);
+			Iterator consentTierItr = consentTierCollection.iterator();
+			while(consentTierItr.hasNext())
+			{
+				ConsentTier consentTier = (ConsentTier)consentTierItr.next();
+				ConsentTierResponse consentResponse = new ConsentTierResponse();
+				consentResponse.setConsentTier(consentTier);
+				consentResponse.setResponse("Yes");
+				consentTierResponseCollection.add(consentResponse);
+			}
 		}
 		collectionProtocolRegistration.setConsentTierResponseCollection(consentTierResponseCollection);		
 		SpecimenCollectionGroup specimenCollectionGroup = createSCG(collectionProtocolRegistration);
@@ -559,42 +564,48 @@ public class BaseTestCaseUtility {
 		try 
 		{
 			Collection collectionProtocolEventCollection = collectionProtocolRegistration.getCollectionProtocol().getCollectionProtocolEventCollection();
-			Iterator collectionProtocolEventIterator = collectionProtocolEventCollection.iterator();
-			User user = (User)TestCaseUtility.getObjectMap(User.class);
-			while(collectionProtocolEventIterator.hasNext())
+			if(collectionProtocolEventCollection != null)
 			{
-				CollectionProtocolEvent collectionProtocolEvent = (CollectionProtocolEvent)collectionProtocolEventIterator.next();
-				specimenCollectionGroup = new SpecimenCollectionGroup(collectionProtocolEvent);
-				specimenCollectionGroup.setCollectionProtocolRegistration(collectionProtocolRegistration);
-				specimenCollectionGroup.setConsentTierStatusCollectionFromCPR(collectionProtocolRegistration);
-				
-				LabelGenerator specimenCollectionGroupLableGenerator = LabelGeneratorFactory.getInstance("speicmenCollectionGroupLabelGeneratorClass");
-				specimenCollectionGroupLableGenerator.setLabel(specimenCollectionGroup);
-				
-				Collection cloneSpecimenCollection = new LinkedHashSet();
-				Collection<SpecimenRequirement> specimenCollection = collectionProtocolEvent.getSpecimenRequirementCollection();
-				if(specimenCollection != null && !specimenCollection.isEmpty())
+				Iterator collectionProtocolEventIterator = collectionProtocolEventCollection.iterator();
+				User user = (User)TestCaseUtility.getObjectMap(User.class);
+				//User user = new User();
+				//user.setId(new Long(1));
+				System.out.println("SpecimenCollectionGroup in process");
+				while(collectionProtocolEventIterator.hasNext())
 				{
-					Iterator itSpecimenCollection = specimenCollection.iterator();
-					while(itSpecimenCollection.hasNext())
+					CollectionProtocolEvent collectionProtocolEvent = (CollectionProtocolEvent)collectionProtocolEventIterator.next();
+					specimenCollectionGroup = new SpecimenCollectionGroup(collectionProtocolEvent);
+					specimenCollectionGroup.setCollectionProtocolRegistration(collectionProtocolRegistration);
+					specimenCollectionGroup.setConsentTierStatusCollectionFromCPR(collectionProtocolRegistration);
+
+					LabelGenerator specimenCollectionGroupLableGenerator = LabelGeneratorFactory.getInstance("speicmenCollectionGroupLabelGeneratorClass");
+					specimenCollectionGroupLableGenerator.setLabel(specimenCollectionGroup);
+
+					Collection cloneSpecimenCollection = new LinkedHashSet();
+					Collection<SpecimenRequirement> specimenCollection = collectionProtocolEvent.getSpecimenRequirementCollection();
+					if(specimenCollection != null && !specimenCollection.isEmpty())
 					{
-						SpecimenRequirement reqSpecimen = (SpecimenRequirement)itSpecimenCollection.next();
-						if(reqSpecimen.getLineage().equalsIgnoreCase("new"))
+						Iterator itSpecimenCollection = specimenCollection.iterator();
+						while(itSpecimenCollection.hasNext())
 						{
-							Specimen cloneSpecimen = getCloneSpecimen(specimenMap, reqSpecimen,null,specimenCollectionGroup,user);
-							LabelGenerator specimenLableGenerator = LabelGeneratorFactory.getInstance("specimenLabelGeneratorClass");
-							specimenLableGenerator.setLabel(cloneSpecimen);
-							cloneSpecimen.setSpecimenCollectionGroup(specimenCollectionGroup);
-							cloneSpecimenCollection.add(cloneSpecimen);
+							SpecimenRequirement reqSpecimen = (SpecimenRequirement)itSpecimenCollection.next();
+							if(reqSpecimen.getLineage().equalsIgnoreCase("new"))
+							{
+								Specimen cloneSpecimen = getCloneSpecimen(specimenMap, reqSpecimen,null,specimenCollectionGroup,user);
+								LabelGenerator specimenLableGenerator = LabelGeneratorFactory.getInstance("specimenLabelGeneratorClass");
+								specimenLableGenerator.setLabel(cloneSpecimen);
+								cloneSpecimen.setSpecimenCollectionGroup(specimenCollectionGroup);
+								cloneSpecimenCollection.add(cloneSpecimen);
+							}
 						}
 					}
+
+					specimenCollectionGroup.setSpecimenCollection(cloneSpecimenCollection);
 				}
-				
-				specimenCollectionGroup.setSpecimenCollection(cloneSpecimenCollection);
 			}
 		}catch(Exception e)
 		{
-			
+			e.printStackTrace();
 		}
 			return specimenCollectionGroup;
 	}
@@ -1068,12 +1079,12 @@ public class BaseTestCaseUtility {
 		storageContainer.setName("sc" + UniqueKeyGeneratorUtil.getUniqueKey());
 
 		StorageType storageType =(StorageType)TestCaseUtility.getObjectMap(StorageType.class); 
-		//new StorageType();
+		//StorageType storageType = new StorageType();
 		//storageType.setId(new Long(3));
 		storageContainer.setStorageType(storageType);
 		
 		Site site = (Site)TestCaseUtility.getObjectMap(Site.class); 
-		//new Site();
+		//Site site = new Site();
 		//site.setId(new Long(1));
 		
 		storageContainer.setSite(site);
@@ -1089,7 +1100,7 @@ public class BaseTestCaseUtility {
 		storageContainer.setCapacity(capacity);
 
 		CollectionProtocol collectionProtocol = (CollectionProtocol) TestCaseUtility.getObjectMap(CollectionProtocol.class); 
-		//new CollectionProtocol();
+		//CollectionProtocol collectionProtocol= new CollectionProtocol();
 		//collectionProtocol.setId(new Long(3));
 		Collection collectionProtocolCollection = new HashSet();
 		collectionProtocolCollection.add(collectionProtocol);
@@ -1248,7 +1259,8 @@ public class BaseTestCaseUtility {
           order.setStatus("New");
           try
           {
-                order.setRequestedDate(Utility.parseDate("04-02-1984", Constants.DATE_PATTERN_MM_DD_YYYY));
+                order.setRequestedDate(Utility.parseDate("04-02-1984", CommonServiceLocator.getInstance().getDatePattern()
+                		));
           }
 
           catch (ParseException e)
@@ -1286,7 +1298,7 @@ public class BaseTestCaseUtility {
         orderObj.setStatus("Pending");
         try
         {
-        	orderObj.setRequestedDate(Utility.parseDate("05-02-1984", Constants.DATE_PATTERN_MM_DD_YYYY));
+        	orderObj.setRequestedDate(Utility.parseDate("05-02-1984", CommonServiceLocator.getInstance().getDatePattern()));
         }
         catch (ParseException e)
         {
@@ -1547,7 +1559,7 @@ public class BaseTestCaseUtility {
 		ts.setPathologicalStatus("Malignant");
 		
 		SpecimenCharacteristics specimenCharacteristics =  new SpecimenCharacteristics();
-		specimenCharacteristics.setId(new Long(1));
+		//specimenCharacteristics.setId(new Long(1));
 		specimenCharacteristics.setTissueSide("Left");
 		specimenCharacteristics.setTissueSite("Placenta");
 		ts.setSpecimenCharacteristics(specimenCharacteristics);
@@ -1980,7 +1992,7 @@ public class BaseTestCaseUtility {
 	public static IdentifiedSurgicalPathologyReport initIdentifiedSurgicalPathologyReport()
 	{
 		IdentifiedSurgicalPathologyReport identifiedSurgicalPathologyReport=new IdentifiedSurgicalPathologyReport();
-		identifiedSurgicalPathologyReport.setActivityStatus(Constants.ACTIVITY_STATUS_ACTIVE);
+		identifiedSurgicalPathologyReport.setActivityStatus(Status.ACTIVITY_STATUS_ACTIVE.toString());
 		identifiedSurgicalPathologyReport.setCollectionDateTime(new Date());
 		identifiedSurgicalPathologyReport.setIsFlagForReview(new Boolean(false));
 		identifiedSurgicalPathologyReport.setReportStatus(CaTIESConstants.PENDING_FOR_DEID);
@@ -2029,7 +2041,7 @@ public class BaseTestCaseUtility {
 		IdentifiedSurgicalPathologyReport identifiedSurgicalPathologyReport=(IdentifiedSurgicalPathologyReport)TestCaseUtility.getObjectMap(IdentifiedSurgicalPathologyReport.class);
 		deidentifiedSurgicalPathologyReport.setIsFlagForReview(new Boolean(false));
 		deidentifiedSurgicalPathologyReport.setReportStatus(CaTIESConstants.PENDING_FOR_XML);
-		deidentifiedSurgicalPathologyReport.setActivityStatus(Constants.ACTIVITY_STATUS_ACTIVE);
+		deidentifiedSurgicalPathologyReport.setActivityStatus(Status.ACTIVITY_STATUS_ACTIVE.toString());
 		deidentifiedSurgicalPathologyReport.setSpecimenCollectionGroup(identifiedSurgicalPathologyReport.getSpecimenCollectionGroup());
 		
 		TextContent textContent = new TextContent();
