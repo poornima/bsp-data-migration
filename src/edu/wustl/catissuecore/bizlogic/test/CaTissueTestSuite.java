@@ -15,7 +15,8 @@ public class CaTissueTestSuite
 		TestSuite suite = new TestSuite("Test for edu.wustl.catissuecore.bizlogic.test");
 		//$JUnit-BEGIN$
 		
-		suite.addTestSuite(ExcelDataMigrationTestCase.class);
+		//suite.addTestSuite(ExcelDataMigrationTestCase.class);
+		suite.addTestSuite(CollectionProtocolTestCases.class);
 
 		//$JUnit-END$
 		return suite;

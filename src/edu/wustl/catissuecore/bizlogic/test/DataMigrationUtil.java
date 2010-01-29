@@ -56,152 +56,24 @@ import org.apache.poi.hssf.usermodel.HSSFDateUtil;
  */
 public class DataMigrationUtil extends CaTissueBaseTestCase {
 
-    private static int rowNo = 1; // Row number in the excel sheet.
-   
-
-    public static Site getSite() {
-       
-       Site returnedSite = null;      
-       
-        Site site = new Site();
-        site.setName(new String ("UABH"));
+  public void initParticipant(String excel[][], int rowCount) {
+    
+        CollectionProtocol collectionProtocol = new CollectionProtocol();
+        collectionProtocol.setId(new Long ("63"));
+        System.out.println(" searching domain object");
         try {
-             List resultList = appService.search(Site.class,site);
-             for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
-                returnedSite = (Site) resultsIterator.next();
-                System.out.println(" Domain Object is successfully Found ---->  :: " + returnedSite.getId() +" "+returnedSite.getType());
+                // collectionProtocol = (CollectionProtocol) appService.createObject(collectionProtocol);
+                 List resultList = appService.search(CollectionProtocol.class,collectionProtocol);
+                 for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();)
+                 {
+                         CollectionProtocol returnedcollectionprotocol = (CollectionProtocol) resultsIterator.next();
+                         System.out.println(" Domain Object is successfully Found ---->  :: " + returnedcollectionprotocol.getTitle()+"," +returnedcollectionprotocol.getId()+"," +returnedcollectionprotocol.getShortTitle());
              }
-        } catch (Exception e) {
-             System.out.println("TestParticipant.testSearchSite()"+e.getMessage());
-             e.printStackTrace();
-             assertFalse("Does not find Domain Object", true);
-        }
-        return returnedSite;
-    }
+          }
+          catch (Exception e) {
+                 e.printStackTrace();
+          }
 
-    /*
-     * This method initialize participant object  as given in the excel sheet
-     * @param excel String double array
-     */
-
-    public void initParticipant(String excel[][], int rowCount) {
-        String     lastName = ""; 
-        String     firstName = "";
-        String     middleName = "";
-        String     dob = "";
-        String     genderFromAccess = "";
-        String     medRecNo = "";
-        String     raceFromAccess = "";
-        String     gender = ""; 
-        String     raceName = ""; 
-        Date       date;	
- 
-        System.out.println("---------START DataMigrationUtil.initParticipant()---------");
-        while (rowNo < excel.length -1) { 
-            System.out.println("----------START Processing for row number "+ rowNo + "---------------");
-            lastName = excel[rowNo][0];
-            firstName = excel[rowNo][1];
-            middleName = excel[rowNo][2];
-            dob = excel[rowNo][3];
-            genderFromAccess = excel[rowNo][4];
-            medRecNo = excel[rowNo][5];
-            raceFromAccess = excel[rowNo][6];
-            System.out.println("lastname=" +lastName+ "firstname=" +firstName+ "middlename=" +middleName+ "dob=" +dob+ "gender=" +genderFromAccess+ "medrecno=" +medRecNo+ "race=" +raceFromAccess);
-            try {
-        	Participant participant = new Participant();
-        	participant.setLastName(lastName);
-	        participant.setFirstName(firstName);
-       		participant.setMiddleName(middleName);
-             
-                date = convertDateFromExcel(dob);
-                participant.setBirthDate(date);
-                 
-                gender = getGenderFromCaTissue(genderFromAccess); 
-      	        participant.setGender(gender);
-
-                Collection participantMedicalIdentifierCollection = new HashSet();
-                ParticipantMedicalIdentifier pmi = new ParticipantMedicalIdentifier();
-
-                Site site = (Site) getSite();
-                pmi.setSite(site);
-                pmi.setMedicalRecordNumber(medRecNo);
-                pmi.setParticipant(participant);
-                participantMedicalIdentifierCollection.add(pmi);
-                participant.setParticipantMedicalIdentifierCollection(participantMedicalIdentifierCollection);
-
-        	Collection<Race> raceCollection = new HashSet<Race>();
-        	Race race = new Race();
-                
-                raceName = getRaceFromCaTissue(raceFromAccess);             
-        	race.setRaceName(raceName);
-          	race.setParticipant(participant);
-        	raceCollection.add(race);
-        	participant.setRaceCollection(raceCollection);
-
-                if (raceFromAccess.equals("Hispanic"))
-                  participant.setEthnicity("Hispanic or Latino");
-                else 
-                  participant.setEthnicity("Unknown");
-
-                participant.setActivityStatus("Active");
-                participant = (Participant) appService.createObject(participant);
-
-          	System.out.println("Participant initiated successfully -->Name:"+participant.getFirstName()+" "+participant.getLastName());
-                System.out.println("Object created successfully");
-                assertTrue("Object added successfully", true);
-            } catch(Exception e){
-                System.out.println("DataMigrationUtil.initParticipant()"+e.getMessage());
-                e.printStackTrace();
-                assertFalse("could not add object", true);
-            }  
-             System.out.println("----------END Processing for row number "+ rowNo + "---------------");
-             rowNo++;
-        }  //end while
-    } //end initParticipant()
-
-    public String getGenderFromCaTissue (String g) {
-
-      String gender = "";     
-
-      if (g.equals("M"))
-        gender = "Male Gender";
-      else if (g.equals("F"))
-        gender = "Female Gender";
-      else if (g.equals("UNKNOWN"))
-        gender = "Unknown";
-      else
-        gender = "Unspecified"; 
-
-      return gender;
-
-   } 
-
-   public String getRaceFromCaTissue (String r) {
-
-     String race = "";
-
-     if (r.equals("Caucasian"))
-       race = "White";
-     else if (r.equals("Black"))
-       race = "Black or African American";
-     else if (r.equals("Oriental"))
-       race = "Asian";
-     else if (r.equals("Hispanic") || r.equals("U"))
-       race = "Unknown";
-
-     return race;
-  } 
-
-  public Date convertDateFromExcel (String d) throws ParseException {
-
-     Date tempdate=HSSFDateUtil.getJavaDate(Double.parseDouble(d), true);
-     DateFormat df = new SimpleDateFormat("MM/dd/yyyy"); 
-     String DOB = df.format(tempdate);
-     Date actualDate = new SimpleDateFormat("MM/dd/yyyy").parse(DOB);
-
-     return actualDate;
-
-  }
-
+  }   
 
 } //end DataMigrationUtil()
