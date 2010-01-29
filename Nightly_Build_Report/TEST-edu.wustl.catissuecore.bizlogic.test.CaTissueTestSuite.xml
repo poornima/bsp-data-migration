@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="cagrid02.lab.ac.uab.edu" name="edu.wustl.catissuecore.bizlogic.test.CaTissueTestSuite" tests="1" time="2.683" timestamp="2010-01-29T16:23:13">
+  <properties>
+    <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
+    <property name="cobertura.dir" value="./classes/reports/coverage" />
+    <property name="sun.boot.library.path" value="/usr/java/jdk1.5.0_10/jre/lib/i386" />
+    <property name="java.vm.version" value="1.5.0_10-b03" />
+    <property name="ant.library.dir" value="/opt/apache-ant-1.7.0/lib" />
+    <property name="project.src" value="../WEB-INF/classes/" />
+    <property name="ant.version" value="Apache Ant version 1.7.0 compiled on December 13 2006" />
+    <property name="ant.java.version" value="1.5" />
+    <property name="java.vm.vendor" value="Sun Microsystems Inc." />
+    <property name="java.vendor.url" value="http://java.sun.com/" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.name" value="Java HotSpot(TM) Client VM" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="user.country" value="US" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="test.class.dir" value="./classes/edu/wustl/catissuecore/bizlogic/test" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="user.dir" value="/home/catissue/src/BSP_Data_Migration" />
+    <property name="java.runtime.version" value="1.5.0_10-b03" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="basedir" value="/home/catissue/src/BSP_Data_Migration" />
+    <property name="java.endorsed.dirs" value="/usr/java/jdk1.5.0_10/jre/lib/endorsed" />
+    <property name="os.arch" value="i386" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="ant.core.lib" value="/opt/apache-ant-1.7.0/lib/ant.jar" />
+    <property name="line.separator" value="
+" />
+    <property name="java.vm.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="os.name" value="Linux" />
+    <property name="ant.home" value="/opt/apache-ant-1.7.0" />
+    <property name="net.sourceforge.cobertura.datafile" value="/home/catissue/src/BSP_Data_Migration/classes/reports/coverage/coverage.ser" />
+    <property name="test.src.dir" value="./src" />
+    <property name="ant.project.name" value="caTissueSuite Client" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="java.library.path" value="/usr/java/jdk1.5.0_10/jre/lib/i386/client:/usr/java/jdk1.5.0_10/jre/lib/i386:/usr/java/jdk1.5.0_10/jre/../lib/i386" />
+    <property name="base.dir" value="." />
+    <property name="java.class.version" value="49.0" />
+    <property name="ant.file.caTissueSuite Client" value="/home/catissue/src/BSP_Data_Migration/build.xml" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="lib.dir" value="lib" />
+    <property name="sun.management.compiler" value="HotSpot Client Compiler" />
+    <property name="os.version" value="2.6.9-89.0.18.ELsmp" />
+    <property name="ant.file" value="/home/catissue/src/BSP_Data_Migration/build.xml" />
+    <property name="user.home" value="/home/catissue" />
+    <property name="user.timezone" value="" />
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="java.specification.version" value="1.5" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="user.name" value="catissue" />
+    <property name="java.class.path" value="/home/catissue/src/BSP_Data_Migration/conf:/home/catissue/src/BSP_Data_Migration/lib/AdvanceQuery.jar:/home/catissue/src/BSP_Data_Migration/lib/DAO-1.1.3.jar:/home/catissue/src/BSP_Data_Migration/lib/SimpleQuery-1.1.3.jar:/home/catissue/src/BSP_Data_Migration/lib/activation.jar:/home/catissue/src/BSP_Data_Migration/lib/aspectjrt.jar:/home/catissue/src/BSP_Data_Migration/lib/axis.jar:/home/catissue/src/BSP_Data_Migration/lib/bulkoperator.jar:/home/catissue/src/BSP_Data_Migration/lib/castor-0.9.9.jar:/home/catissue/src/BSP_Data_Migration/lib/catissuecore-client.jar:/home/catissue/src/BSP_Data_Migration/lib/catissuecore.jar:/home/catissue/src/BSP_Data_Migration/lib/cglib-full-2.0.1.jar:/home/catissue/src/BSP_Data_Migration/lib/commonpackage-1.1.3.jar:/home/catissue/src/BSP_Data_Migration/lib/commons-codec-1.3.jar:/home/catissue/src/BSP_Data_Migration/lib/commons-discovery-0.2.jar:/home/catissue/src/BSP_Data_Migration/lib/commons-httpclient-3.0.1.jar:/home/catissue/src/BSP_Data_Migration/lib/commons-logging.jar:/home/catissue/src/BSP_Data_Migration/lib/hibernate3.jar:/home/catissue/src/BSP_Data_Migration/lib/jaxrpc.jar:/home/catissue/src/BSP_Data_Migration/lib/junit-4.1.jar:/home/catissue/src/BSP_Data_Migration/lib/log4j.jar:/home/catissue/src/BSP_Data_Migration/lib/mail.jar:/home/catissue/src/BSP_Data_Migration/lib/minimalDataSharing-client.jar:/home/catissue/src/BSP_Data_Migration/lib/odmg.jar:/home/catissue/src/BSP_Data_Migration/lib/opencsv-1.8.jar:/home/catissue/src/BSP_Data_Migration/lib/poi-3.0.2-FINAL-20080204.jar:/home/catissue/src/BSP_Data_Migration/lib/saaj.jar:/home/catissue/src/BSP_Data_Migration/lib/securityManager-1.1.3.jar:/home/catissue/src/BSP_Data_Migration/lib/spring-richclient.jar:/home/catissue/src/BSP_Data_Migration/lib/spring.jar:/home/catissue/src/BSP_Data_Migration/lib/struts.jar:/home/catissue/src/BSP_Data_Migration/lib/washu-commons-1.1.3.jar:/home/catissue/src/BSP_Data_Migration/lib/wsdl4j-1.5.1.jar:/home/catissue/src/BSP_Data_Migration/lib/xalan-2.4.0.jar:/home/catissue/src/BSP_Data_Migration/lib/xalan.jar:/home/catissue/src/BSP_Data_Migration/lib/xercesImpl.jar:/home/catissue/src/BSP_Data_Migration/lib/xml-apis.jar:/home/catissue/src/BSP_Data_Migration/src:/home/catissue/src/BSP_Data_Migration/classes:/opt/apache-ant-1.7.0/lib/ant-launcher.jar:/opt/apache-ant-1.7.0/lib/ant.jar:/opt/apache-ant-1.7.0/lib/ant-junit.jar" />
+    <property name="report.dir" value="." />
+    <property name="project.src.domain" value="../WEB-INF/src/edu/wustl/catissuecore/domain/" />
+    <property name="java.vm.specification.version" value="1.0" />
+    <property name="conf.dir" value="conf" />
+    <property name="sun.arch.data.model" value="32" />
+    <property name="java.home" value="/usr/java/jdk1.5.0_10/jre" />
+    <property name="java.specification.vendor" value="Sun Microsystems Inc." />
+    <property name="user.language" value="en" />
+    <property name="java.vm.info" value="mixed mode, sharing" />
+    <property name="java.version" value="1.5.0_10" />
+    <property name="java.ext.dirs" value="/usr/java/jdk1.5.0_10/jre/lib/ext" />
+    <property name="target.dir" value="./classes" />
+    <property name="sun.boot.class.path" value="/usr/java/jdk1.5.0_10/jre/lib/rt.jar:/usr/java/jdk1.5.0_10/jre/lib/i18n.jar:/usr/java/jdk1.5.0_10/jre/lib/sunrsasign.jar:/usr/java/jdk1.5.0_10/jre/lib/jsse.jar:/usr/java/jdk1.5.0_10/jre/lib/jce.jar:/usr/java/jdk1.5.0_10/jre/lib/charsets.jar:/usr/java/jdk1.5.0_10/jre/classes" />
+    <property name="java.vendor" value="Sun Microsystems Inc." />
+    <property name="file.separator" value="/" />
+    <property name="java.vendor.url.bug" value="http://java.sun.com/cgi-bin/bugreport.cgi" />
+    <property name="src.dir" value="." />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="test.classes.dir" value="./classes" />
+    <property name="sun.cpu.isalist" value="" />
+  </properties>
+  <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="2.275" />
+  <system-out><![CDATA[ERROR 10:23:13,565 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 10:23:13,589 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 10:23:13,592 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 10:23:13,723 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 10:23:13,926 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 10:23:13,944 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 10:23:13,952 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 10:23:13,962 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 10:23:13,967 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 10:23:13,968 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 10:23:13,971 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 10:23:14,301 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 10:23:14,360 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 10:23:14,363 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 10:23:14,370 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 10:23:14,373 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 10:23:14,401 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 10:23:14,402 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 10:23:14,402 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 10:23:14,406 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 10:23:14,407 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 10:23:14,408 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+---------START ExcelTestCaseUtility.initParticipant-----------
+user.dir  /home/catissue/src/BSP_Data_Migration
+START Excel file ReaderConstructor
+END Excel file ReaderConstructor
+---------START ExcelFileReader.setInfo()---------
+ noOfRows ---6
+No Of columns----7
+In Excel file after Read7
+In ExcelFileReader excel length 7
+---------END ExcelFileReader.setInfo()---------
+ WARN 10:23:15,195 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 10:23:15,196 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ searching domain object
+ WARN 10:23:15,476 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 10:23:15,659 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ Domain Object is successfully Found ---->  :: Brain SPORE Collection Protocol,63,BSP-CP
+---------END ExcelTestCaseUtility.initParticipant-----------
+]]></system-out>
+  <system-err><![CDATA[log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /server/default/log/query.log (No such file or directory)
+	at java.io.FileOutputStream.openAppend(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:177)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:102)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:289)
+	at org.apache.log4j.RollingFileAppender.setFile(RollingFileAppender.java:167)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:163)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:256)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:132)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:96)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:654)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:612)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:533)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:417)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:441)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:470)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:122)
+	at org.apache.log4j.Logger.getLogger(Logger.java:104)
+	at gov.nih.nci.system.applicationservice.ApplicationServiceProvider.<clinit>(ApplicationServiceProvider.java:18)
+	at edu.wustl.catissuecore.bizlogic.test.CaTissueBaseTestCase.setUp(Unknown Source)
+	at junit.framework.TestCase.runBare(TestCase.java:128)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:120)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:421)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:912)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:766)
+log4j:ERROR setFile(null,true) call failed.
+java.io.FileNotFoundException: /server/default/log/hibernatesql.log (No such file or directory)
+	at java.io.FileOutputStream.openAppend(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:177)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:102)
+	at org.apache.log4j.FileAppender.setFile(FileAppender.java:289)
+	at org.apache.log4j.RollingFileAppender.setFile(RollingFileAppender.java:167)
+	at org.apache.log4j.FileAppender.activateOptions(FileAppender.java:163)
+	at org.apache.log4j.config.PropertySetter.activate(PropertySetter.java:256)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:132)
+	at org.apache.log4j.config.PropertySetter.setProperties(PropertySetter.java:96)
+	at org.apache.log4j.PropertyConfigurator.parseAppender(PropertyConfigurator.java:654)
+	at org.apache.log4j.PropertyConfigurator.parseCategory(PropertyConfigurator.java:612)
+	at org.apache.log4j.PropertyConfigurator.parseCatsAndRenderers(PropertyConfigurator.java:533)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:417)
+	at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:441)
+	at org.apache.log4j.helpers.OptionConverter.selectAndConfigure(OptionConverter.java:470)
+	at org.apache.log4j.LogManager.<clinit>(LogManager.java:122)
+	at org.apache.log4j.Logger.getLogger(Logger.java:104)
+	at gov.nih.nci.system.applicationservice.ApplicationServiceProvider.<clinit>(ApplicationServiceProvider.java:18)
+	at edu.wustl.catissuecore.bizlogic.test.CaTissueBaseTestCase.setUp(Unknown Source)
+	at junit.framework.TestCase.runBare(TestCase.java:128)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:120)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:421)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:912)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:766)
+]]></system-err>
+</testsuite>
