@@ -56,10 +56,10 @@ import org.apache.poi.hssf.usermodel.HSSFDateUtil;
  */
 public class DataMigrationUtil extends CaTissueBaseTestCase {
 
-//  private static int rowNo = 1; // Row number in the excel sheet.
-//  static ApplicationService appService = null; // Application Service instance
+  private static int rowNo = 1; // Row number in the excel sheet.
+  static ApplicationService appService = null; // Application Service instance
 
-  public void writeToCaTissue(String excel[][], int rowNo) throws Exception {
+  public void writeToCaTissue(String excel[][], int rowCount) throws Exception {
       
       System.out.println("---------START DataMigrationUtil.writeToCaTissue()---------");
 
@@ -81,59 +81,15 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
   public Participant createAndRegisterParticipantToCollectionProtocol(String excel[][]) throws Exception {
 
      System.out.println("---------START DataMigrationUtil.createAndRegisterParticipantToCollectionProtocol()---------");
-     Participant participant = initParticipant(excel);
+
+    // Participant participant = initParticipant(excel);
+            Participant participant = new Participant();
+
      CollectionProtocolRegistration collectionProtocolRegistration = initCollectionProtocolRegistration(participant);
 
-     Collection collectionProtocolRegistrationCollection = new HashSet();
-     collectionProtocolRegistrationCollection.add(collectionProtocolRegistration);
-     participant.setCollectionProtocolRegistrationCollection(collectionProtocolRegistrationCollection);
-
-     participant = (Participant) appService.createObject(participant);
-     System.out.println("Participant Added successfully::" + participant.getId()+","+participant.getFirstName()+","+participant.getLastName());
      System.out.println("---------END DataMigrationUtil.createAndRegisterParticipantToCollectionProtocol()---------");
      return participant;
   }
-
-  public static Site getSite() {
-
-       Site returnedSite = null;
-
-        Site site = new Site();
-        site.setName(new String ("UABH"));
-        try {
-             List resultList = appService.search(Site.class,site);
-             for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
-                returnedSite = (Site) resultsIterator.next();
-                System.out.println(" Domain Object is successfully Found ---->  :: " + returnedSite.getId() +" "+returnedSite.getType());
-             }
-        } catch (Exception e) {
-             System.out.println("TestParticipant.testSearchSite()"+e.getMessage());
-             e.printStackTrace();
-             assertFalse("Does not find Domain Object", true);
-        }
-        return returnedSite;
-    }
-
-   public static CollectionProtocol getCollectionProtocol() {
-
-      CollectionProtocol returnedCollectionProtocol = null;
-
-        CollectionProtocol cp = new CollectionProtocol();
-        cp.setId(new Long ("63"));
-        try {
-             List resultList = appService.search(CollectionProtocol.class,cp);
-             for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
-                returnedCollectionProtocol = (CollectionProtocol) resultsIterator.next();
-                System.out.println(" Domain Object is successfully Found ---->  :: " + returnedCollectionProtocol.getTitle()+"," +returnedCollectionProtocol.getId()+"," +returnedCollectionProtocol.getShortTitle());
-             }
-        } catch (Exception e) {
-             System.out.println("TestParticipant.getCollectionProtocol()"+e.getMessage());
-             e.printStackTrace();
-             assertFalse("Did not find Domain Object", true);
-        }
-        return returnedCollectionProtocol;
-    }
-
     /*
      * This method initialize participant object  as given in the excel sheet
      * @param excel String double array
@@ -161,72 +117,66 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
             raceFromAccess = excel[rowNo][6];
             System.out.println("lastname=" +lastName+ "firstname=" +firstName+ "middlename=" +middleName+ "dob=" +dob+ "gender=" +genderFromAccess+ "medrecno="+medRecNo+ "race=" +raceFromAccess);
             Participant participant = new Participant();
-            participant.setLastName(lastName);
-            participant.setFirstName(firstName);
-            participant.setMiddleName(middleName);
-
-            try {
-               date = convertDateFromExcel(dob);
-               participant.setBirthDate(date);
-            } catch (ParseException pe) {
-               System.out.println("ERROR: could not parse date in String: " +dob);
-            }
-
-            gender = getGenderFromCaTissue(genderFromAccess);
-            participant.setGender(gender);
-
-            Collection participantMedicalIdentifierCollection = new HashSet();
-            ParticipantMedicalIdentifier pmi = new ParticipantMedicalIdentifier();
 
             Site site = (Site) getSite();
-            pmi.setSite(site);
-            pmi.setMedicalRecordNumber(medRecNo);
-            pmi.setParticipant(participant);
-            participantMedicalIdentifierCollection.add(pmi);
-            participant.setParticipantMedicalIdentifierCollection(participantMedicalIdentifierCollection);
-
-            Collection<Race> raceCollection = new HashSet<Race>();
-            Race race = new Race();
-
-            raceName = getRaceFromCaTissue(raceFromAccess);
-            race.setRaceName(raceName);
-            race.setParticipant(participant);
-            raceCollection.add(race);
-            participant.setRaceCollection(raceCollection);
-
-            if (raceFromAccess.equals("Hispanic"))
-               participant.setEthnicity("Hispanic or Latino");
-            else
-               participant.setEthnicity("Unknown");
-
-            participant.setActivityStatus("Active");
-            System.out.println("Participant initiated successfully -->Name:"+participant.getFirstName()+" "+participant.getLastName());
+            System.out.println("---------END DataMigrationUtil.initParticipant()---------");
             return participant;
     } //end initParticipant()
 
   public CollectionProtocolRegistration initCollectionProtocolRegistration(Participant participant) {
 
+     System.out.println("---------START DataMigrationUtil.initCollectionProtocolRegistration()---------");
+
      CollectionProtocolRegistration collectionProtocolRegistration = new CollectionProtocolRegistration();
 
      CollectionProtocol cp = getCollectionProtocol();
 
-     collectionProtocolRegistration.setCollectionProtocol(cp);
-     collectionProtocolRegistration.setParticipant(participant);
-     collectionProtocolRegistration.setActivityStatus("Active");
-     try{
-        //collectionProtocolRegistration.setRegistrationDate(Utility.parseDate(colldate.replace('/', '-'), "M-d-yyyy"));
-        /*collDate is commented while inegrating with nightly bcz it should be in the format MM-dd-yyyy  **/
-        //Date timestamp = EventsUtil.setTimeStamp(colldate,"15","45");
-        Date timestamp = EventsUtil.setTimeStamp("08-15-1975","15","45");
-        collectionProtocolRegistration.setRegistrationDate(timestamp);
-     } catch (Exception e) {
-        System.out.println("Exception in initCollectionProtocolRegistration" );
-        System.err.println("Exception in initCollectionProtocolRegistration" );
-        e.printStackTrace();
-     }
+     System.out.println("---------END DataMigrationUtil.initCollectionProtocolRegistration()---------");
      return collectionProtocolRegistration;
   }
   
+  public Site getSite() {
+
+       Site returnedSite = null;
+
+        Site site = new Site();
+        site.setName(new String ("UABH"));
+        System.out.println("Searching Domain Object........");
+        try {
+             List resultList = appService.search(Site.class,site);
+             for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
+                returnedSite = (Site) resultsIterator.next();
+                System.out.println(" Domain Object is successfully Found ---->  :: " + returnedSite.getId() +" "+returnedSite.getType());
+             }
+        } catch (Exception e) {
+             System.out.println("DataMigrationUtil.getSite()"+e.getMessage());
+             e.printStackTrace();
+             assertFalse("Did not find Domain Object", true);
+        }
+        return returnedSite;
+    }
+
+   public CollectionProtocol getCollectionProtocol() {
+
+      CollectionProtocol returnedCollectionProtocol = null;
+
+        CollectionProtocol cp = new CollectionProtocol();
+        cp.setId(new Long ("63"));
+        System.out.println("Searching Domain Object........");
+        try {
+             List resultList = appService.search(CollectionProtocol.class,cp);
+             for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
+                returnedCollectionProtocol = (CollectionProtocol) resultsIterator.next();
+                System.out.println(" Domain Object is successfully Found ---->  :: " + returnedCollectionProtocol.getTitle()+"," +returnedCollectionProtocol.getId()+"," +returnedCollectionProtocol.getShortTitle());
+             }
+        } catch (Exception e) {
+             System.out.println("TestParticipant.getCollectionProtocol()"+e.getMessage());
+             e.printStackTrace();
+             assertFalse("Did not find Domain Object", true);
+        }
+        return returnedCollectionProtocol;
+    }
+
    public String getGenderFromCaTissue (String g) {
 
       String gender = "";

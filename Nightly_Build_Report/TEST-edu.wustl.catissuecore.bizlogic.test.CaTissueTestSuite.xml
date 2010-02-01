@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="cagrid02.lab.ac.uab.edu" name="edu.wustl.catissuecore.bizlogic.test.CaTissueTestSuite" tests="1" time="2.093" timestamp="2010-02-01T20:05:38">
+<testsuite errors="0" failures="1" hostname="cagrid02.lab.ac.uab.edu" name="edu.wustl.catissuecore.bizlogic.test.CaTissueTestSuite" tests="1" time="0.934" timestamp="2010-02-01T21:20:47">
   <properties>
     <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
     <property name="cobertura.dir" value="./classes/reports/coverage" />
@@ -73,30 +73,39 @@
     <property name="test.classes.dir" value="./classes" />
     <property name="sun.cpu.isalist" value="" />
   </properties>
-  <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="1.703" />
-  <system-out><![CDATA[ERROR 14:05:38,409 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
- INFO 14:05:38,434 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 14:05:38,436 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 14:05:38,555 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 14:05:38,742 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 14:05:38,763 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
- INFO 14:05:38,770 (CollectionFactory) - JDK 1.4+ collections available
- INFO 14:05:38,779 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
- INFO 14:05:38,782 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
- INFO 14:05:38,784 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 14:05:38,787 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
- INFO 14:05:39,068 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
- INFO 14:05:39,138 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 14:05:39,143 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 14:05:39,149 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
- INFO 14:05:39,153 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 14:05:39,185 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 14:05:39,186 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
- INFO 14:05:39,186 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
- INFO 14:05:39,190 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
- INFO 14:05:39,190 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 14:05:39,191 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
----------START ExcelTestCaseUtility.initParticipant-----------
+  <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="0.728">
+    <failure message="Did not find Domain Object" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Did not find Domain Object
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.getCollectionProtocol(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.initCollectionProtocolRegistration(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.createAndRegisterParticipantToCollectionProtocol(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.writeToCaTissue(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.ExcelTestCaseUtility.registerParticipants(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase.testRegisterPart(Unknown Source)
+</failure>
+  </testcase>
+  <system-out><![CDATA[ERROR 15:20:47,981 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 15:20:47,989 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 15:20:47,990 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 15:20:48,034 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 15:20:48,106 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 15:20:48,112 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 15:20:48,114 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 15:20:48,117 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 15:20:48,119 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 15:20:48,120 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 15:20:48,121 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 15:20:48,237 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 15:20:48,265 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 15:20:48,266 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 15:20:48,269 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 15:20:48,271 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 15:20:48,284 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 15:20:48,284 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 15:20:48,284 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 15:20:48,286 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 15:20:48,286 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 15:20:48,287 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+---------START ExcelTestCaseUtility.registerParticipants----------
 user.dir  /home/catissue/src/BSP_Data_Migration
 START Excel file ReaderConstructor
 END Excel file ReaderConstructor
@@ -107,8 +116,15 @@ In Excel file after Read7
 In ExcelFileReader excel length 7
 ---------END ExcelFileReader.setInfo()---------
 ---------START DataMigrationUtil.writeToCaTissue()---------
----------END DataMigrationUtil.writeToCaTissue()---------
----------END ExcelTestCaseUtility.initParticipant-----------
+----------START Processing for row number 1---------------
+---------START DataMigrationUtil.createAndRegisterParticipantToCollectionProtocol()---------
+ WARN 15:20:48,642 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+---------START DataMigrationUtil.initCollectionProtocolRegistration()---------
+ WARN 15:20:48,644 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 15:20:48,646 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 15:20:48,648 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Searching Domain Object........
+TestParticipant.getCollectionProtocol()null
 ]]></system-out>
   <system-err><![CDATA[log4j:ERROR setFile(null,true) call failed.
 java.io.FileNotFoundException: /server/default/log/query.log (No such file or directory)
@@ -165,6 +181,30 @@ java.io.FileNotFoundException: /server/default/log/hibernatesql.log (No such fil
 	at gov.nih.nci.system.applicationservice.ApplicationServiceProvider.<clinit>(ApplicationServiceProvider.java:18)
 	at edu.wustl.catissuecore.bizlogic.test.CaTissueBaseTestCase.setUp(Unknown Source)
 	at junit.framework.TestCase.runBare(TestCase.java:128)
+	at junit.framework.TestResult$1.protect(TestResult.java:110)
+	at junit.framework.TestResult.runProtected(TestResult.java:128)
+	at junit.framework.TestResult.run(TestResult.java:113)
+	at junit.framework.TestCase.run(TestCase.java:120)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at junit.framework.TestSuite.runTest(TestSuite.java:228)
+	at junit.framework.TestSuite.run(TestSuite.java:223)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:421)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:912)
+	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:766)
+java.lang.NullPointerException
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.getCollectionProtocol(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.initCollectionProtocolRegistration(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.createAndRegisterParticipantToCollectionProtocol(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.writeToCaTissue(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.ExcelTestCaseUtility.registerParticipants(Unknown Source)
+	at edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase.testRegisterPart(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:585)
+	at junit.framework.TestCase.runTest(TestCase.java:164)
+	at junit.framework.TestCase.runBare(TestCase.java:130)
 	at junit.framework.TestResult$1.protect(TestResult.java:110)
 	at junit.framework.TestResult.runProtected(TestResult.java:128)
 	at junit.framework.TestResult.run(TestResult.java:113)
