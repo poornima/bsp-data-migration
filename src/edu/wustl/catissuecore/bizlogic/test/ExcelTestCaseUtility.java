@@ -21,7 +21,7 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
 	 */
 	public static void registerParticipants() throws Exception {
 		try {
-			System.out.println("---------START ExcelTestCaseUtility.initParticipant-----------");
+			System.out.println("---------START ExcelTestCaseUtility.registerParticipants----------");
 			System.out.println("user.dir  " + System.getProperty("user.dir"));
 			String excelFilePath = System.getProperty("user.dir")
 			//+ "/excelFiles/PD-PartPmiRace-5.xls";
@@ -32,9 +32,9 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
                         int rowCount = EX_CP.getRowCount();
 			//new DataMigrationUtil().initParticipant(allexcel, rowCount);
 			new DataMigrationUtil().writeToCaTissue(allexcel,rowCount);
-			System.out.println("---------END ExcelTestCaseUtility.initParticipant-----------");
+			System.out.println("---------END ExcelTestCaseUtility.registerParticipant-----------");
 		} catch (Exception e) {
-			System.out.println("Exception in initParticipant");
+			System.out.println("Exception in registerParticipants");
 			e.printStackTrace();
 			throw e;
 		}

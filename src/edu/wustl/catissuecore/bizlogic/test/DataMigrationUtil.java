@@ -56,8 +56,8 @@ import org.apache.poi.hssf.usermodel.HSSFDateUtil;
  */
 public class DataMigrationUtil extends CaTissueBaseTestCase {
 
-  private static int rowNo = 1; // Row number in the excel sheet.
-  static ApplicationService appService = null; // Application Service instance
+//  private static int rowNo = 1; // Row number in the excel sheet.
+//  static ApplicationService appService = null; // Application Service instance
 
   public void writeToCaTissue(String excel[][], int rowNo) throws Exception {
       
@@ -168,9 +168,10 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
             try {
                date = convertDateFromExcel(dob);
                participant.setBirthDate(date);
-            } catch {
-
+            } catch (ParseException pe) {
+               System.out.println("ERROR: could not parse date in String: " +dob);
             }
+
             gender = getGenderFromCaTissue(genderFromAccess);
             participant.setGender(gender);
 
@@ -223,6 +224,7 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
         System.err.println("Exception in initCollectionProtocolRegistration" );
         e.printStackTrace();
      }
+     return collectionProtocolRegistration;
   }
   
    public String getGenderFromCaTissue (String g) {
