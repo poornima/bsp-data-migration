@@ -80,16 +80,38 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
     }
 
   public void writeToCaTissue(String excel[][], int rowCount) throws Exception {
+ 
+      Participant participant = null;  
+      SpecimenCollectionGroup scg = null;
+      Collection<Specimen> specList = null;
       
       System.out.println("---------START DataMigrationUtil.writeToCaTissue()---------");
 
       while (rowNo < excel.length -1) {
 
          System.out.println("----------START Processing for row number "+ rowNo + "---------------");
-          
-         Participant participant = null;  
+         
+         //Register Participant to CPR 
          participant = createAndRegisterParticipantToCollectionProtocol(excel);
+/*
+         //Search for the Participant SCG
+         scg = getSpecimenCollectionGroup(participant);
 
+         //Search for the CPR SCG
+         CollectionProtocolRegistration cpr = scg.getCollectionProtocolRegistration();
+
+         //Copy the scg properties into a newSCG object
+         //Set the newSCG CPR reference to the CPR of the above Participant 
+         SpecimenCollectionGroup newSCG = createSCGAndSetCPR(scg, cpr);
+
+         //update newSCG 
+
+         //updateSCG method adds the following from the BSP Access db-
+         // 1. Specimen Event Parameters
+         // 2. Clinical Diagnosis
+         // 3. Surgical Pathology Number 
+         SpecimenCollectionGroup updatedSCG = updateSCG(newSCG, excel);
+*/     
          System.out.println("----------END Processing for row number "+ rowNo + "---------------");
 
          rowNo++;
@@ -244,6 +266,32 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
              assertFalse("Did not find Domain Object", true);
         }
         return returnedCollectionProtocol;
+   }
+
+   /*
+    * This method searches specimen collection group in the cpr of the participant
+    * @param studyLabel study calender event label/point given in the excel
+    */
+   public SpecimenCollectionGroup getSpecimenCollectionGroup(Participant participant) {
+
+       System.out.println("---------START DataMigrationUtil.getSpecimenCollectionGroup()---------");
+       SpecimenCollectionGroup scg = null;
+       Collection cprColl = participant.getCollectionProtocolRegistrationCollection();
+       System.out.println("No of cpr retreived from participant " + cprColl.size());
+       Iterator<CollectionProtocolRegistration> cprItr = cprColl.iterator();
+       while (cprItr.hasNext()) {
+          CollectionProtocolRegistration cpr = (CollectionProtocolRegistration) cprItr.next();
+          Collection scgCollection = cpr.getSpecimenCollectionGroupCollection();
+
+          Iterator<SpecimenCollectionGroup> scgItr = scgCollection.iterator();
+          System.out.println("scgCollection.size() " + scgCollection.size());
+          while (scgItr.hasNext()) {
+             scg = (SpecimenCollectionGroup) scgItr.next();
+             System.out.println("CollectionPointLabel() "+ scg.getCollectionProtocolEvent().getCollectionPointLabel());
+          }
+       }
+       System.out.println("---------END DataMigrationUtil.getSpecimenCollectionGroup()---------");
+       return scg;
    }
 
    public String getGenderFromCaTissue (String g) {
