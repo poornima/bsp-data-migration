@@ -61,7 +61,7 @@ public class ExcelFileReader {
 
 			init();
 			allCP = this.readData();
-			System.out.println("In ExcelFileReader excel length "+ allCP.length);
+			System.out.println("excel length "+ allCP.length);
 
 			// new AddAnticipatedSCGInParticipant().addSCGs(allCP);
 			System.out.println("---------END ExcelFileReader.setInfo()---------");
@@ -95,11 +95,11 @@ public class ExcelFileReader {
 	public String[][] readData() {
 		HSSFRow row = null;
 		int noOfRows = sheet.getPhysicalNumberOfRows();
-		System.out.println(" noOfRows ---" + noOfRows);
+		System.out.println("No of rows ---" + noOfRows);
 		data = new String[noOfRows + 1][];
 
 		int noOfColumn = sheet.getRow(0).getPhysicalNumberOfCells();
-		System.out.println("No Of columns----" + noOfColumn);
+		System.out.println("No of columns----" + noOfColumn);
 		for (int h = 0; h <= noOfRows; h++) {
 			row = sheet.getRow(h);
 
@@ -110,7 +110,6 @@ public class ExcelFileReader {
 				Arrays.fill(data[h], "-");
 			}
 		}
-		System.out.println("In Excel file after Read" + data.length);
 		return data;
 	}
 
