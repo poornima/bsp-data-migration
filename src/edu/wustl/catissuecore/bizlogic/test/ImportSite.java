@@ -16,10 +16,11 @@ public class ImportSite extends CaTissueBaseTestCase {
 
   public static Site returnedSite = null;
 
-  public static Site getSite() {
+  public static Site getSite(String siteFromAccess) {
 
+        System.out.println("---------START ImportSite.getSite()---------");
         Site site = new Site();
-        site.setName(new String ("UABH"));
+        site.setName(new String (siteFromAccess));
         System.out.println("Searching Domain Object........");
         try {
              List resultList = appService.search(Site.class,site);
@@ -33,6 +34,7 @@ public class ImportSite extends CaTissueBaseTestCase {
              e.printStackTrace();
              assertFalse("Did not find Domain Object", true);
         }
+        System.out.println("---------END ImportSite.getSite()---------");
         return returnedSite;
     }
 } //end ImportSite()

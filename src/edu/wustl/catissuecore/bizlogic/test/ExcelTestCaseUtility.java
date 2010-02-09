@@ -24,13 +24,10 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
 			System.out.println("---------START ExcelTestCaseUtility.registerParticipants----------");
 			System.out.println("user.dir  " + System.getProperty("user.dir"));
 			String excelFilePath = System.getProperty("user.dir")
-			//+ "/excelFiles/PD-PartPmiRace-5.xls";
-			// + "/excelFiles/Data_Source.xls";
-			 + "/excelFiles/Workbook1.xls";
+			 + "/excelFiles/dev-data.xls";
 			ExcelFileReader EX_CP = new ExcelFileReader();
 			String allexcel[][] = EX_CP.setInfo(excelFilePath);
                         int rowCount = EX_CP.getRowCount();
-			//new DataMigrationUtil().initParticipant(allexcel, rowCount);
 			new DataMigrationUtil().writeToCaTissue(allexcel,rowCount);
 			System.out.println("---------END ExcelTestCaseUtility.registerParticipant-----------");
 		} catch (Exception e) {

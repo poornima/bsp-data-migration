@@ -30,8 +30,9 @@ public class ImportParticipant extends CaTissueBaseTestCase {
         String    middleName = excel[rowNo][2];
         String    dob = excel[rowNo][3];
         String    genderFromAccess = excel[rowNo][4];
-        String    medRecNo = excel[rowNo][5];
-        String    raceFromAccess = excel[rowNo][6];
+        String    hospitalOR = excel[rowNo][5];
+        String    medRecNo = excel[rowNo][6];
+        String    raceFromAccess = excel[rowNo][7];
         String    gender = "";
         String    raceName = "";
         Date      date;
@@ -57,7 +58,7 @@ public class ImportParticipant extends CaTissueBaseTestCase {
             Collection participantMedicalIdentifierCollection = new HashSet();
             ParticipantMedicalIdentifier pmi = new ParticipantMedicalIdentifier();
 
-            Site site = ImportSite.getSite();
+            Site site = ImportSite.getSite(hospitalOR);
             pmi.setSite(site);
             pmi.setMedicalRecordNumber(medRecNo);
             pmi.setParticipant(participant);
@@ -85,18 +86,20 @@ public class ImportParticipant extends CaTissueBaseTestCase {
 
    public static Participant createParticipant(Participant p) {
 
+      System.out.println("---------START ImportParticipant.createParticipant()---------");
+      Participant participant = (Participant) p;
       try {
-         Participant particpant = new Participant(p);
          participant = (Participant) appService.createObject(participant);
          System.out.println("Object created successfully");
-         assertTrue("Object added successfully", true);
+         //assertTrue("Object added successfully", true);
          System.out.println("Participant Added successfully .. id is " + participant.getId()+
          "First Name is: "+participant.getFirstName()+" Last Name is: "+participant.getLastName());
       } catch(Exception e) {
          System.out.println("ImportParticipant.createParticipant()"+e.getMessage());
          e.printStackTrace();
-         assertFalse("could not add object", true);
+         //assertFalse("could not add object", true);
       }
+      System.out.println("---------START ImportParticipant.createParticipant()---------");
       return participant;
    }
 

@@ -93,7 +93,7 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          
          //Register Participant to CPR 
          participant = createAndRegisterParticipantToCollectionProtocol(excel);
-/*
+
          //Search for the Participant SCG
          scg = getSpecimenCollectionGroup(participant);
 
@@ -111,7 +111,7 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          // 2. Clinical Diagnosis
          // 3. Surgical Pathology Number 
          SpecimenCollectionGroup updatedSCG = updateSCG(newSCG, excel);
-*/     
+     
          System.out.println("----------END Processing for row number "+ rowNo + "---------------");
 
          rowNo++;
@@ -292,6 +292,85 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
        }
        System.out.println("---------END DataMigrationUtil.getSpecimenCollectionGroup()---------");
        return scg;
+   }
+
+   public SpecimenCollectionGroup createSCGAndSetCPR(SpecimenCollectionGroup scg, CollectionProtocolRegistration cpr) {
+
+       System.out.println("---------START DataMigrationUtil.createSCGAndSetCPR()---------");
+       SpecimenCollectionGroup newSCG = new SpecimenCollectionGroup();
+
+       newSCG = scg;
+       newSCG.setCollectionProtocolRegistration(cpr);
+
+       try {
+          Collection cpeCollection = cpr.getCollectionProtocol().getCollectionProtocolEventCollection();
+          Iterator cpeIterator = cpeCollection.iterator();
+          while(cpeIterator.hasNext()) {
+              CollectionProtocolEvent cpe = (CollectionProtocolEvent)cpeIterator.next();
+              newSCG.setCollectionProtocolEvent(cpe); 
+           }
+       } catch (Exception e) {
+          System.err.println("Exception in createSCG()");
+          System.out.println("Exception in createSCG()");
+          e.printStackTrace();
+       }
+       System.out.println("---------END DataMigrationUtil.createSCGAndSetCPR()---------");
+       return newSCG;
+   } 
+
+   public SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, String excel[][]) throws Exception {
+
+       String diag = excel[row][9];
+       String spr = excel[row][9];
+       String hospOR = excel[row][9]; 
+
+       System.out.println("---------START DataMigrationUtil.updateSCG()---------");
+       Site site = (Site) getSite(hospOR);
+       
+       scg.setSpecimenCollectionSite(site);
+       scg.setCollectionStatus("Complete");
+
+       scg.setClinicalStatus("Not Specified");
+       scg.setClinicalDiagnosis(diag);
+       scg.setSurgicalPathologyNumber(spr);
+       addSpecimenEventParameters(scg, excel);
+
+       appService.updateObject(scg);
+       System.out.println("scg updated succesfully");
+       System.out.println("---------END DataMigrationUtil.updateSCG()---------");
+
+   } 
+
+   public void setEventParameters(SpecimenCollectionGroup scgObj, String excel[][]) {
+
+        String opDate = excel[row][6];
+        String accessionDate = excel[row][6];
+        String surgeon = excel[row][6];
+
+        CollectionEventParameters cep = new CollectionEventParameters();
+        ReceivedEventParameters rep = new ReceivedEventParameters();
+        cep.setCollectionProcedure(collProcedure);
+        cep.setComment("Surgeon: "+surgeon);
+        cep.setContainer(collCotainer);
+        cep.setTimestamp(opDate);
+
+        User user = getUser(CaTissueBaseTestCase.USER_NAME);
+        cep.setUser(user);
+        cep.setSpecimenCollectionGroup(scgObj);
+
+        //Received Events
+        rep.setComment("");
+        User receivedUser = getUser(CaTissueBaseTestCase.USER_NAME);
+        rep.setUser(receivedUser);
+        rep.setReceivedQuality("Not Specified");
+
+        rep.setTimestamp(accessionDate);
+        rep.setSpecimenCollectionGroup(scgObj);
+
+        Collection<SpecimenEventParameters> specimenEventParametersCollection = new HashSet<SpecimenEventParameters>();
+        specimenEventParametersCollection.add(cep);
+        specimenEventParametersCollection.add(rep);
+        scgObj.setSpecimenEventParametersCollection(specimenEventParametersCollection);
    }
 
    public String getGenderFromCaTissue (String g) {

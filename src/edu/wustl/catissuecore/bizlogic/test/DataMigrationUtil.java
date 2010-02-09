@@ -38,11 +38,10 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          SpecimenCollectionGroup cscg = ImportSCG.createSCGAndSetCPR(scg,cpr);
 
          //Add SCG Properties
-         SpecimenCollectionGroup ascg = ImportSCG.addSCGProperties(cscg);
+         SpecimenCollectionGroup ascg = ImportSCG.addSCGProperties(cscg,excel);
 
          //Update SCG 
-         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(ascg);
-
+         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(ascg,excel);
 
          System.out.println("----------END Processing for row number "+ rowNo + "---------------");
          rowNo++;
