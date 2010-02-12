@@ -3,9 +3,14 @@ package edu.wustl.catissuecore.bizlogic.test;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.HashSet;
 import edu.wustl.catissuecore.domain.Site;
 import edu.wustl.catissuecore.domain.CollectionProtocolRegistration;
+import edu.wustl.catissuecore.domain.CollectionProtocol;
 import edu.wustl.catissuecore.domain.CollectionProtocolEvent;
+import edu.wustl.catissuecore.domain.ConsentTier;
+import edu.wustl.catissuecore.domain.ConsentTierStatus;
 import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
 import edu.wustl.catissuecore.domain.SpecimenEventParameters;
 import gov.nih.nci.system.applicationservice.ApplicationService;
@@ -42,17 +47,11 @@ public class ImportSCG extends CaTissueBaseTestCase {
 
       System.out.println("---------START ImportSCG.createSCGAndSetCPR()---------");
       SpecimenCollectionGroup nscg = new SpecimenCollectionGroup();
-      try {
-         List resultList = appService.search(SpecimenCollectionGroup.class, scg);
-         for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
-            nscg = (SpecimenCollectionGroup) resultsIterator.next();
-            System.out.println("New SCG is -->" + nscg.getName() +"Id:"+nscg.getId());
-         }
-      } catch (Exception e) {
-         Logger.out.error(e.getMessage(),e);
-         System.out.println("Exception in createSCGAndSetCPR()"+e.getMessage());
-         e.printStackTrace();
-      }
+      Collection c = cpr.getSpecimenCollectionGroupCollection();
+      Iterator<SpecimenCollectionGroup> scit = c.iterator();
+      while (scit.hasNext()) {
+         nscg = (SpecimenCollectionGroup) scit.next();
+      }  
       nscg.setCollectionProtocolRegistration(cpr);
       try {
          Collection cpeCollection = cpr.getCollectionProtocol().getCollectionProtocolEventCollection();
@@ -78,28 +77,24 @@ public class ImportSCG extends CaTissueBaseTestCase {
       return scg;
    }  
 
-   public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, String excel[][]) {
+   public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, CollectionProtocolRegistration cpr, String excel[][]) {
 
        String hospitalOR = excel[row][5];
        String spr = excel[row][8];
        String diagnosis = excel[row][9];
 
        System.out.println("---------START DataMigrationUtil.updateSCG()---------");
+       scg.setId(new Long(16));
+       scg.setName("Brain SPORE SCG_pt_35");
+       scg.setCollectionStatus("Complete");
+       scg.setClinicalStatus("Operative");
+       scg.setClinicalDiagnosis("Anaplastic glioma of brain (disorder)");
+       scg.setSurgicalPathologyNumber(spr);
+
        Site site = ImportSite.getSite(hospitalOR);
        scg.setSpecimenCollectionSite(site);
-       scg.setCollectionStatus("Complete");
-       scg.setClinicalStatus("Not Specified");
-       scg.setClinicalDiagnosis(diagnosis);
-       scg.setSurgicalPathologyNumber(spr);
-       try {
-         appService.updateObject(scg);
-         System.out.println("scg updated succesfully");
-       } catch(Exception e) {
-         assertFalse("Specimen Collection Group Not Updated", true);
-         System.out.println("ImportSCG.updateSCG()"+e.getMessage());
-         Logger.out.error(e.getMessage(),e);
-         e.printStackTrace();
-       }
+       scg.setConsentTierStatusCollectionFromCPR(cpr);
+       scg.setActivityStatus("Active");
        System.out.println("---------END DataMigrationUtil.updateSCG()---------");
        return scg;
    }

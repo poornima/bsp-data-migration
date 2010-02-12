@@ -25,14 +25,12 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          //Initialize Participant 
          Participant ipart = ImportParticipant.initParticipant(excel);
 
-         //Create Participant
-         Participant cpart = ImportParticipant.createParticipant(ipart);
-
          //Register Participant to CP
-         CollectionProtocolRegistration cpr = ImportCPR.registerParticipantToCP(cpart);
+         Participant rpart = ImportCPR.registerParticipantToCP(ipart,excel);
 
+/*
          //Get the CPR SCG
-         SpecimenCollectionGroup scg = ImportSCG.getSCG(cpr); 
+         SpecimenCollectionGroup scg = ImportSCG.getSCG(rpart); 
 
          //Create SCG and set CPR
          SpecimenCollectionGroup cscg = ImportSCG.createSCGAndSetCPR(scg,cpr);
@@ -41,8 +39,9 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          SpecimenCollectionGroup ascg = ImportSCG.addSCGProperties(cscg,excel);
 
          //Update SCG 
-         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(ascg,excel);
+         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(ascg,cpr,excel);
 
+*/
          System.out.println("----------END Processing for row number "+ rowNo + "---------------");
          rowNo++;
       } 

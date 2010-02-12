@@ -38,7 +38,7 @@ public class ImportParticipant extends CaTissueBaseTestCase {
         Date      date;
 
         System.out.println("---------START ImportParticipant.initParticipant()---------");
-        System.out.println("lastname=" +lastName+ "firstname=" +firstName+ "middlename=" +middleName+ "dob=" +dob+ "gender=" +genderFromAccess+ "medrecno="+medRecNo+ "race=" +raceFromAccess);
+        System.out.println("lastname=" +lastName+ " firstname=" +firstName+ " middlename=" +middleName+ " dob=" +dob+ " gender=" +genderFromAccess+ " hospitalOR=" +hospitalOR+ " medrecno="+medRecNo+ " race=" +raceFromAccess);
 
             Participant participant = new Participant();
             participant.setLastName(lastName);

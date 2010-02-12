@@ -27,13 +27,17 @@ public class ImportCPEvent extends CaTissueBaseTestCase {
 
    public static CollectionEventParameters addCEP(SpecimenCollectionGroup scg, String excel[][]) {
 
-      String opDate       = excel[row][11];
-      String surgeon      = excel[row][14];
+      String opDate       = excel[row][10];
+      String surgeon      = excel[row][11];
+      String colProc      = excel[row][12];
+      String colCont      = excel[row][13];
 
       //CP Collection Events
       System.out.println("---------START ImportCPEvent.addCEP()---------");
       CollectionEventParameters cep = new CollectionEventParameters();
       cep.setComment("Surgeon: "+surgeon);
+      cep.setCollectionProcedure(colProc);
+      cep.setContainer(colCont);
       Date timestamp = EventsUtil.setTimeStamp("08-15-1975","15","45");
       cep.setTimestamp(timestamp);
       //cep.setTimestamp(opDate);
@@ -46,7 +50,7 @@ public class ImportCPEvent extends CaTissueBaseTestCase {
 
    public static ReceivedEventParameters addREP(SpecimenCollectionGroup scg, String excel[][]) {
 
-      String accessionDate = excel[row][15];
+      String accessionDate = excel[row][14];
 
       //CP Received Events
       System.out.println("---------START ImportCPEvent.addREP()---------");
