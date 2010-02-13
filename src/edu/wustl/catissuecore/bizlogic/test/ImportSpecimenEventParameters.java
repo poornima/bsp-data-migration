@@ -1,5 +1,6 @@
 package edu.wustl.catissuecore.bizlogic.test;
 
+import java.text.ParseException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -40,6 +41,7 @@ public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
       String surgeon      = excel[row][11];
       String colProc      = excel[row][12];
       String colCont      = excel[row][13];
+      Date   colDate = null;
 
       //CP Collection Events
       System.out.println("---------START ImportSpecimenEventParameters.addCEP()---------");
@@ -47,9 +49,12 @@ public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
       cep.setComment("Surgeon: "+surgeon);
       cep.setCollectionProcedure(colProc);
       cep.setContainer(colCont);
-      Date timestamp = EventsUtil.setTimeStamp("08-15-1975","15","45");
-      cep.setTimestamp(timestamp);
-      //cep.setTimestamp(opDate);
+      try {
+         colDate = CommonUtilities.convertDateFromExcel(opDate);
+         cep.setTimestamp(colDate);
+      } catch (ParseException pe) {
+         System.out.println("ERROR: could not parse date in String: " +colDate);
+      }
       User user = getUser(CaTissueBaseTestCase.USER_NAME);
       cep.setUser(user);
       cep.setSpecimenCollectionGroup(scg);
@@ -60,6 +65,8 @@ public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
    public static ReceivedEventParameters addREP(SpecimenCollectionGroup scg, String excel[][]) {
 
       String accessionDate = excel[row][14];
+      String rcvdQuality   = excel[row][15];
+      Date   rcvdDate = null;
 
       //CP Received Events
       System.out.println("---------START ImportSpecimenEventParameters.addREP()---------");
@@ -67,10 +74,13 @@ public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
       rep.setComment("");
       User receivedUser = getUser(CaTissueBaseTestCase.USER_NAME);
       rep.setUser(receivedUser);
-      rep.setReceivedQuality("Not Specified");
-      Date timestamp = EventsUtil.setTimeStamp("08-15-1975","15","45");
-      rep.setTimestamp(timestamp);
-      //rep.setTimestamp(accessionDate);
+      rep.setReceivedQuality(rcvdQuality);
+      try {
+         rcvdDate = CommonUtilities.convertDateFromExcel(accessionDate);
+         rep.setTimestamp(rcvdDate);
+      } catch (ParseException pe) {
+         System.out.println("ERROR: could not parse date in String: " +accessionDate);
+      }
       rep.setSpecimenCollectionGroup(scg);
       System.out.println("---------END ImportSpecimenEventParameters.addREP()---------");
       return rep;

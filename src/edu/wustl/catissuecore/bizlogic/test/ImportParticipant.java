@@ -7,7 +7,6 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Date;
 import java.util.Iterator;
-import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
 import edu.wustl.catissuecore.domain.CollectionProtocolRegistration;
 import edu.wustl.catissuecore.domain.Participant;
@@ -49,7 +48,7 @@ public class ImportParticipant extends CaTissueBaseTestCase {
             participant.setMiddleName(middleName);
 
             try {
-               date = convertDateFromExcel(dob);
+               date = CommonUtilities.convertDateFromExcel(dob);
                participant.setBirthDate(date);
             } catch (ParseException pe) {
                System.out.println("ERROR: could not parse date in String: " +dob);
@@ -137,16 +136,6 @@ public class ImportParticipant extends CaTissueBaseTestCase {
        race = "Unknown";
 
      return race;
-  }
-
-  public static Date convertDateFromExcel (String d) throws ParseException {
-
-     // Courtesy: http://devpinoy.org/blogs/lamia/archive/2008/03/25/parsing-excel-date-with-poi-jxls.aspx
-
-     Date actualDate=HSSFDateUtil.getJavaDate(Double.parseDouble(d), true);
-
-     return actualDate;
-
   }
 
   public static SpecimenCollectionGroup getParticipantSCG(Participant participant) {

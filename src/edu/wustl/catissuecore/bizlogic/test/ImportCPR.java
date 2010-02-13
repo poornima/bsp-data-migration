@@ -1,5 +1,6 @@
 package edu.wustl.catissuecore.bizlogic.test;
 
+import java.text.ParseException;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -49,23 +50,23 @@ public class ImportCPR extends CaTissueBaseTestCase {
   public static CollectionProtocolRegistration initCPR(Participant participant, String[][] excel) {
 
      String medRecNo = excel[row][6];  
+     String opDate   = excel[row][10];
+     Date   regDate;
 
      System.out.println("---------START ImportCPR.initCPR()---------");
      CollectionProtocolRegistration cpr = new CollectionProtocolRegistration();
-     //CollectionProtocol cp = ImportCP.getCP();
      CollectionProtocol cp = ImportCP.searchCP();
-     System.out.println("*********CP is " +cp.getTitle()); 
+     System.out.println("CP is " +cp.getTitle()); 
      cpr.setCollectionProtocol(cp);
      cpr.setParticipant(participant);
      cpr.setProtocolParticipantIdentifier(medRecNo); //placeholder
      cpr.setActivityStatus("Active"); //placeholder
      try {
-        Date timestamp = EventsUtil.setTimeStamp("08-15-1975","15","45");
-        cpr.setRegistrationDate(timestamp); //placeholder
-     } catch (Exception e) {
-        System.out.println("Exception in initCPR()" );
-        e.printStackTrace();
-     }
+       regDate = CommonUtilities.convertDateFromExcel(opDate);
+       cpr.setRegistrationDate(regDate); //placeholder
+      } catch (ParseException pe) {
+       System.out.println("ERROR: could not parse date in String: " +opDate);
+      }
      Collection consentTierResponseCollection = new HashSet();
      Collection consentTierCollection = cp.getConsentTierCollection();
      if (consentTierCollection != null) {
