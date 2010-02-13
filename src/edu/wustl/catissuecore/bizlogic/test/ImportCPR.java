@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Collection;
 import edu.wustl.catissuecore.domain.CollectionProtocol;
 import edu.wustl.catissuecore.domain.CollectionProtocolRegistration;
+import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
 import edu.wustl.catissuecore.domain.ConsentTier;
 import edu.wustl.catissuecore.domain.ConsentTierResponse;
 import edu.wustl.catissuecore.domain.Participant;
@@ -82,6 +83,9 @@ public class ImportCPR extends CaTissueBaseTestCase {
         System.out.println("********Consent Tier Collection is null");
      } 
      cpr.setConsentTierResponseCollection(consentTierResponseCollection); 
+     ImportSCG.createSCG(cpr);
+     Collection<SpecimenCollectionGroup> scgCollection = new HashSet<SpecimenCollectionGroup>();
+     cpr.setSpecimenCollectionGroupCollection(scgCollection); 
      System.out.println("Returned CPR is: "+cpr);
      System.out.println("---------END ImportCPR.initCPR()---------");
      return cpr;

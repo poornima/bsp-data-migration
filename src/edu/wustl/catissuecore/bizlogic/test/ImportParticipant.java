@@ -6,7 +6,10 @@ import java.text.DateFormat;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Date;
+import java.util.Iterator;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
+import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
+import edu.wustl.catissuecore.domain.CollectionProtocolRegistration;
 import edu.wustl.catissuecore.domain.Participant;
 import edu.wustl.catissuecore.domain.ParticipantMedicalIdentifier;
 import edu.wustl.catissuecore.domain.Race;
@@ -145,5 +148,23 @@ public class ImportParticipant extends CaTissueBaseTestCase {
      return actualDate;
 
   }
+
+  public static SpecimenCollectionGroup getParticipantSCG(Participant participant) {
+
+       System.out.println("---------START ImportParticipant.getParticipantSCG()---------");
+       SpecimenCollectionGroup scg = null;
+       Collection cprCollection = participant.getCollectionProtocolRegistrationCollection();
+       Iterator<CollectionProtocolRegistration> cprItr = cprCollection.iterator();
+       while (cprItr.hasNext()) {
+          CollectionProtocolRegistration cpr = (CollectionProtocolRegistration) cprItr.next();
+          Collection scgCollection = cpr.getSpecimenCollectionGroupCollection();
+          Iterator<SpecimenCollectionGroup> scgItr = scgCollection.iterator();
+          while (scgItr.hasNext()) {
+             scg = (SpecimenCollectionGroup) scgItr.next();
+          }
+       }
+       System.out.println("---------END ImportParticipant.getParticipantSCG()---------");
+       return scg;
+   }
 
 } //end ImportParticipant()

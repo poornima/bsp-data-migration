@@ -28,7 +28,7 @@ public class ImportSCG extends CaTissueBaseTestCase {
 
    private static int row = 1;
 
-   public static SpecimenCollectionGroup getSCG(CollectionProtocolRegistration cpr) {
+   public static SpecimenCollectionGroup getCPRSCG(CollectionProtocolRegistration cpr) {
 
        SpecimenCollectionGroup scg = null;
        System.out.println("---------START ImportSCG.getSCG()---------");
@@ -43,59 +43,77 @@ public class ImportSCG extends CaTissueBaseTestCase {
        return scg;
    }
 
-   public static SpecimenCollectionGroup createSCGAndSetCPR(SpecimenCollectionGroup scg, CollectionProtocolRegistration cpr) {
+   public static SpecimenCollectionGroup createSCG(CollectionProtocolRegistration cpr) {
 
-      System.out.println("---------START ImportSCG.createSCGAndSetCPR()---------");
-      SpecimenCollectionGroup nscg = new SpecimenCollectionGroup();
-      Collection c = cpr.getSpecimenCollectionGroupCollection();
-      Iterator<SpecimenCollectionGroup> scit = c.iterator();
-      while (scit.hasNext()) {
-         nscg = (SpecimenCollectionGroup) scit.next();
-      }  
-      nscg.setCollectionProtocolRegistration(cpr);
+      System.out.println("---------START ImportSCG.createSCG()---------");
+      SpecimenCollectionGroup scg = null;
       try {
+         Collection<ConsentTierStatus> ctsCollection = setConsentTierStatus(cpr);
          Collection cpeCollection = cpr.getCollectionProtocol().getCollectionProtocolEventCollection();
          Iterator cpeIterator = cpeCollection.iterator();
          while(cpeIterator.hasNext()) {
             CollectionProtocolEvent cpe = (CollectionProtocolEvent)cpeIterator.next();
-            nscg.setCollectionProtocolEvent(cpe);
+            scg = new SpecimenCollectionGroup(cpe);
+            scg.setCollectionProtocolRegistration(cpr);
+            scg.setConsentTierStatusCollection(ctsCollection);
          }
       } catch (Exception e) {
-        System.out.println("Exception in createSCGAndSetCPR()");
+        System.out.println("Exception in createSCG()");
         e.printStackTrace();
       }
-      System.out.println("---------END ImportSCG.createSCGAndSetCPR()---------");
-      return nscg;
+      System.out.println("---------END ImportSCG.createSCG()---------");
+      return scg;
    }
 
-   public static SpecimenCollectionGroup addSCGProperties(SpecimenCollectionGroup scg, String excel[][]) {
+   public static Collection<ConsentTierStatus> setConsentTierStatus (CollectionProtocolRegistration cpr) {
 
-      System.out.println("---------START ImportSCG.addSCGProperties()---------");
-      Collection<SpecimenEventParameters> sepCollection = ImportSpecimenEventParameters.addSEP(scg, excel);
-      scg.setSpecimenEventParametersCollection(sepCollection);
-      System.out.println("---------END ImportSCG.addSCGProperties()---------");
-      return scg;
-   }  
+      CollectionProtocol collectionProtocol = cpr.getCollectionProtocol();
+      Collection consentTierCollection = collectionProtocol.getConsentTierCollection();
+      Iterator consentTierItr = consentTierCollection.iterator();
+      Collection consentTierStatusCollection = new HashSet();
+      while(consentTierItr.hasNext()) {
+         ConsentTier consentTier = (ConsentTier)consentTierItr.next();
+         ConsentTierStatus consentStatus = new ConsentTierStatus();
+         consentStatus.setConsentTier(consentTier);
+         consentStatus.setStatus("Yes");
+         consentTierStatusCollection.add(consentStatus);
+      }
+      return consentTierStatusCollection;
+   }
 
-   public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, CollectionProtocolRegistration cpr, String excel[][]) {
+   public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, String excel[][]) {
 
-       String hospitalOR = excel[row][5];
-       String spr = excel[row][8];
-       String diagnosis = excel[row][9];
+      String hospitalOR = excel[row][5];
+      String sprNum = excel[row][8];
+      String diagnosis = excel[row][9];
 
-       System.out.println("---------START DataMigrationUtil.updateSCG()---------");
-       scg.setId(new Long(16));
-       scg.setName("Brain SPORE SCG_pt_35");
-       scg.setCollectionStatus("Complete");
-       scg.setClinicalStatus("Operative");
-       scg.setClinicalDiagnosis("Anaplastic glioma of brain (disorder)");
-       scg.setSurgicalPathologyNumber(spr);
+      System.out.println("---------START ImportSCG.updateSCG()---------");
+      SpecimenCollectionGroup uscg = null;
+      try {
+         scg.setActivityStatus("Active");
+         scg.setClinicalDiagnosis(diagnosis);
 
-       Site site = ImportSite.getSite(hospitalOR);
-       scg.setSpecimenCollectionSite(site);
-       scg.setConsentTierStatusCollectionFromCPR(cpr);
-       scg.setActivityStatus("Active");
-       System.out.println("---------END DataMigrationUtil.updateSCG()---------");
-       return scg;
+         Site site = ImportSite.getSite(hospitalOR);
+         scg.setSpecimenCollectionSite(site);
+         scg.setSurgicalPathologyNumber(sprNum);
+         scg.setClinicalStatus("Operative");
+         scg.setCollectionStatus("Complete");
+
+         ImportSpecimenEventParameters.addSEP(scg, excel);
+
+         uscg = (SpecimenCollectionGroup)appService.updateObject(scg);
+
+         System.out.println("Specimen Collection Status: "+uscg.getCollectionStatus().equals("Complete"));
+         if (uscg.getCollectionStatus().equals("Complete")) {
+            assertTrue("Specimen Collected ---->", true);
+         } else {
+            assertFalse("Anticipatory Specimen", true);
+         }
+      } catch (Exception e) {
+         System.out.println("Exception in updateSCG()");
+         e.printStackTrace();
+      }
+      System.out.println("---------END ImportSCG.updateSCG()---------");
+      return uscg;
    }
 } //end ImportSCG()
