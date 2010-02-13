@@ -21,39 +21,27 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
   public void writeToCaTissue(String excel[][], int rowCount) throws Exception {
  
       System.out.println("---------START DataMigrationUtil.writeToCaTissue()---------");
+      System.out.println("Total no. of rows: "+rowCount);
       while (rowNo < excel.length -1) {
          System.out.println("----------START Processing for row number "+ rowNo + "---------------");
+         
 
          //Initialize Participant 
-         Participant ipart = ImportParticipant.initParticipant(excel);
+         Participant ipart = ImportParticipant.initParticipant(excel,rowNo);
 
          //Register Participant to CP
-         Participant rpart = ImportCPR.registerParticipantToCP(ipart,excel);
+         Participant rpart = ImportCPR.registerParticipantToCP(ipart,excel,rowNo);
 
          //Get the Participant's SCG 
          SpecimenCollectionGroup scg = ImportParticipant.getParticipantSCG(rpart);
 
          //Update SCG 
-         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(scg,excel);
+         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(scg,excel,rowNo);
          //Note: Steps 3 and 4 are necessary for setting the following SCG attributes
            //SCG Collection Site, Surg Path no, Clinical Status, Collection Status
            //Collection and Received Event Parameters (Collection Procedure and Container, Received Quality)
         //The above attributes cannot be set while creating an SCG i.e., in ImportSCG.createSCG() method 
           
-/*
-         //Get the CPR SCG
-         SpecimenCollectionGroup scg = ImportSCG.getSCG(rpart); 
-
-         //Create SCG and set CPR
-         SpecimenCollectionGroup cscg = ImportSCG.createSCGAndSetCPR(scg,cpr);
-
-         //Add SCG Properties
-         SpecimenCollectionGroup ascg = ImportSCG.addSCGProperties(cscg,excel);
-
-         //Update SCG 
-         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(ascg,cpr,excel);
-
-*/
          System.out.println("----------END Processing for row number "+ rowNo + "---------------");
          rowNo++;
       } 

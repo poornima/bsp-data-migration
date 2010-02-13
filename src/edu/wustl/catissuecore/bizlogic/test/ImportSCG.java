@@ -81,8 +81,9 @@ public class ImportSCG extends CaTissueBaseTestCase {
       return consentTierStatusCollection;
    }
 
-   public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, String excel[][]) {
+   public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 
+      int row = rowNo;
       String hospitalOR = excel[row][5];
       String sprNum = excel[row][8];
       String diagnosis = excel[row][9];
@@ -99,7 +100,7 @@ public class ImportSCG extends CaTissueBaseTestCase {
          scg.setClinicalStatus("Operative");
          scg.setCollectionStatus("Complete");
 
-         ImportSpecimenEventParameters.addSEP(scg, excel);
+         ImportSpecimenEventParameters.addSEP(scg, excel, rowNo);
 
          uscg = (SpecimenCollectionGroup)appService.updateObject(scg);
 

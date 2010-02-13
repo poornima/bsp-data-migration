@@ -1,66 +1,67 @@
-ERROR 15:49:43,049 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
- INFO 15:49:43,060 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 15:49:43,062 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 15:49:43,115 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 15:49:43,203 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 15:49:43,209 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
- INFO 15:49:43,211 (CollectionFactory) - JDK 1.4+ collections available
- INFO 15:49:43,214 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
- INFO 15:49:43,216 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
- INFO 15:49:43,217 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 15:49:43,218 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
- INFO 15:49:43,338 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
- INFO 15:49:43,364 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 15:49:43,365 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 15:49:43,367 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
- INFO 15:49:43,369 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 15:49:43,381 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 15:49:43,381 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
- INFO 15:49:43,381 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
- INFO 15:49:43,383 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
- INFO 15:49:43,383 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 15:49:43,383 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ERROR 16:33:22,026 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 16:33:22,034 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 16:33:22,035 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 16:33:22,074 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 16:33:22,138 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 16:33:22,144 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 16:33:22,146 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 16:33:22,149 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 16:33:22,150 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 16:33:22,151 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 16:33:22,152 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 16:33:22,258 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 16:33:22,280 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 16:33:22,281 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 16:33:22,283 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 16:33:22,285 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 16:33:22,295 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 16:33:22,295 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 16:33:22,295 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 16:33:22,296 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 16:33:22,297 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 16:33:22,297 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
 ---------START ExcelTestCaseUtility.registerParticipants----------
 user.dir  /home/catissue/src/BSP_Data_Migration
 START Excel file ReaderConstructor
 END Excel file ReaderConstructor
 ---------START ExcelFileReader.setInfo()---------
-No of rows ---2
+No of rows ---6
 No of columns----21
-excel length 3
+excel length 7
 ---------END ExcelFileReader.setInfo()---------
 ---------START DataMigrationUtil.writeToCaTissue()---------
+Total no. of rows: 6
 ----------START Processing for row number 1---------------
 ---------START ImportParticipant.initParticipant()---------
-lastname=Kelly firstname=Rebecca middlename= dob=11569.0 gender=F hospitalOR=UAH medrecno=1230007 race=Caucasian
- WARN 15:49:43,831 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+lastname=Henderson firstname=Vance middlename= dob=17560.0 gender=M hospitalOR=UAH medrecno=1230009 race=Caucasian
+ WARN 16:33:22,668 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------START ImportSite.getSite()---------
- WARN 15:49:43,838 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:22,673 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Searching Domain Object........
- WARN 15:49:43,910 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:22,840 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
  Domain Object is successfully Found ---->  :: UAH 2 Collection Site
 ---------END ImportSite.getSite()---------
 ---------START ImportCPR.registerParticipantToCP()---------
 ---------START ImportCPR.initCPR()---------
- WARN 15:49:44,007 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 15:49:44,017 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 15:49:44,018 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:22,849 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:22,855 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:22,855 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Searching Domain Object........
- WARN 15:49:44,088 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:22,944 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Domain Object found is ---->  :: Dev Import BSP,1,dev-import-bsp
 CP is Dev Import BSP
 ********Consent Tier Collection is not null
 ---------START ImportSCG.createSCG()---------
- WARN 15:49:44,099 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:22,968 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------END ImportSCG.createSCG()---------
 Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@15a6029
 ---------END ImportCPR.initCPR()---------
- WARN 15:49:44,363 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 15:49:44,372 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 15:49:44,376 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 15:49:44,382 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:23,227 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:23,244 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:23,255 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:33:23,269 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Object created successfully
-Participant Added successfully .. id is 13First Name is: Rebecca Last Name is: Kelly
+Participant Added successfully .. id is 17First Name is: Vance Last Name is: Henderson
 ---------START ImportCPR.registerParticipantToCP()---------
 ---------START ImportParticipant.getParticipantSCG()---------
 ---------END ImportParticipant.getParticipantSCG()---------
@@ -76,6 +77,142 @@ Searching Domain Object........
 Specimen Collection Status: true
 ---------END ImportSCG.updateSCG()---------
 ----------END Processing for row number 1---------------
+----------START Processing for row number 2---------------
+---------START ImportParticipant.initParticipant()---------
+lastname=Champagne firstname=Deborah middlename=K dob=20539.0 gender=F hospitalOR=UAH medrecno=1230010 race=Caucasian
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportCPR.initCPR()---------
+Searching Domain Object........
+Domain Object found is ---->  :: Dev Import BSP,1,dev-import-bsp
+CP is Dev Import BSP
+********Consent Tier Collection is not null
+---------START ImportSCG.createSCG()---------
+---------END ImportSCG.createSCG()---------
+Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@19ba640
+---------END ImportCPR.initCPR()---------
+Object created successfully
+Participant Added successfully .. id is 18First Name is: Deborah Last Name is: Champagne
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportParticipant.getParticipantSCG()---------
+---------END ImportParticipant.getParticipantSCG()---------
+---------START ImportSCG.updateSCG()---------
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportSpecimenEventParameters.addCEP()---------
+---------END ImportSpecimenEventParameters.addCEP()---------
+---------START ImportSpecimenEventParameters.addREP()---------
+---------END ImportSpecimenEventParameters.addREP()---------
+Specimen Collection Status: true
+---------END ImportSCG.updateSCG()---------
+----------END Processing for row number 2---------------
+----------START Processing for row number 3---------------
+---------START ImportParticipant.initParticipant()---------
+lastname=Ferguson firstname=Jacqueline middlename= dob=11367.0 gender=F hospitalOR=UAH medrecno=1230011 race=Caucasian
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportCPR.initCPR()---------
+Searching Domain Object........
+Domain Object found is ---->  :: Dev Import BSP,1,dev-import-bsp
+CP is Dev Import BSP
+********Consent Tier Collection is not null
+---------START ImportSCG.createSCG()---------
+---------END ImportSCG.createSCG()---------
+Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@1ce1bea
+---------END ImportCPR.initCPR()---------
+Object created successfully
+Participant Added successfully .. id is 19First Name is: Jacqueline Last Name is: Ferguson
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportParticipant.getParticipantSCG()---------
+---------END ImportParticipant.getParticipantSCG()---------
+---------START ImportSCG.updateSCG()---------
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportSpecimenEventParameters.addCEP()---------
+---------END ImportSpecimenEventParameters.addCEP()---------
+---------START ImportSpecimenEventParameters.addREP()---------
+---------END ImportSpecimenEventParameters.addREP()---------
+Specimen Collection Status: true
+---------END ImportSCG.updateSCG()---------
+----------END Processing for row number 3---------------
+----------START Processing for row number 4---------------
+---------START ImportParticipant.initParticipant()---------
+lastname=Szeremet firstname=Debra middlename= dob=20989.0 gender=F hospitalOR=UAH medrecno=1230012 race=Caucasian
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportCPR.initCPR()---------
+Searching Domain Object........
+Domain Object found is ---->  :: Dev Import BSP,1,dev-import-bsp
+CP is Dev Import BSP
+********Consent Tier Collection is not null
+---------START ImportSCG.createSCG()---------
+---------END ImportSCG.createSCG()---------
+Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@a1aa85
+---------END ImportCPR.initCPR()---------
+Object created successfully
+Participant Added successfully .. id is 20First Name is: Debra Last Name is: Szeremet
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportParticipant.getParticipantSCG()---------
+---------END ImportParticipant.getParticipantSCG()---------
+---------START ImportSCG.updateSCG()---------
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportSpecimenEventParameters.addCEP()---------
+---------END ImportSpecimenEventParameters.addCEP()---------
+---------START ImportSpecimenEventParameters.addREP()---------
+---------END ImportSpecimenEventParameters.addREP()---------
+Specimen Collection Status: true
+---------END ImportSCG.updateSCG()---------
+----------END Processing for row number 4---------------
+----------START Processing for row number 5---------------
+---------START ImportParticipant.initParticipant()---------
+lastname=Ragsdale firstname=Jeffery middlename=P dob=22679.0 gender=M hospitalOR=UAH medrecno=1230013 race=Caucasian
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportCPR.initCPR()---------
+Searching Domain Object........
+Domain Object found is ---->  :: Dev Import BSP,1,dev-import-bsp
+CP is Dev Import BSP
+********Consent Tier Collection is not null
+---------START ImportSCG.createSCG()---------
+---------END ImportSCG.createSCG()---------
+Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@1083717
+---------END ImportCPR.initCPR()---------
+Object created successfully
+Participant Added successfully .. id is 21First Name is: Jeffery Last Name is: Ragsdale
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportParticipant.getParticipantSCG()---------
+---------END ImportParticipant.getParticipantSCG()---------
+---------START ImportSCG.updateSCG()---------
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportSpecimenEventParameters.addCEP()---------
+---------END ImportSpecimenEventParameters.addCEP()---------
+---------START ImportSpecimenEventParameters.addREP()---------
+---------END ImportSpecimenEventParameters.addREP()---------
+Specimen Collection Status: true
+---------END ImportSCG.updateSCG()---------
+----------END Processing for row number 5---------------
 ---------END DataMigrationUtil.writeToCaTissue()---------
 ---------END ExcelTestCaseUtility.registerParticipant-----------
 

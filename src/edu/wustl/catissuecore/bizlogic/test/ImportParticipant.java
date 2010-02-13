@@ -24,9 +24,8 @@ import edu.wustl.common.util.logger.Logger;
  */
 public class ImportParticipant extends CaTissueBaseTestCase {
 
-    private static int rowNo = 1; // Row number in the excel sheet
-
-    public static Participant initParticipant(String excel[][]) {
+    public static Participant initParticipant(String excel[][], int row) {
+        int rowNo = row; // Row number in the excel sheet
         String    lastName = excel[rowNo][0];
         String    firstName = excel[rowNo][1];
         String    middleName = excel[rowNo][2];

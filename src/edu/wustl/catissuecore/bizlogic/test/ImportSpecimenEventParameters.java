@@ -25,18 +25,19 @@ public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
 
    private static int row = 1;
 
-   public static void addSEP(SpecimenCollectionGroup scg, String excel[][]) {
+   public static void addSEP(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 
-      CollectionEventParameters cep = addCEP(scg, excel);
-      ReceivedEventParameters rep = addREP(scg, excel);
+      CollectionEventParameters cep = addCEP(scg, excel, rowNo);
+      ReceivedEventParameters rep = addREP(scg, excel, rowNo);
       Collection<SpecimenEventParameters> sepCollection = new HashSet<SpecimenEventParameters>();
       sepCollection.add(cep);
       sepCollection.add(rep);
       scg.setSpecimenEventParametersCollection(sepCollection); 
    }  
 
-   public static CollectionEventParameters addCEP(SpecimenCollectionGroup scg, String excel[][]) {
+   public static CollectionEventParameters addCEP(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 
+      int row = rowNo; 
       String opDate       = excel[row][10];
       String surgeon      = excel[row][11];
       String colProc      = excel[row][12];
@@ -62,8 +63,9 @@ public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
       return cep;
    }
 
-   public static ReceivedEventParameters addREP(SpecimenCollectionGroup scg, String excel[][]) {
+   public static ReceivedEventParameters addREP(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 
+      int row = rowNo;
       String accessionDate = excel[row][14];
       String rcvdQuality   = excel[row][15];
       Date   rcvdDate = null;

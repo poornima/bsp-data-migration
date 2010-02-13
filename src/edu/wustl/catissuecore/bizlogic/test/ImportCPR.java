@@ -23,12 +23,11 @@ import edu.wustl.common.util.logger.Logger;
  */
 public class ImportCPR extends CaTissueBaseTestCase {
 
-  private static int row = 1;
 
-  public static Participant registerParticipantToCP(Participant participant, String[][] excel) {
+  public static Participant registerParticipantToCP(Participant participant, String[][] excel, int rowNo) {
 
      System.out.println("---------START ImportCPR.registerParticipantToCP()---------");
-     CollectionProtocolRegistration cpr = initCPR(participant, excel);
+     CollectionProtocolRegistration cpr = initCPR(participant, excel, rowNo);
      Collection cprCollection = new HashSet();
      cprCollection.add(cpr);
      participant.setCollectionProtocolRegistrationCollection(cprCollection);
@@ -47,8 +46,9 @@ public class ImportCPR extends CaTissueBaseTestCase {
      return participant;
   }
 
-  public static CollectionProtocolRegistration initCPR(Participant participant, String[][] excel) {
+  public static CollectionProtocolRegistration initCPR(Participant participant, String[][] excel, int rowNo) {
 
+     int row = rowNo;
      String medRecNo = excel[row][6];  
      String opDate   = excel[row][10];
      Date   regDate;
