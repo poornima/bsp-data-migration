@@ -23,8 +23,6 @@ import edu.wustl.common.util.logger.Logger;
  */
 public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
 
-   private static int row = 1;
-
    public static void addSEP(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 
       CollectionEventParameters cep = addCEP(scg, excel, rowNo);
@@ -33,7 +31,7 @@ public class ImportSpecimenEventParameters extends CaTissueBaseTestCase {
       sepCollection.add(cep);
       sepCollection.add(rep);
       scg.setSpecimenEventParametersCollection(sepCollection); 
-   }  
+   } 
 
    public static CollectionEventParameters addCEP(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 

@@ -48,7 +48,7 @@ public class ImportSCG extends CaTissueBaseTestCase {
       System.out.println("---------START ImportSCG.createSCG()---------");
       SpecimenCollectionGroup scg = null;
       try {
-         Collection<ConsentTierStatus> ctsCollection = setConsentTierStatus(cpr);
+         Collection<ConsentTierStatus> ctsCollection = CommonUtilities.setConsentTierStatus(cpr);
          Collection cpeCollection = cpr.getCollectionProtocol().getCollectionProtocolEventCollection();
          Iterator cpeIterator = cpeCollection.iterator();
          while(cpeIterator.hasNext()) {
@@ -63,22 +63,6 @@ public class ImportSCG extends CaTissueBaseTestCase {
       }
       System.out.println("---------END ImportSCG.createSCG()---------");
       return scg;
-   }
-
-   public static Collection<ConsentTierStatus> setConsentTierStatus (CollectionProtocolRegistration cpr) {
-
-      CollectionProtocol collectionProtocol = cpr.getCollectionProtocol();
-      Collection consentTierCollection = collectionProtocol.getConsentTierCollection();
-      Iterator consentTierItr = consentTierCollection.iterator();
-      Collection consentTierStatusCollection = new HashSet();
-      while(consentTierItr.hasNext()) {
-         ConsentTier consentTier = (ConsentTier)consentTierItr.next();
-         ConsentTierStatus consentStatus = new ConsentTierStatus();
-         consentStatus.setConsentTier(consentTier);
-         consentStatus.setStatus("Yes");
-         consentTierStatusCollection.add(consentStatus);
-      }
-      return consentTierStatusCollection;
    }
 
    public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
@@ -116,5 +100,28 @@ public class ImportSCG extends CaTissueBaseTestCase {
       }
       System.out.println("---------END ImportSCG.updateSCG()---------");
       return uscg;
+   }
+
+   public static SpecimenCollectionGroup getSCGById(long id) {
+
+       SpecimenCollectionGroup returnedSCG = null;
+       SpecimenCollectionGroup scg = new SpecimenCollectionGroup();
+       scg.setId(new Long (id));
+       Logger.out.info(" searching domain object");
+       try {
+          List resultList = appService.search(SpecimenCollectionGroup.class, scg);
+          for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
+             returnedSCG = (SpecimenCollectionGroup) resultsIterator.next();
+             System.out.println("SCG by id is: " + returnedSCG.getName() +" Id: "+returnedSCG.getId());
+             Logger.out.info(" Domain Object is successfully Found ---->  :: " + returnedSCG.getName());
+          }
+          assertTrue("SCG found", true);
+       } catch (Exception e) {
+         Logger.out.error(e.getMessage(),e);
+         System.out.println("ImportSCG.getSCGById()"+e.getMessage());
+         e.printStackTrace();
+         assertFalse("Couldnot found Specimen", true);
+      }
+      return returnedSCG;
    }
 } //end ImportSCG()
