@@ -18,7 +18,7 @@ import edu.wustl.common.util.logger.Logger;
 public class DataMigrationUtil extends CaTissueBaseTestCase {
 
   private static int rowNo = 1; // Row number in the excel sheet.
-  private static long id = 25;
+  private static long id = 23;
 
   public void writeToCaTissue(String excel[][], int rowCount) throws Exception {
  
@@ -46,54 +46,11 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          //NOTE: For testing only, get SCG by Id, otherwise, use 'uscg' above
          SpecimenCollectionGroup scg = ImportSCG.getSCGById(id); 
          
-         String codeId   = excel[rowNo][16];
-         String lnvial   = excel[rowNo][19];
-         double numAliquots = Double.parseDouble(lnvial);
-
-         String codeId = excel[rowNo][16];
-         if (codeId.startsWith("BF")) {  
-           //Create Fluid Specimen
-           //FluidSpecimen fs = ImportFliuidSpecimen.createFluidSpecimen (null,new,scg,excel,rowNo);
-         } else {
-           //Create Tissue Specimen
-           TissueSpecimen newts = ImportTissueSpecimen.createTissueSpecimen (null,"New",scg,excel,rowNo);
-           TissueSpecimen unewts = ImportTissueSpecimen.updateTissueSpecimen (newts,excel,rowNo);
-
-           TissueSpecimen derivedts = ImportTissueSpecimen.createTissueSpecimen (unewts,"Derived",scg,excel,rowNo);
-           TissueSpecimen uderivedts = ImportTissueSpecimen.updateTissueSpecimen (derivedts,excel,rowNo);
-           for (double i = 0; i < numAliquots; i++) {
-            //ImportTissueSpecimen.createAliquotTissueSpecimen
-            //ImportTissueSpecimen.updateAliquotTissueSpecimen
-           } 
-         }
+         ImportSpecimen.addSpecimens(scg,excel,rowNo);
  
          System.out.println("----------END Processing for row number "+ rowNo + "---------------");
          rowNo++;
       } 
       System.out.println("---------END DataMigrationUtil.writeToCaTissue()---------");
   }
-
-  public static Participant searchParticipant()  {
-
-     Participant returnedParticipant = null;
-     Participant participant = new Participant();
-     Logger.out.info(" searching particpant");
-     participant.setLastName(new String("Martin"));
-     try {
-        List resultList = appService.search(Participant.class,participant);
-        for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
-           returnedParticipant = (Participant) resultsIterator.next();
-           Logger.out.info(" Domain Object is successfully Found ---->  :: " + returnedParticipant.getFirstName() +" "+returnedParticipant.getLastName());
-           Logger.out.info(" Participant is successfully Found ---->  :: " + returnedParticipant.getFirstName() +" "+returnedParticipant.getLastName());
-         }
-     } catch (Exception e) {
-       Logger.out.error(e.getMessage(),e);
-       System.out.println("DataMigrationUtil.searchParticipant()"+e.getMessage());
-       e.printStackTrace();
-       assertFalse("Did not find particpant Domain Object", true);
-    }
-    return returnedParticipant;
-  }
-
-
 } //end DataMigrationUtil()
