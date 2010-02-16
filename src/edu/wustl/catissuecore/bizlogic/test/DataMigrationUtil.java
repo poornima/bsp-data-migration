@@ -18,7 +18,7 @@ import edu.wustl.common.util.logger.Logger;
 public class DataMigrationUtil extends CaTissueBaseTestCase {
 
   private static int rowNo = 1; // Row number in the excel sheet.
-  private static long id = 23;
+  private static long id = 4;
 
   public void writeToCaTissue(String excel[][], int rowCount) throws Exception {
  
@@ -28,25 +28,28 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          System.out.println("----------START Processing for row number "+ rowNo + "---------------");
          
          //Initialize Participant 
-         //Participant ipart = ImportParticipant.initParticipant(excel,rowNo);
+         Participant ipart = ImportParticipant.initParticipant(excel,rowNo);
 
          //Register Participant to CP
-         //Participant rpart = ImportCPR.registerParticipantToCP(ipart,excel,rowNo);
+         Participant rpart = ImportCPR.registerParticipantToCP(ipart,excel,rowNo);
 
          //Get the Participant's SCG 
-         //SpecimenCollectionGroup scg = ImportParticipant.getParticipantSCG(rpart);
+         SpecimenCollectionGroup scg = ImportParticipant.getParticipantSCG(rpart);
 
          //Update SCG 
-         //SpecimenCollectionGroup uscg = ImportSCG.updateSCG(scg,excel,rowNo);
+         SpecimenCollectionGroup uscg = ImportSCG.updateSCG(scg,excel,rowNo);
          //Note: Steps 3 and 4 are necessary for setting the following SCG attributes
            //SCG Collection Site, Surg Path no, Clinical Status, Collection Status
            //Collection and Received Event Parameters (Collection Procedure and Container, Received Quality)
         //The above attributes cannot be set while creating an SCG i.e., in ImportSCG.createSCG() method 
 
          //NOTE: For testing only, get SCG by Id, otherwise, use 'uscg' above
-         SpecimenCollectionGroup scg = ImportSCG.getSCGById(id); 
+         //SpecimenCollectionGroup scg = ImportSCG.getSCGById(id); 
          
-         ImportSpecimen.addSpecimens(scg,excel,rowNo);
+         ImportSpecimen.addSpecimens(uscg,excel,rowNo);
+
+         //Add Storage Container and Positions
+         //ImportSpecimen.setSP(excel,rowNo);
  
          System.out.println("----------END Processing for row number "+ rowNo + "---------------");
          rowNo++;

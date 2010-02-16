@@ -1,25 +1,25 @@
-ERROR 10:52:58,806 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
- INFO 10:52:58,830 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 10:52:58,833 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 10:52:58,945 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 10:52:59,129 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 10:52:59,146 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
- INFO 10:52:59,152 (CollectionFactory) - JDK 1.4+ collections available
- INFO 10:52:59,161 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
- INFO 10:52:59,165 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
- INFO 10:52:59,167 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 10:52:59,170 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
- INFO 10:52:59,438 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
- INFO 10:52:59,490 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 10:52:59,493 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 10:52:59,499 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
- INFO 10:52:59,501 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 10:52:59,524 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 10:52:59,525 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
- INFO 10:52:59,525 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
- INFO 10:52:59,527 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
- INFO 10:52:59,528 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 10:52:59,529 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ERROR 16:43:28,166 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 16:43:28,176 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 16:43:28,177 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 16:43:28,221 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 16:43:28,294 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 16:43:28,299 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 16:43:28,301 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 16:43:28,304 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 16:43:28,306 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 16:43:28,307 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 16:43:28,309 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 16:43:28,425 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 16:43:28,450 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 16:43:28,452 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 16:43:28,454 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 16:43:28,456 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 16:43:28,468 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 16:43:28,468 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 16:43:28,468 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 16:43:28,470 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 16:43:28,470 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 16:43:28,470 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
 ---------START ExcelTestCaseUtility.registerParticipants----------
 user.dir  /home/catissue/src/BSP_Data_Migration
 START Excel file ReaderConstructor
@@ -32,83 +32,89 @@ excel length 3
 ---------START DataMigrationUtil.writeToCaTissue()---------
 Total no. of rows: 2
 ----------START Processing for row number 1---------------
- WARN 10:53:00,184 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,187 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- INFO 10:53:00,188 (ImportSCG) -  searching domain object
- WARN 10:53:00,394 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,446 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,471 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,478 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,502 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,514 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,538 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,560 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,572 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-SCG by id is: Dev Import BSP_30_22 Id: 23
- INFO 10:53:00,579 (ImportSCG) -  Domain Object is successfully Found ---->  :: Dev Import BSP_30_22
+---------START ImportParticipant.initParticipant()---------
+lastname=Villarreal firstname=Sandra middlename= dob=27290.0 gender=F hospitalOR=UAH medrecno=1461640 race=Caucasian
+ WARN 16:43:28,768 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+---------START ImportSite.getSite()---------
+ WARN 16:43:28,773 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Searching Domain Object........
+ WARN 16:43:29,005 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportCPR.initCPR()---------
+ WARN 16:43:29,017 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:43:29,022 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:43:29,023 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Searching Domain Object........
+ WARN 16:43:29,150 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Domain Object found is ---->  :: Dev Import BSP,1,dev-import-bsp
+CP is Dev Import BSP
+********Consent Tier Collection is not null
+---------START ImportSCG.createSCG()---------
+ WARN 16:43:29,174 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+---------END ImportSCG.createSCG()---------
+Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@15a6029
+---------END ImportCPR.initCPR()---------
+ WARN 16:43:29,551 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:43:29,571 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:43:29,582 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:43:29,598 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Object created successfully
+Participant Added successfully .. id is 7First Name is: Sandra Last Name is: Villarreal
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportParticipant.getParticipantSCG()---------
+---------END ImportParticipant.getParticipantSCG()---------
+---------START ImportSCG.updateSCG()---------
+---------START ImportSite.getSite()---------
+Searching Domain Object........
+ Domain Object is successfully Found ---->  :: UAH 2 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportSpecimenEventParameters.addCEP()---------
+---------END ImportSpecimenEventParameters.addCEP()---------
+---------START ImportSpecimenEventParameters.addREP()---------
+---------END ImportSpecimenEventParameters.addREP()---------
+Specimen Collection Status: true
+---------END ImportSCG.updateSCG()---------
 ---------START ImportSpecimen.addSpecimens()---------
----------START ImportTissueSpecimen.createTissueSpecimen()---------
----------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
- WARN 10:53:00,600 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:53:00,601 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+---------START ImportFluidSpecimen.createFluidSpecimen()---------
+---------START ImportFluidSpecimen.setFluidSpecimenAttributes()---------
+ WARN 16:43:30,831 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 16:43:30,833 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------START ImportSpecimen.setSpChar()---------
 ---------END ImportSpecimen.setSpChar()---------
 ---------START ImportSpecimenEventParameters.addCEP()---------
 ---------END ImportSpecimenEventParameters.addCEP()---------
 ---------START ImportSpecimenEventParameters.addREP()---------
 ---------END ImportSpecimenEventParameters.addREP()---------
----------END ImportTissueSpecimen.setTissueSpecimenAttributes()---------
----------START ImportTissueSpecimen.setLabelAndBarcode()---------
----------END ImportTissueSpecimen.setLabelAndBarcode()---------
-ImportTissueSpecimen.createTissueSpecimen()Problem while inserting data/changes to database.
----------End ImportTissueSpecimen.createTissueSpecimen()---------
----------START ImportTissueSpecimen.createTissueSpecimen()---------
----------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
+---------END ImportFluidSpecimen.setFluidSpecimenAttributes()---------
+---------START ImportFluidSpecimen.setLabelAndBarcode()---------
+---------END ImportFluidSpecimen.setLabelAndBarcode()---------
+Object created successfully
+Tissue specimen added successfully: Lineage New Label: BF970901076-New Id: edu.wustl.catissuecore.domain.Specimen_18
+---------End ImportFluidSpecimen.createFluidSpecimen()---------
+---------START ImportFluidSpecimen.createFluidSpecimen()---------
+---------START ImportFluidSpecimen.setFluidSpecimenAttributes()---------
 ---------START ImportSpecimen.setSpChar()---------
 ---------END ImportSpecimen.setSpChar()---------
 ---------START ImportSpecimenEventParameters.addCEP()---------
 ---------END ImportSpecimenEventParameters.addCEP()---------
 ---------START ImportSpecimenEventParameters.addREP()---------
 ---------END ImportSpecimenEventParameters.addREP()---------
----------END ImportTissueSpecimen.setTissueSpecimenAttributes()---------
----------START ImportTissueSpecimen.setLabelAndBarcode()---------
----------END ImportTissueSpecimen.setLabelAndBarcode()---------
-ImportTissueSpecimen.createTissueSpecimen()Problem while inserting data/changes to database.
----------End ImportTissueSpecimen.createTissueSpecimen()---------
----------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------
----------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
----------START ImportSpecimen.setSpChar()---------
----------END ImportSpecimen.setSpChar()---------
----------START ImportSpecimenEventParameters.addCEP()---------
----------END ImportSpecimenEventParameters.addCEP()---------
----------START ImportSpecimenEventParameters.addREP()---------
----------END ImportSpecimenEventParameters.addREP()---------
----------END ImportTissueSpecimen.setTissueSpecimenAttributes()---------
----------START ImportTissueSpecimen.setLabelAndBarcode()---------
-currentAliquot = 1
----------END ImportTissueSpecimen.setLabelAndBarcode()---------
-ImportTissueSpecimen.createAliquotTissueSpecimen()Problem while inserting data/changes to database.
----------End ImportTissueSpecimen.createTissueSpecimen()---------
----------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------
----------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
----------START ImportSpecimen.setSpChar()---------
----------END ImportSpecimen.setSpChar()---------
----------START ImportSpecimenEventParameters.addCEP()---------
----------END ImportSpecimenEventParameters.addCEP()---------
----------START ImportSpecimenEventParameters.addREP()---------
----------END ImportSpecimenEventParameters.addREP()---------
----------END ImportTissueSpecimen.setTissueSpecimenAttributes()---------
----------START ImportTissueSpecimen.setLabelAndBarcode()---------
-currentAliquot = 2
----------END ImportTissueSpecimen.setLabelAndBarcode()---------
-ImportTissueSpecimen.createAliquotTissueSpecimen()Problem while inserting data/changes to database.
----------End ImportTissueSpecimen.createTissueSpecimen()---------
----------START ImportTissueSpecimen.updateTissueSpecimen()---------
-ImportTissueSpecimen.updateTissueSpecimen()Please enter valid Identifier!! Identifier should not be NULL
----------End ImportTissueSpecimen.updateTissueSpecimen()---------
----------START ImportTissueSpecimen.updateTissueSpecimen()---------
-ImportTissueSpecimen.updateTissueSpecimen()Please enter valid Identifier!! Identifier should not be NULL
----------End ImportTissueSpecimen.updateTissueSpecimen()---------
+---------END ImportFluidSpecimen.setFluidSpecimenAttributes()---------
+---------START ImportFluidSpecimen.setLabelAndBarcode()---------
+---------END ImportFluidSpecimen.setLabelAndBarcode()---------
+Object created successfully
+Tissue specimen added successfully: Lineage Derived Label: BF970901076-Derived Id: edu.wustl.catissuecore.domain.Specimen_19
+---------End ImportFluidSpecimen.createFluidSpecimen()---------
+---------START ImportFluidSpecimen.updateFluidSpecimen()---------
+Object updated successfully
+Tissue specimen updated: collection status: Collected Label: BF970901076-New Av.Qty: 0.0 Id: edu.wustl.catissuecore.domain.Specimen_18
+---------End ImportFluidSpecimen.updateFluidSpecimen()---------
+---------START ImportFluidSpecimen.updateFluidSpecimen()---------
+Object updated successfully
+Tissue specimen updated: collection status: Collected Label: BF970901076-Derived Av.Qty: 0.0 Id: edu.wustl.catissuecore.domain.Specimen_19
+---------End ImportFluidSpecimen.updateFluidSpecimen()---------
 ---------END ImportSpecimen.addSpecimens()---------
 ----------END Processing for row number 1---------------
 ---------END DataMigrationUtil.writeToCaTissue()---------

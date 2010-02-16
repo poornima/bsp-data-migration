@@ -237,4 +237,28 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
       }
       System.out.println("---------END ImportTissueSpecimen.setLabelAndBarcode()---------");
    } 
+
+   public static TissueSpecimen getAliquotByLabel(String label) {
+
+      System.out.println("---------START ImportTissueSpecimen.getAliquotByLabel()---------");
+      TissueSpecimen returnedspecimen = null; 
+      TissueSpecimen specimen = new TissueSpecimen();
+      specimen.setLabel(label);
+      Logger.out.info(" searching domain object");
+      try {
+          List resultList = appService.search(TissueSpecimen.class, specimen);
+          for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
+             returnedspecimen = (TissueSpecimen) resultsIterator.next();
+             System.out.println("Aliquot found is: " + returnedspecimen.getLabel() + " Id: " + returnedspecimen.getId());
+             Logger.out.info(" Domain Object is successfully Found ---->  :: " + returnedspecimen.getLabel());
+          }
+          assertTrue("Specimen found", true);
+      } catch (Exception e) {
+          Logger.out.error(e.getMessage(), e);
+          e.printStackTrace();
+          assertFalse("Could not find Aliquot by label", true);
+      }
+      System.out.println("---------END ImportTissueSpecimen.getAliquotByLabel()---------");
+      return returnedspecimen;
+   }
 } //end ImportTissueSpecimen()
