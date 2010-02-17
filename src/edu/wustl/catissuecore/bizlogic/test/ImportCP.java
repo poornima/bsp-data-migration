@@ -30,7 +30,7 @@ public class ImportCP extends CaTissueBaseTestCase {
   public static CollectionProtocol searchCP() {
 
       CollectionProtocol cp = new CollectionProtocol();
-      cp.setShortTitle(new String ("dev-import-bsp"));
+      cp.setShortTitle(new String ("import-bsp"));
       //cp.setId(new Long (63));
       System.out.println("Searching Domain Object........");
       try {
