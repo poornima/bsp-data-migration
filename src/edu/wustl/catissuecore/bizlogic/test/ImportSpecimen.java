@@ -59,16 +59,13 @@ public class ImportSpecimen extends CaTissueBaseTestCase {
          TissueSpecimen dts = ImportTissueSpecimen.createTissueSpecimen (pts,"Derived",scg,excel,rowNo);
 
          //Aliquot Tissue Specimens
-         TissueSpecimen ats = null;
          for (int currentAliquot = 1; currentAliquot <= totalNoAliquots; currentAliquot++) {
-         //for (int currentAliquot = 1; currentAliquot <= 2; currentAliquot++) {
-            ats = ImportTissueSpecimen.createAliquotTissueSpecimen (dts,"Aliquot",scg,excel,rowNo,currentAliquot);
+            TissueSpecimen ats = ImportTissueSpecimen.createAliquotTissueSpecimen (dts,"Aliquot",scg,excel,rowNo,currentAliquot);
          }
 
          //Update Parent and Child Specimens
          TissueSpecimen upts = ImportTissueSpecimen.updateTissueSpecimen (pts,codeId,rowNo);
          TissueSpecimen udts = ImportTissueSpecimen.updateTissueSpecimen (dts,codeId,rowNo);
-         //TissueSpecimen uas = ImportTissueSpecimen.updateAliquotTissueSpecimen (as,codeId,rowNo,totalNoAliquots);
        }
        System.out.println("---------END ImportSpecimen.addSpecimens()---------");
    } 

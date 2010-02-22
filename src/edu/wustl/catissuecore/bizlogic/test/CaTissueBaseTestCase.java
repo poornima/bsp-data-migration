@@ -22,7 +22,7 @@ public class CaTissueBaseTestCase extends BaseTestCase{
         // these two vars copied from ~/src/BSP_Data_Migration
 
         public static final String USER_NAME = "ppreddy@uab.edu";
-        public static final String PASSWORD = "hard2Guess";
+        public static final String PASSWORD = "c0mput34Uab";
 
 
 	static ApplicationService appService = null;
@@ -40,7 +40,7 @@ public class CaTissueBaseTestCase extends BaseTestCase{
 		ClientSession cs = ClientSession.getInstance();
 		try
 		{ 
-			cs.startSession("ppreddy@uab.edu", "hard2Guess");
+			cs.startSession("ppreddy@uab.edu", "c0mput34Uab");
 		} 	
 					
 		catch (Exception ex) 

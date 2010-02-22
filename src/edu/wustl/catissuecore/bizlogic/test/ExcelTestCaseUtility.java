@@ -24,9 +24,9 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
 			System.out.println("---------START ExcelTestCaseUtility.registerParticipants----------");
 			System.out.println("user.dir  " + System.getProperty("user.dir"));
 			String excelFilePath = System.getProperty("user.dir")
-			 //+ "/excelFiles/dev-data-pd.xls";
+			 + "/excelFiles/dev-data-pd.xls";
 			 //+ "/excelFiles/dev-data-tc.xls";
-			 + "/excelFiles/PatientDemographics-Import-Data.xls";
+			 //+ "/excelFiles/PatientDemographics-Import-Data.xls";
 			ExcelFileReader EX_CP = new ExcelFileReader();
 			String allexcel[][] = EX_CP.setInfo(excelFilePath);
                         int rowCount = EX_CP.getRowCount();

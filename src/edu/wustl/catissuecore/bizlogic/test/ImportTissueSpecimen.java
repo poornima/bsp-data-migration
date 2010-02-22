@@ -60,6 +60,9 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
                                                              String excel[][], int rowNo, int currentAliquot) {
 
       String codeId = excel[rowNo][16];
+      String lnvial = excel[rowNo][19];
+
+      Double qtyPerAliquot = 1.0; 
 
       System.out.println("---------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------");
       TissueSpecimen ts = null;
@@ -69,10 +72,11 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
          ts.setLineage(lineage);
          setLabelAndBarcode(lineage,ts,codeId,rowNo,currentAliquot);
          ts.setSpecimenCollectionGroup(scg);
+         ts.setInitialQuantity(qtyPerAliquot);
+         ts.setAvailableQuantity(qtyPerAliquot);
          ts.setCollectionStatus("Collected");
          ts.setIsAvailable(true);
          ts.setActivityStatus("Active");
-         //ts.setConsentTierStatusCollectionFromSCG(scg);
 
          Collection externalIdentifierCollection = new HashSet();
          ExternalIdentifier externalIdentifier = new ExternalIdentifier();
@@ -222,10 +226,15 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
 
       System.out.println("---------START ImportTissueSpecimen.setLabelAndBarcode()---------");
       if ( (lineage.equals("New")) || (lineage.equals("Derived")) ) {
-         ts.setLabel(codeId+"-"+lineage);
-         ts.setBarcode(codeId+"-"+lineage);
+         ts.setLabel(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+         ts.setBarcode(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+         //ts.setLabel(codeId+"-"+lineage);
+         //ts.setBarcode(codeId+"-"+lineage);
       } else if (lineage.equals("Aliquot")) {
          System.out.println("currentAliquot = "+currentAliquot);
+         ts.setLabel(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+         ts.setBarcode(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+/*
          if (currentAliquot < 10) {
             ts.setLabel(codeId+"-0"+currentAliquot);
             ts.setBarcode(codeId+"-0"+currentAliquot);
@@ -233,6 +242,7 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
             ts.setLabel(codeId+"-"+currentAliquot);
             ts.setBarcode(codeId+"-"+currentAliquot);
          }   
+*/
          //System.out.println("currentAliquot = "+currentAliquot+ " Label = "+codeId+currentAliquot);
       }
       System.out.println("---------END ImportTissueSpecimen.setLabelAndBarcode()---------");
