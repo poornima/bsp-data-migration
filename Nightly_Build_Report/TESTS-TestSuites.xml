@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="cagrid02.lab.ac.uab.edu" id="0" name="CaTissueTestSuite" package="edu.wustl.catissuecore.bizlogic.test" tests="1" time="2.801" timestamp="2010-02-22T16:12:12">
+  <testsuite errors="0" failures="0" hostname="cagrid02.lab.ac.uab.edu" id="0" name="CaTissueTestSuite" package="edu.wustl.catissuecore.bizlogic.test" tests="1" time="6.822" timestamp="2010-02-22T20:33:21">
       <properties>
           <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
 
@@ -144,30 +144,30 @@
 
       </properties>
 
-      <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="2.625" />
+      <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="6.273" />
 
-      <system-out><![CDATA[ERROR 10:12:12,788 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
- INFO 10:12:12,798 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 10:12:12,799 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 10:12:12,848 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 10:12:12,929 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 10:12:12,934 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
- INFO 10:12:12,937 (CollectionFactory) - JDK 1.4+ collections available
- INFO 10:12:12,940 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
- INFO 10:12:12,942 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
- INFO 10:12:12,943 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 10:12:12,945 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
- INFO 10:12:13,088 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
- INFO 10:12:13,118 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 10:12:13,120 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 10:12:13,122 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
- INFO 10:12:13,124 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 10:12:13,135 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 10:12:13,135 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
- INFO 10:12:13,135 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
- INFO 10:12:13,136 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
- INFO 10:12:13,137 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 10:12:13,137 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+      <system-out><![CDATA[ERROR 14:33:21,656 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 14:33:21,681 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 14:33:21,683 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 14:33:21,803 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 14:33:22,014 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 14:33:22,030 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 14:33:22,037 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 14:33:22,044 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 14:33:22,048 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 14:33:22,050 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 14:33:22,054 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 14:33:22,390 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 14:33:22,460 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 14:33:22,463 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 14:33:22,470 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 14:33:22,475 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 14:33:22,505 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 14:33:22,506 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 14:33:22,507 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 14:33:22,510 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 14:33:22,511 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 14:33:22,511 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
 ---------START ExcelTestCaseUtility.registerParticipants----------
 user.dir  /home/catissue/src/bsp-data-migration
 START Excel file ReaderConstructor
@@ -180,25 +180,25 @@ excel length 3
 ---------START DataMigrationUtil.writeToCaTissue()---------
 Total no. of rows: 2
 ----------START Processing for row number 1---------------
- WARN 10:12:13,426 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,428 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- INFO 10:12:13,428 (ImportSCG) -  searching domain object
- WARN 10:12:13,551 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,571 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,582 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,585 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,595 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,599 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,608 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,616 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,709 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-SCG by id is: Import Brain SPORE_23_23 Id: 24
- INFO 10:12:13,712 (ImportSCG) -  Domain Object is successfully Found ---->  :: Import Brain SPORE_23_23
+ WARN 14:33:23,434 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:23,439 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ INFO 14:33:23,440 (ImportSCG) -  searching domain object
+ WARN 14:33:23,828 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:23,875 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:23,900 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:23,907 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:23,928 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:23,952 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:23,988 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:24,014 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:24,024 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+SCG by id is: Import Brain SPORE_1_1 Id: 2
+ INFO 14:33:24,030 (ImportSCG) -  Domain Object is successfully Found ---->  :: Import Brain SPORE_1_1
 ---------START ImportSpecimen.addSpecimens()---------
 ---------START ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
- WARN 10:12:13,722 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 10:12:13,723 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:24,047 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:33:24,048 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------START ImportSpecimen.setSpChar()---------
 ---------END ImportSpecimen.setSpChar()---------
 ---------START ImportSpecimenEventParameters.addCEP()---------
@@ -209,7 +209,7 @@ SCG by id is: Import Brain SPORE_23_23 Id: 24
 ---------START ImportTissueSpecimen.setLabelAndBarcode()---------
 ---------END ImportTissueSpecimen.setLabelAndBarcode()---------
 Object created successfully
-Tissue specimen added successfully: Lineage New Label: 0211011041266855133831New Id: edu.wustl.catissuecore.domain.Specimen_4287
+Tissue specimen added successfully: Lineage New Label: 0211011041266870804219New Id: edu.wustl.catissuecore.domain.Specimen_10
 ---------End ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
@@ -223,7 +223,7 @@ Tissue specimen added successfully: Lineage New Label: 0211011041266855133831New
 ---------START ImportTissueSpecimen.setLabelAndBarcode()---------
 ---------END ImportTissueSpecimen.setLabelAndBarcode()---------
 Object created successfully
-Tissue specimen added successfully: Lineage Derived Label: 0211011041266855134026Derived Id: edu.wustl.catissuecore.domain.Specimen_4288
+Tissue specimen added successfully: Lineage Derived Label: 0211011041266870804553Derived Id: edu.wustl.catissuecore.domain.Specimen_11
 ---------End ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------
 ---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
@@ -238,7 +238,7 @@ Tissue specimen added successfully: Lineage Derived Label: 021101104126685513402
 currentAliquot = 1
 ---------END ImportTissueSpecimen.setLabelAndBarcode()---------
 Object created successfully
-Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266855134371Aliquot Id: edu.wustl.catissuecore.domain.Specimen_4289
+Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266870804867Aliquot Id: edu.wustl.catissuecore.domain.Specimen_12
 ---------End ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------
 ---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
@@ -253,7 +253,7 @@ Tissue specimen added successfully: Lineage Aliquot Label: 021101104126685513437
 currentAliquot = 2
 ---------END ImportTissueSpecimen.setLabelAndBarcode()---------
 Object created successfully
-Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266855134508Aliquot Id: edu.wustl.catissuecore.domain.Specimen_4290
+Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266870805255Aliquot Id: edu.wustl.catissuecore.domain.Specimen_13
 ---------End ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------
 ---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
@@ -268,7 +268,7 @@ Tissue specimen added successfully: Lineage Aliquot Label: 021101104126685513450
 currentAliquot = 3
 ---------END ImportTissueSpecimen.setLabelAndBarcode()---------
 Object created successfully
-Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266855134652Aliquot Id: edu.wustl.catissuecore.domain.Specimen_4291
+Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266870805646Aliquot Id: edu.wustl.catissuecore.domain.Specimen_14
 ---------End ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------
 ---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
@@ -283,7 +283,7 @@ Tissue specimen added successfully: Lineage Aliquot Label: 021101104126685513465
 currentAliquot = 4
 ---------END ImportTissueSpecimen.setLabelAndBarcode()---------
 Object created successfully
-Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266855134797Aliquot Id: edu.wustl.catissuecore.domain.Specimen_4292
+Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266870806029Aliquot Id: edu.wustl.catissuecore.domain.Specimen_15
 ---------End ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------
 ---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------
@@ -298,15 +298,15 @@ Tissue specimen added successfully: Lineage Aliquot Label: 021101104126685513479
 currentAliquot = 5
 ---------END ImportTissueSpecimen.setLabelAndBarcode()---------
 Object created successfully
-Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266855134995Aliquot Id: edu.wustl.catissuecore.domain.Specimen_4293
+Tissue specimen added successfully: Lineage Aliquot Label: 0211011041266870806373Aliquot Id: edu.wustl.catissuecore.domain.Specimen_16
 ---------End ImportTissueSpecimen.createTissueSpecimen()---------
 ---------START ImportTissueSpecimen.updateTissueSpecimen()---------
 Object updated successfully
-Tissue specimen updated: collection status: Collected Label: 0211011041266855133831New Av.Qty: 5.0 Id: edu.wustl.catissuecore.domain.Specimen_4287
+Tissue specimen updated: collection status: Collected Label: 0211011041266870804219New Av.Qty: 5.0 Id: edu.wustl.catissuecore.domain.Specimen_10
 ---------End ImportTissueSpecimen.updateTissueSpecimen()---------
 ---------START ImportTissueSpecimen.updateTissueSpecimen()---------
 Object updated successfully
-Tissue specimen updated: collection status: Collected Label: 0211011041266855134026Derived Av.Qty: 5.0 Id: edu.wustl.catissuecore.domain.Specimen_4288
+Tissue specimen updated: collection status: Collected Label: 0211011041266870804553Derived Av.Qty: 5.0 Id: edu.wustl.catissuecore.domain.Specimen_11
 ---------End ImportTissueSpecimen.updateTissueSpecimen()---------
 ---------END ImportSpecimen.addSpecimens()---------
 ----------END Processing for row number 1---------------

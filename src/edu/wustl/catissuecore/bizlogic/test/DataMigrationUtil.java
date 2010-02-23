@@ -18,7 +18,7 @@ import edu.wustl.common.util.logger.Logger;
 public class DataMigrationUtil extends CaTissueBaseTestCase {
 
   private static int rowNo = 1; // Row number in the excel sheet.
-  private static long id = 24;
+  private static long id = 2;
 
   public void writeToCaTissue(String excel[][], int rowCount) throws Exception {
  
