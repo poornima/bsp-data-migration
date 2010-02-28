@@ -6,6 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.List;
 import edu.wustl.catissuecore.domain.CollectionProtocol;
+import edu.wustl.catissuecore.domain.CollectionProtocolEvent;
 import edu.wustl.catissuecore.domain.ConsentTier;
 import edu.wustl.common.util.Utility;
 import edu.wustl.common.util.logger.Logger;
@@ -49,7 +50,7 @@ public class ImportCP extends CaTissueBaseTestCase {
 
   public static CollectionProtocol setCP(CollectionProtocol cp) {
 
-      System.out.println("---------START ImportCP.updateCP()---------");
+      System.out.println("---------START ImportCP.setCP()---------");
       Collection consentTierColl = new LinkedHashSet();
       ConsentTier c = new ConsentTier();
       c.setId(new Long(1));
@@ -58,7 +59,7 @@ public class ImportCP extends CaTissueBaseTestCase {
       cp.setConsentTierCollection(consentTierColl);
       cp.setDescriptionURL("");
       cp.setActivityStatus("Active");
-      System.out.println("---------END ImportCP.updateCP()---------");
+      System.out.println("---------END ImportCP.setCP()---------");
       return cp;
   }
 } //end ImportCollectionProtocol()

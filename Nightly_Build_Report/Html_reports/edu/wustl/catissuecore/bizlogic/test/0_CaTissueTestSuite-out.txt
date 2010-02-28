@@ -1,25 +1,25 @@
-ERROR 16:46:08,600 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
- INFO 16:46:08,609 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 16:46:08,610 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 16:46:08,660 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 16:46:08,737 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 16:46:08,743 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
- INFO 16:46:08,745 (CollectionFactory) - JDK 1.4+ collections available
- INFO 16:46:08,748 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
- INFO 16:46:08,750 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
- INFO 16:46:08,751 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 16:46:08,753 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
- INFO 16:46:08,883 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
- INFO 16:46:08,908 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 16:46:08,909 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 16:46:08,912 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
- INFO 16:46:08,913 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 16:46:08,924 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 16:46:08,925 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
- INFO 16:46:08,925 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
- INFO 16:46:08,927 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
- INFO 16:46:08,927 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 16:46:08,927 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ERROR 13:29:31,518 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 13:29:31,527 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 13:29:31,528 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 13:29:31,573 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 13:29:31,645 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 13:29:31,649 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 13:29:31,652 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 13:29:31,655 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 13:29:31,657 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 13:29:31,657 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 13:29:31,659 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 13:29:31,778 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 13:29:31,802 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 13:29:31,803 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 13:29:31,805 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 13:29:31,807 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 13:29:31,817 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 13:29:31,817 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 13:29:31,818 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 13:29:31,818 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 13:29:31,819 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 13:29:31,819 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
 ---------START ExcelTestCaseUtility.registerParticipants----------
 user.dir  /home/catissue/src/bsp-data-migration
 START Excel file ReaderConstructor
@@ -32,255 +32,240 @@ excel length 3
 ---------START DataMigrationUtil.writeToCaTissue()---------
 Total no. of rows: 2
 ----------START Processing for row number 1---------------
----------START ImportParticipant.initParticipant()---------
-lastname=Davis firstname=Jolie middlename= dob=10-31-1982 gender=F hospitalOR=UAH medrecno=1643903 race=Caucasian
- WARN 16:46:09,238 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,178 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Date from excel is: 10-31-1982 Converted Date is Sun Oct 31 00:00:00 CDT 1982
----------START ImportSite.getSite()---------
- WARN 16:46:09,244 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-Searching Domain Object........
- WARN 16:46:09,375 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- Domain Object is successfully Found ---->  :: UAH 4 Collection Site
----------END ImportSite.getSite()---------
----------START ImportCPR.registerParticipantToCP()---------
----------START ImportCPR.initCPR()---------
- WARN 16:46:09,386 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 16:46:09,391 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 16:46:09,391 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-Searching Domain Object........
- WARN 16:46:09,428 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-Domain Object found is ---->  :: Import Brain SPORE,1,import-bsp
-CP is Import Brain SPORE
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-********Consent Tier Collection is not null
+is participant new = false
+Iam in not new participant block.........
+Date from excel is: 10-31-1982 Converted Date is Sun Oct 31 00:00:00 CDT 1982
+ INFO 13:29:32,182 (ImportParticipant) -  searching domain object
+ WARN 13:29:32,307 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,312 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,314 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,320 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,332 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,341 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ Domain Object is successfully Found ---->  :: Jolie Davis
+---------START ImportSCG.createAnotherVisitSCG()---------
+ WARN 13:29:32,349 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------START ImportSCG.createSCG()---------
- WARN 16:46:09,449 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------END ImportSCG.createSCG()---------
-Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@15a6029
----------END ImportCPR.initCPR()---------
- WARN 16:46:09,602 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 16:46:09,611 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 16:46:09,616 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 16:46:09,622 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-Object created successfully
-Participant Added successfully .. id is 11First Name is: Jolie Last Name is: Davis
----------START ImportCPR.registerParticipantToCP()---------
----------START ImportParticipant.getParticipantSCG()---------
----------END ImportParticipant.getParticipantSCG()---------
----------START ImportSCG.updateSCG()---------
 ---------START ImportSite.getSite()---------
 Searching Domain Object........
  Domain Object is successfully Found ---->  :: UAH 4 Collection Site
 ---------END ImportSite.getSite()---------
 ---------START ImportSpecimenEventParameters.addCEP()---------
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
+ WARN 13:29:32,397 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,398 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
 ---------END ImportSpecimenEventParameters.addCEP()---------
 ---------START ImportSpecimenEventParameters.addREP()---------
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+ WARN 13:29:32,429 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 ---------END ImportSpecimenEventParameters.addREP()---------
-Specimen Collection Status: true
----------END ImportSCG.updateSCG()---------
+ WARN 13:29:32,852 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+new scg created = Import Brain SPORE_11_28 collection status = Complete
+---------END ImportSCG.createAnotherVisitSCG()---------
 ---------START ImportSpecimen.addSpecimens()---------
 lnvial = 30
 Inside tissuespecimen
- WARN 16:46:10,217 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 16:46:10,218 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,871 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 13:29:32,871 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Before Creating Parent Tissue Specimen
-Spec:000101005-New
- Parent Cell Domain Object is successfully added ---->    ID:: 182
- Parent Cell Domain Object is successfully added ---->    Name:: 000101005-New
+Spec:050401110-New
+ Parent Cell Domain Object is successfully added ---->    ID:: 217
+ Parent Cell Domain Object is successfully added ---->    Name:: 050401110-New
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Before Creating Derived Tissue Specimen
-Spec:000101005-Derived
- Derived Domain Object is successfully added ---->    ID:: 183
- Derived Domain Object is successfully added ---->    Name:: 000101005-Derived
+Spec:050401110-Derived
+ Derived Domain Object is successfully added ---->    ID:: 218
+ Derived Domain Object is successfully added ---->    Name:: 050401110-Derived
 total no aliquots to be created = 30
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:1
-Spec:000101005-01
+Spec:050401110-01
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:2
-Spec:000101005-02
+Spec:050401110-02
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:3
-Spec:000101005-03
+Spec:050401110-03
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:4
-Spec:000101005-04
+Spec:050401110-04
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:5
-Spec:000101005-05
+Spec:050401110-05
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:6
-Spec:000101005-06
+Spec:050401110-06
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:7
-Spec:000101005-07
+Spec:050401110-07
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:8
-Spec:000101005-08
+Spec:050401110-08
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:9
-Spec:000101005-09
+Spec:050401110-09
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:10
-Spec:000101005-10
+Spec:050401110-10
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:11
-Spec:000101005-11
+Spec:050401110-11
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:12
-Spec:000101005-12
+Spec:050401110-12
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:13
-Spec:000101005-13
+Spec:050401110-13
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:14
-Spec:000101005-14
+Spec:050401110-14
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:15
-Spec:000101005-15
+Spec:050401110-15
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:16
-Spec:000101005-16
+Spec:050401110-16
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:17
-Spec:000101005-17
+Spec:050401110-17
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:18
-Spec:000101005-18
+Spec:050401110-18
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:19
-Spec:000101005-19
+Spec:050401110-19
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:20
-Spec:000101005-20
+Spec:050401110-20
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:21
-Spec:000101005-21
+Spec:050401110-21
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:22
-Spec:000101005-22
+Spec:050401110-22
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:23
-Spec:000101005-23
+Spec:050401110-23
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:24
-Spec:000101005-24
+Spec:050401110-24
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:25
-Spec:000101005-25
+Spec:050401110-25
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:26
-Spec:000101005-26
+Spec:050401110-26
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:27
-Spec:000101005-27
+Spec:050401110-27
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:28
-Spec:000101005-28
+Spec:050401110-28
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:29
-Spec:000101005-29
+Spec:050401110-29
 Inside tissuespecimen
 Setting parameters
-Date from excel is: 01-12-2000 Converted Date is Wed Jan 12 00:00:00 CST 2000
-Date from excel is: 11-14-2002 Converted Date is Thu Nov 14 00:00:00 CST 2002
+Date from excel is: 01-10-2005 Converted Date is Mon Jan 10 00:00:00 CST 2005
+Date from excel is: 01-11-2005 Converted Date is Tue Jan 11 00:00:00 CST 2005
 Befor creating Aliquot Cell Specimen:30
-Spec:000101005-30
+Spec:050401110-30
 ---------END ImportSpecimen.addSpecimens()---------
 ----------END Processing for row number 1---------------
 ---------END DataMigrationUtil.writeToCaTissue()---------

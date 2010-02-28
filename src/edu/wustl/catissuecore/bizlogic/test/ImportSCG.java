@@ -103,22 +103,44 @@ public class ImportSCG extends CaTissueBaseTestCase {
       return uscg;
    }
 
-   public static void createAnotherVisitSCG(Participant p, String[][] excel, int rowno) {
-  /*  
+   public static SpecimenCollectionGroup createAnotherVisitSCG(Participant p, String[][] excel, int rowno) {
+
+      String hospitalOR   = excel[rowno][5];
+      String sprNum       = excel[rowno][8];
+      String diagnosis    = excel[rowno][9];
+      String opDate       = excel[rowno][10];
+    
+      System.out.println("---------START ImportSCG.createAnotherVisitSCG()---------");
+      SpecimenCollectionGroup newSCG = null;
+  
       Collection cprCollection = p.getCollectionProtocolRegistrationCollection();  
       Iterator cprItr = cprCollection.iterator();
       while (cprItr.hasNext()) {
            CollectionProtocolRegistration cpr = (CollectionProtocolRegistration)cprItr.next();
-           SpecimenCollectionGroup scg = new SpecimenCollectionGroup(cpr);
-           ConsentTier consentTier = (ConsentTier)consentTierItr.next();
-           ConsentTierResponse consentResponse = new ConsentTierResponse();
-           consentResponse.setConsentTier(consentTier);
-           consentResponse.setResponse("Yes");
-           consentTierResponseCollection.add(consentResponse);
+           SpecimenCollectionGroup scg = new SpecimenCollectionGroup();
+           scg = createSCG(cpr);
+
+           scg.setName("Visit: "+opDate);
+           scg.setActivityStatus("Active");
+           scg.setClinicalDiagnosis(diagnosis);
+
+           Site site = ImportSite.getSite(hospitalOR);
+           scg.setSpecimenCollectionSite(site);
+           scg.setSurgicalPathologyNumber(sprNum);
+           scg.setClinicalStatus("Operative");
+           scg.setCollectionStatus("Complete");
+
+           ImportSpecimenEventParameters.addSEP(scg, excel, rowno);
+           try {
+              newSCG = (SpecimenCollectionGroup) appService.createObject(scg);
+              System.out.println("new scg created = "+newSCG.getName()+ " collection status = "+newSCG.getCollectionStatus());            
+           } catch (Exception e) {
+              System.out.println("Exception in creating new SCG createAnotherVisitSCG()");
+              e.printStackTrace();
+           }
       }
- */
-
-
+      System.out.println("---------END ImportSCG.createAnotherVisitSCG()---------");
+      return newSCG;
    }
 
    public static SpecimenCollectionGroup getSCGById(long id) {

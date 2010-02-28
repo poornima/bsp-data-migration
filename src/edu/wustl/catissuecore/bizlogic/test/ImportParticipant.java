@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.text.DateFormat;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Date;
 import java.util.Iterator;
 import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
@@ -57,38 +58,30 @@ public class ImportParticipant extends CaTissueBaseTestCase {
 
             Collection participantMedicalIdentifierCollection = new HashSet();
             ParticipantMedicalIdentifier pmi = new ParticipantMedicalIdentifier();
-            // check if this participant already exists
             pmi.setParticipant(participant);
-            String ptMedRecNo = pmi.getMedicalRecordNumber();
-            if (ptMedRecNo != null) {
-              System.out.println("Participant already exists:another visit: id:" + participant.getId()+
-              "First Name is: "+participant.getFirstName()+" Last Name is: "+participant.getLastName()+
-              "Medical Record Number is: "+ptMedRecNo);
-              ImportSCG.createAnotherVisitSCG(participant,excel,rowNo);   
-            } else {
-              Site site = ImportSite.getSite(hospitalOR);
-              pmi.setSite(site);
-              pmi.setMedicalRecordNumber(medRecNo);
-              pmi.setParticipant(participant);
-              participantMedicalIdentifierCollection.add(pmi);
-              participant.setParticipantMedicalIdentifierCollection(participantMedicalIdentifierCollection);
+            Site site = ImportSite.getSite(hospitalOR);
+            pmi.setSite(site);
+            pmi.setMedicalRecordNumber(medRecNo);
+            pmi.setParticipant(participant);
+            participantMedicalIdentifierCollection.add(pmi);
+            participant.setParticipantMedicalIdentifierCollection(participantMedicalIdentifierCollection);
 
-              Collection<Race> raceCollection = new HashSet<Race>();
-              Race race = new Race();
+            Collection<Race> raceCollection = new HashSet<Race>();
+            Race race = new Race();
 
-              raceName = getRaceFromCaTissue(raceFromAccess);
-              race.setRaceName(raceName);
-              race.setParticipant(participant);
-              raceCollection.add(race);
-              participant.setRaceCollection(raceCollection);
+            raceName = getRaceFromCaTissue(raceFromAccess);
+            race.setRaceName(raceName);
+            race.setParticipant(participant);
+            raceCollection.add(race);
+            participant.setRaceCollection(raceCollection);
 
-              if (raceFromAccess.equals("Hispanic"))
-                participant.setEthnicity("Hispanic or Latino");
-              else
-                participant.setEthnicity("Unknown");
+            if (raceFromAccess.equals("Hispanic"))
+              participant.setEthnicity("Hispanic or Latino");
+            else
+              participant.setEthnicity("Unknown");
 
-              participant.setActivityStatus("Active");
-            }
+            participant.setActivityStatus("Active");
+         
             return participant;
 
     } //end initParticipant()
@@ -162,5 +155,78 @@ public class ImportParticipant extends CaTissueBaseTestCase {
        System.out.println("---------END ImportParticipant.getParticipantSCG()---------");
        return scg;
    }
+
+   public static Boolean searchParticipant(String excel[][], int rowno) {
+     
+      String    lastName = excel[rowno][0];
+      String    firstName = excel[rowno][1];
+      String    middleName = excel[rowno][2];
+      String    medRecNo = excel[rowno][6];
+      String    dob = excel[rowno][3];
+      Date      date;
+      boolean   flag = false;
+
+      Participant participant = new Participant();
+      participant.setLastName(lastName);
+      participant.setFirstName(firstName);
+      participant.setMiddleName(middleName);
+      try {
+         date = CommonUtilities.convertDateFromExcel(dob);
+         participant.setBirthDate(date);
+      } catch (ParseException pe) {
+         System.out.println("ERROR: could not parse date in String: " +dob);
+      }
+      Collection pmiCollection=participant.getParticipantMedicalIdentifierCollection();
+      Iterator itr = pmiCollection.iterator();
+      while (itr.hasNext()) {
+         ParticipantMedicalIdentifier pmi = (ParticipantMedicalIdentifier) itr.next();
+         if ((pmi.getMedicalRecordNumber()).equals(medRecNo)) { 
+           System.out.println("Not new, Participant exists: lastname = "+participant.getLastName()+" firstname = "+participant.getFirstName());
+           flag = false;                
+         } else {
+           System.out.println("New Participant: lastname = "+participant.getLastName()+" firstname = "+participant.getFirstName());
+           flag = true;
+         }
+      } 
+      return flag;                 
+   }      
+
+   public static Participant getReturnParticipant(String excel[][], int rowno)  {
+
+      String    lastName = excel[rowno][0];
+      String    firstName = excel[rowno][1];
+      String    middleName = excel[rowno][2];
+      String    dob = excel[rowno][3];
+      Date      date;
+
+      Participant returnedParticipant = null;
+
+      Participant participant = new Participant();
+      participant.setLastName(lastName);
+      participant.setFirstName(firstName);
+      participant.setMiddleName(middleName);
+      try {
+         date = CommonUtilities.convertDateFromExcel(dob);
+         participant.setBirthDate(date);
+      } catch (ParseException pe) {
+         System.out.println("ERROR: could not parse date in String: " +dob);
+      }
+ 
+      Logger.out.info(" searching domain object");
+      try {
+         List resultList = appService.search(Participant.class,participant);
+         for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
+            returnedParticipant = (Participant) resultsIterator.next();
+            System.out.println(" Domain Object is successfully Found ---->  :: " + returnedParticipant.getFirstName() +" "+returnedParticipant.getLastName());
+         }
+      } catch (Exception e) {
+         Logger.out.error(e.getMessage(),e);
+         System.out.println("ImportParticipant.getReturnParticipant()"+e.getMessage());
+         e.printStackTrace();
+         assertFalse("Did not find Domain Object", true);
+      }
+      return returnedParticipant;
+   }
+
 
 } //end ImportParticipant()

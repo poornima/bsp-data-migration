@@ -48,10 +48,9 @@ public class ImportCPR extends CaTissueBaseTestCase {
 
   public static CollectionProtocolRegistration initCPR(Participant participant, String[][] excel, int rowNo) {
 
-     int row = rowNo;
-     String medRecNo = excel[row][6];  
-     String opDate   = excel[row][10];
-     Date   regDate;
+     String medRecNo = excel[rowNo][6];  
+     String opDate   = excel[rowNo][10];
+     Date   regDate = new Date();
 
      System.out.println("---------START ImportCPR.initCPR()---------");
      CollectionProtocolRegistration cpr = new CollectionProtocolRegistration();
