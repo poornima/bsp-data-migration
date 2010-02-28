@@ -156,7 +156,7 @@ public class ImportParticipant extends CaTissueBaseTestCase {
        return scg;
    }
 
-   public static Boolean searchParticipant(String excel[][], int rowno) {
+   public static Participant searchParticipant(String excel[][], int rowno) {
      
       String    lastName = excel[rowno][0];
       String    firstName = excel[rowno][1];
@@ -164,43 +164,8 @@ public class ImportParticipant extends CaTissueBaseTestCase {
       String    medRecNo = excel[rowno][6];
       String    dob = excel[rowno][3];
       Date      date;
-      boolean   flag = false;
-
-      Participant participant = new Participant();
-      participant.setLastName(lastName);
-      participant.setFirstName(firstName);
-      participant.setMiddleName(middleName);
-      try {
-         date = CommonUtilities.convertDateFromExcel(dob);
-         participant.setBirthDate(date);
-      } catch (ParseException pe) {
-         System.out.println("ERROR: could not parse date in String: " +dob);
-      }
-      Collection pmiCollection=participant.getParticipantMedicalIdentifierCollection();
-      Iterator itr = pmiCollection.iterator();
-      while (itr.hasNext()) {
-         ParticipantMedicalIdentifier pmi = (ParticipantMedicalIdentifier) itr.next();
-         if ((pmi.getMedicalRecordNumber()).equals(medRecNo)) { 
-           System.out.println("Not new, Participant exists: lastname = "+participant.getLastName()+" firstname = "+participant.getFirstName());
-           flag = false;                
-         } else {
-           System.out.println("New Participant: lastname = "+participant.getLastName()+" firstname = "+participant.getFirstName());
-           flag = true;
-         }
-      } 
-      return flag;                 
-   }      
-
-   public static Participant getReturnParticipant(String excel[][], int rowno)  {
-
-      String    lastName = excel[rowno][0];
-      String    firstName = excel[rowno][1];
-      String    middleName = excel[rowno][2];
-      String    dob = excel[rowno][3];
-      Date      date;
 
       Participant returnedParticipant = null;
-
       Participant participant = new Participant();
       participant.setLastName(lastName);
       participant.setFirstName(firstName);
@@ -211,7 +176,6 @@ public class ImportParticipant extends CaTissueBaseTestCase {
       } catch (ParseException pe) {
          System.out.println("ERROR: could not parse date in String: " +dob);
       }
- 
       Logger.out.info(" searching domain object");
       try {
          List resultList = appService.search(Participant.class,participant);
@@ -225,8 +189,6 @@ public class ImportParticipant extends CaTissueBaseTestCase {
          e.printStackTrace();
          assertFalse("Did not find Domain Object", true);
       }
-      return returnedParticipant;
-   }
-
-
+      return returnedParticipant;                 
+   }      
 } //end ImportParticipant()

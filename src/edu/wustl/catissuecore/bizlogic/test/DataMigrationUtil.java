@@ -30,9 +30,10 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
       while (rowNo < excel.length -1) {
          System.out.println("----------START Processing for row number "+ rowNo + "---------------");
 
-         boolean isParticipantNew = ImportParticipant.searchParticipant(excel,rowNo);         
-         System.out.println("is participant new = "+isParticipantNew);
-         if (isParticipantNew == true) { 
+         Participant ptObj = ImportParticipant.searchParticipant(excel,rowNo);         
+         System.out.println("participant = "+ptObj);
+         if (ptObj == null) { 
+           System.out.println(" Pt Obj is null block: participant = "+ptObj);
            //Initialize Participant 
            Participant ipart = ImportParticipant.initParticipant(excel,rowNo);
 
@@ -58,8 +59,9 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
              ImportSpecimen.addSpecimens(uscg,excel,rowNo);
            }
          } else {
-             Participant returnParticipant = ImportParticipant.getReturnParticipant(excel, rowNo); 
-             SpecimenCollectionGroup anotherVisitSCG = ImportSCG.createAnotherVisitSCG(returnParticipant, excel, rowNo);
+             System.out.println(" Pt Obj is not null block: participant = "+ptObj);
+             //Participant returnParticipant = ImportParticipant.getReturnParticipant(excel, rowNo); 
+             SpecimenCollectionGroup anotherVisitSCG = ImportSCG.createAnotherVisitSCG(ptObj, excel, rowNo);
              if ( lnvial.equals("") || lnvial.equals(null) ) {
                System.out.println("specimen qty is null. specimen should be available for distribution while adding");
                break; 
@@ -67,7 +69,6 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
                ImportSpecimen.addSpecimens(anotherVisitSCG,excel,rowNo);
              }
          } 
-
          //Add Storage Container and Positions
          //ImportSpecimen.setSP(excel,rowNo);
     
