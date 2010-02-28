@@ -33,8 +33,6 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
          boolean isParticipantNew = ImportParticipant.searchParticipant(excel,rowNo);         
          System.out.println("is participant new = "+isParticipantNew);
          if (isParticipantNew == true) { 
-             System.out.println("Iam in new participant block.........");
-/*
            //Initialize Participant 
            Participant ipart = ImportParticipant.initParticipant(excel,rowNo);
 
@@ -59,9 +57,7 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
            } else {
              ImportSpecimen.addSpecimens(uscg,excel,rowNo);
            }
-*/
          } else {
-             System.out.println("Iam in not new participant block.........");
              Participant returnParticipant = ImportParticipant.getReturnParticipant(excel, rowNo); 
              SpecimenCollectionGroup anotherVisitSCG = ImportSCG.createAnotherVisitSCG(returnParticipant, excel, rowNo);
              if ( lnvial.equals("") || lnvial.equals(null) ) {
