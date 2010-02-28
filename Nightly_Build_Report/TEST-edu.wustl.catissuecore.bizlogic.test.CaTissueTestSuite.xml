@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="cagrid02.lab.ac.uab.edu" name="edu.wustl.catissuecore.bizlogic.test.CaTissueTestSuite" tests="1" time="1.954" timestamp="2010-02-28T20:10:27">
+<testsuite errors="0" failures="1" hostname="cagrid02.lab.ac.uab.edu" name="edu.wustl.catissuecore.bizlogic.test.CaTissueTestSuite" tests="1" time="2.28" timestamp="2010-02-28T20:48:46">
   <properties>
     <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
     <property name="cobertura.dir" value="./classes/reports/coverage" />
@@ -73,33 +73,33 @@
     <property name="test.classes.dir" value="./classes" />
     <property name="sun.cpu.isalist" value="" />
   </properties>
-  <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="1.779">
+  <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="2.107">
     <failure message="Falied" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Falied
 	at edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase.testRegisterPart(Unknown Source)
 </failure>
   </testcase>
-  <system-out><![CDATA[ERROR 14:10:27,953 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
- INFO 14:10:27,962 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 14:10:27,963 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 14:10:28,015 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 14:10:28,096 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 14:10:28,101 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
- INFO 14:10:28,104 (CollectionFactory) - JDK 1.4+ collections available
- INFO 14:10:28,107 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
- INFO 14:10:28,109 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
- INFO 14:10:28,110 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 14:10:28,113 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
- INFO 14:10:28,251 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
- INFO 14:10:28,277 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 14:10:28,278 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 14:10:28,281 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
- INFO 14:10:28,282 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 14:10:28,294 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 14:10:28,294 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
- INFO 14:10:28,294 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
- INFO 14:10:28,296 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
- INFO 14:10:28,296 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 14:10:28,296 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+  <system-out><![CDATA[ERROR 14:48:46,612 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 14:48:46,622 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 14:48:46,623 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 14:48:46,671 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 14:48:46,750 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 14:48:46,756 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 14:48:46,758 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 14:48:46,761 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 14:48:46,763 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 14:48:46,764 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 14:48:46,766 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 14:48:46,891 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 14:48:46,915 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 14:48:46,916 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 14:48:46,919 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 14:48:46,920 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 14:48:46,932 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 14:48:46,932 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 14:48:46,933 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 14:48:46,934 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 14:48:46,934 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 14:48:46,934 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
 ---------START ExcelTestCaseUtility.registerParticipants----------
 user.dir  /home/catissue/src/bsp-data-migration
 START Excel file ReaderConstructor
@@ -112,20 +112,20 @@ excel length 3
 ---------START DataMigrationUtil.writeToCaTissue()---------
 Total no. of rows: 2
 ----------START Processing for row number 1---------------
- WARN 14:10:28,697 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,274 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Date from excel is: 07-17-1976 Converted Date is Sat Jul 17 00:00:00 CDT 1976
- INFO 14:10:28,701 (ImportParticipant) -  searching domain object
- WARN 14:10:28,825 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:10:28,831 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:10:28,833 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:10:28,840 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:10:28,853 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:10:28,862 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ INFO 14:48:47,278 (ImportParticipant) -  searching domain object
+ WARN 14:48:47,651 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,658 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,660 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,667 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,679 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,689 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
  Domain Object is successfully Found ---->  :: Kerrie Breedlove
 participant = edu.wustl.catissuecore.domain.Participant@d3db51
  Pt Obj is not null block: participant = edu.wustl.catissuecore.domain.Participant@d3db51
 ---------START ImportSCG.createAnotherVisitSCG()---------
- WARN 14:10:28,870 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,699 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------START ImportSCG.createSCG()---------
 ---------END ImportSCG.createSCG()---------
 ---------START ImportSite.getSite()---------
@@ -133,27 +133,27 @@ Searching Domain Object........
  Domain Object is successfully Found ---->  :: UAH 4 Collection Site
 ---------END ImportSite.getSite()---------
 ---------START ImportSpecimenEventParameters.addCEP()---------
- WARN 14:10:28,915 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:10:28,917 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,745 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,747 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Date from excel is: 04-28-2003 Converted Date is Mon Apr 28 00:00:00 CDT 2003
 ---------END ImportSpecimenEventParameters.addCEP()---------
 ---------START ImportSpecimenEventParameters.addREP()---------
- WARN 14:10:28,973 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:47,784 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Date from excel is: 12-18-2003 Converted Date is Thu Dec 18 00:00:00 CST 2003
 ---------END ImportSpecimenEventParameters.addREP()---------
- WARN 14:10:29,516 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-new scg created = Import Brain SPORE_13_30 collection status = Complete
+ WARN 14:48:48,299 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+new scg created = Import Brain SPORE_13_31 collection status = Complete
 ---------END ImportSCG.createAnotherVisitSCG()---------
 ---------START ImportSpecimen.addSpecimens()---------
 lnvial = 2
 Inside tissuespecimen
- WARN 14:10:29,534 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:10:29,535 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:48,318 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 14:48:48,318 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Setting parameters
 Date from excel is: 04-28-2003 Converted Date is Mon Apr 28 00:00:00 CDT 2003
 Date from excel is: 12-18-2003 Converted Date is Thu Dec 18 00:00:00 CST 2003
 Before Creating Parent Tissue Specimen
-ERROR 14:10:29,663 (ImportTissueSpecimen) - Problem while inserting data/changes to database.
+ERROR 14:48:48,644 (ImportTissueSpecimen) - Problem while inserting data/changes to database.
 gov.nih.nci.system.applicationservice.ApplicationException: Problem while inserting data/changes to database.
 	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.handleException(ApplicationServiceServerImpl.java:472)
 	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.callDelegator(ApplicationServiceServerImpl.java:426)
