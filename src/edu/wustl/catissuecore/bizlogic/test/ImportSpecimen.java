@@ -39,9 +39,9 @@ public class ImportSpecimen extends CaTissueBaseTestCase {
 
        System.out.println("---------START ImportSpecimen.addSpecimens()---------");
        System.out.println("lnvial = "+lnvial);
-       if ( (codeId.startsWith("BF")) || (icd0.contains("1004")) ) {
+       if (codeId.startsWith("BF")) {
          //Create Fluid Specimens
-        // ImportTissueSpecimen.createFluidSpecimen (scg,excel,rowNo);
+         ImportFluidSpecimen.createFluidSpecimen (scg,excel,rowNo);
        } else {
          //Create Tissue Specimens
          ImportTissueSpecimen.createTissueSpecimen (scg,excel,rowNo);

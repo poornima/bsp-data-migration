@@ -52,22 +52,28 @@ public class DataMigrationUtil extends CaTissueBaseTestCase {
 
              //NOTE: For testing only, get SCG by Id, otherwise, use 'uscg' above
              //SpecimenCollectionGroup scg = ImportSCG.getSCGById(id); 
+             ImportSpecimen.addSpecimens(uscg,excel,rowNo);
+/*
            if ( lnvial.equals("") || lnvial.equals(null) ) {
              System.out.println("specimen qty is null. specimen should be available for distribution while adding");
              break; 
            } else {
              ImportSpecimen.addSpecimens(uscg,excel,rowNo);
            }
+*/
          } else {
              System.out.println(" Pt Obj is not null block: participant = "+ptObj);
              //Participant returnParticipant = ImportParticipant.getReturnParticipant(excel, rowNo); 
              SpecimenCollectionGroup anotherVisitSCG = ImportSCG.createAnotherVisitSCG(ptObj, excel, rowNo);
+             ImportSpecimen.addSpecimens(anotherVisitSCG,excel,rowNo);
+/*
              if ( lnvial.equals("") || lnvial.equals(null) ) {
                System.out.println("specimen qty is null. specimen should be available for distribution while adding");
                break; 
              } else {
                ImportSpecimen.addSpecimens(anotherVisitSCG,excel,rowNo);
              }
+*/
          } 
          //Add Storage Container and Positions
          //ImportSpecimen.setSP(excel,rowNo);
