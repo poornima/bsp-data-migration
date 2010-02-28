@@ -64,6 +64,7 @@
 			<delete dir="${test.classes.dir}" />
 			<mkdir dir="${test.classes.dir}" />	
 	        <javac destdir="${test.classes.dir}" includes="**/*.java" includeAntRuntime="false">
+                  <!-- <compilerarg value="-Xlint"/> -->
 	            <src path="${test.src.dir}"/>
 	            <classpath>
 	       		  <fileset dir="${lib.dir}">

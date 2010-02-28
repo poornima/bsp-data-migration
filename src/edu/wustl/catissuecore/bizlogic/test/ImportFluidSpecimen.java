@@ -33,17 +33,16 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
       String codeId = excel[rowNo][16];
 
       System.out.println("---------START ImportFluidSpecimen.createFluidSpecimen()---------");
-      FluidSpecimen fs = null;
+      FluidSpecimen fs = new FluidSpecimen();
       try {
-         fs = setFluidSpecimenAttributes(scg,excel,rowNo);
          fs.setParentSpecimen(ps);
          fs.setLineage(lineage);
-         setLabelAndBarcode(lineage,fs,codeId,rowNo,0);
          fs.setSpecimenCollectionGroup(scg);
+         fs = setFluidSpecimenAttributes(fs,scg,excel,rowNo);
+         setLabelAndBarcode(lineage,fs,codeId,rowNo,0);
          fs.setCollectionStatus("Collected");
-         fs.setIsAvailable(true);  
-         fs.setActivityStatus("Active");
-         //fs.setConsentTierStatusCollectionFromSCG(scg);
+         fs.setIsAvailable(false);  
+         fs.setActivityStatus("Closed");
          fs = (FluidSpecimen) appService.createObject(fs);
          System.out.println("Object created successfully");
          System.out.println("Tissue specimen added successfully: Lineage " +fs.getLineage()+
@@ -59,7 +58,7 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
    public static FluidSpecimen updateFluidSpecimen (FluidSpecimen fluidSpec, String codeId, int rowNo) {
 
       System.out.println("---------START ImportFluidSpecimen.updateFluidSpecimen()---------");
-      FluidSpecimen fs = null; 
+      FluidSpecimen fs = new FluidSpecimen(); 
 
       fluidSpec.setApplyChangesTo("ApplyAll");
 
@@ -85,7 +84,7 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
       return fs;
    }
 
-   public static FluidSpecimen setFluidSpecimenAttributes (SpecimenCollectionGroup scg, String excel[][], int rowNo) {
+   public static FluidSpecimen setFluidSpecimenAttributes (FluidSpecimen fs, SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 
       String opDate	  = excel[rowNo][10];
       String octs         = excel[rowNo][17];
@@ -93,33 +92,29 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
       String lnvial	  = excel[rowNo][19];
       String tsite	  = excel[rowNo][20];
       String tside	  = excel[rowNo][21];
-      String specType 	  = "";
-      Date createdOn	  = null; 
-      boolean octsVal = false;
-      double quantity = 0;
+      Date createdOn = new Date(); 
+      double quantity = 0.0;
 
       System.out.println("---------START ImportFluidSpecimen.setFluidSpecimenAttributes()---------");
-      //System.out.println("opDate: "+createdOn+ " codeId: "+codeId+ " ocfs. "+ocfs. " specType: "+specType+
-      //                   " ocfs.al: "+ocfs.al+ " lnvial: "+lnvial+ " qty: "+quantity);
-      FluidSpecimen fs = new FluidSpecimen();
 
       fs.setSpecimenClass("Fluid");
-      //octsVal = Boolean.parseBoolean(octs);
-      //specType = octsVal ? "Fixed Tissue" : "Frozen Tissue";
       fs.setSpecimenType("Whole Blood");
 
-      SpecimenCharacteristics sc = ImportSpecimen.setSpChar(tsite,tside,rowNo);
-      fs.setSpecimenCharacteristics(sc);
+      //SpecimenCharacteristics sc = ImportSpecimen.setSpChar(tsite,tside,rowNo);
+      //fs.setSpecimenCharacteristics(sc);
 
       fs.setPathologicalStatus(pathStatus);
       try {
          createdOn = CommonUtilities.convertDateFromExcel(opDate);
          fs.setCreatedOn(createdOn);
       } catch (ParseException pe) {
-         System.out.println("ERROR: could not parse date in String: " +createdOn);
+         System.out.println("ERROR: could not parse date in String: " +opDate+"Date converted to is: "+createdOn);
       }
 
-      quantity = Double.parseDouble(lnvial);
+      if (lnvial.equals("") || lnvial.equals(null))
+        quantity = 0.0;
+      else
+        quantity = Double.parseDouble(lnvial);
       fs.setInitialQuantity(quantity);
       fs.setAvailableQuantity(quantity);
 

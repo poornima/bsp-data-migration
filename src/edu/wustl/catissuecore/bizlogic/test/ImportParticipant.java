@@ -24,8 +24,7 @@ import edu.wustl.common.util.logger.Logger;
  */
 public class ImportParticipant extends CaTissueBaseTestCase {
 
-    public static Participant initParticipant(String excel[][], int row) {
-        int rowNo = row; // Row number in the excel sheet
+    public static Participant initParticipant(String excel[][], int rowNo) {
         String    lastName = excel[rowNo][0];
         String    firstName = excel[rowNo][1];
         String    middleName = excel[rowNo][2];
@@ -52,35 +51,44 @@ public class ImportParticipant extends CaTissueBaseTestCase {
             } catch (ParseException pe) {
                System.out.println("ERROR: could not parse date in String: " +dob);
             }
-
+            participant.setVitalStatus("Unknown");
             gender = getGenderFromCaTissue(genderFromAccess);
             participant.setGender(gender);
 
             Collection participantMedicalIdentifierCollection = new HashSet();
             ParticipantMedicalIdentifier pmi = new ParticipantMedicalIdentifier();
-
-            Site site = ImportSite.getSite(hospitalOR);
-            pmi.setSite(site);
-            pmi.setMedicalRecordNumber(medRecNo);
+            // check if this participant already exists
             pmi.setParticipant(participant);
-            participantMedicalIdentifierCollection.add(pmi);
-            participant.setParticipantMedicalIdentifierCollection(participantMedicalIdentifierCollection);
+            String ptMedRecNo = pmi.getMedicalRecordNumber();
+            if (ptMedRecNo != null) {
+              System.out.println("Participant already exists:another visit: id:" + participant.getId()+
+              "First Name is: "+participant.getFirstName()+" Last Name is: "+participant.getLastName()+
+              "Medical Record Number is: "+ptMedRecNo);
+              ImportSCG.createAnotherVisitSCG(participant,excel,rowNo);   
+            } else {
+              Site site = ImportSite.getSite(hospitalOR);
+              pmi.setSite(site);
+              pmi.setMedicalRecordNumber(medRecNo);
+              pmi.setParticipant(participant);
+              participantMedicalIdentifierCollection.add(pmi);
+              participant.setParticipantMedicalIdentifierCollection(participantMedicalIdentifierCollection);
 
-            Collection<Race> raceCollection = new HashSet<Race>();
-            Race race = new Race();
+              Collection<Race> raceCollection = new HashSet<Race>();
+              Race race = new Race();
 
-            raceName = getRaceFromCaTissue(raceFromAccess);
-            race.setRaceName(raceName);
-            race.setParticipant(participant);
-            raceCollection.add(race);
-            participant.setRaceCollection(raceCollection);
+              raceName = getRaceFromCaTissue(raceFromAccess);
+              race.setRaceName(raceName);
+              race.setParticipant(participant);
+              raceCollection.add(race);
+              participant.setRaceCollection(raceCollection);
 
-            if (raceFromAccess.equals("Hispanic"))
-               participant.setEthnicity("Hispanic or Latino");
-            else
-               participant.setEthnicity("Unknown");
+              if (raceFromAccess.equals("Hispanic"))
+                participant.setEthnicity("Hispanic or Latino");
+              else
+                participant.setEthnicity("Unknown");
 
-            participant.setActivityStatus("Active");
+              participant.setActivityStatus("Active");
+            }
             return participant;
 
     } //end initParticipant()

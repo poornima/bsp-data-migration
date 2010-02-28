@@ -17,6 +17,7 @@ import edu.wustl.catissuecore.domain.FluidSpecimen;
 import edu.wustl.catissuecore.domain.SpecimenCharacteristics;
 import edu.wustl.catissuecore.domain.ConsentTierStatus;
 import edu.wustl.catissuecore.domain.ExternalIdentifier;
+import edu.wustl.catissuecore.domain.User;
 import edu.wustl.common.util.Utility;
 import edu.wustl.common.util.logger.Logger;
 
@@ -28,201 +29,7 @@ import edu.wustl.common.util.logger.Logger;
  */
 public class ImportTissueSpecimen extends CaTissueBaseTestCase {
 
-   public static TissueSpecimen createTissueSpecimen (TissueSpecimen ps, String lineage, SpecimenCollectionGroup scg, String excel[][], int rowNo) {
-
-      String codeId = excel[rowNo][16];
-
-      System.out.println("---------START ImportTissueSpecimen.createTissueSpecimen()---------");
-      TissueSpecimen ts = null;
-      try {
-         ts = setTissueSpecimenAttributes(scg,excel,rowNo);
-         ts.setParentSpecimen(ps);
-         ts.setLineage(lineage);
-         setLabelAndBarcode(lineage,ts,codeId,rowNo,0);
-         ts.setSpecimenCollectionGroup(scg);
-         ts.setCollectionStatus("Collected");
-         ts.setIsAvailable(true);  
-         ts.setActivityStatus("Active");
-         //ts.setConsentTierStatusCollectionFromSCG(scg);
-         ts = (TissueSpecimen) appService.createObject(ts);
-         System.out.println("Object created successfully");
-         System.out.println("Tissue specimen added successfully: Lineage " +ts.getLineage()+
-                            " Label: "+ts.getLabel()+ " Id: "+ts.getObjectId());
-      } catch(Exception e) {
-         System.out.println("ImportTissueSpecimen.createTissueSpecimen()"+e.getMessage());
-         e.printStackTrace();
-      }
-      System.out.println("---------End ImportTissueSpecimen.createTissueSpecimen()---------");
-      return ts;
-   }
-
-   public static TissueSpecimen createAliquotTissueSpecimen (TissueSpecimen ps, String lineage, SpecimenCollectionGroup scg,
-                                                             String excel[][], int rowNo, int currentAliquot) {
-
-      String codeId = excel[rowNo][16];
-      String lnvial = excel[rowNo][19];
-
-      Double qtyPerAliquot = 1.0; 
-
-      System.out.println("---------START ImportTissueSpecimen.createAliquotTissueSpecimen()---------");
-      TissueSpecimen ts = null;
-      try {
-         ts = setTissueSpecimenAttributes(scg,excel,rowNo);
-         ts.setParentSpecimen(ps);
-         ts.setLineage(lineage);
-         setLabelAndBarcode(lineage,ts,codeId,rowNo,currentAliquot);
-         ts.setSpecimenCollectionGroup(scg);
-         ts.setInitialQuantity(qtyPerAliquot);
-         ts.setAvailableQuantity(qtyPerAliquot);
-         ts.setCollectionStatus("Collected");
-         ts.setIsAvailable(true);
-         ts.setActivityStatus("Active");
-
-         Collection externalIdentifierCollection = new HashSet();
-         ExternalIdentifier externalIdentifier = new ExternalIdentifier();
-         externalIdentifier.setName("Code ID.");
-         if (currentAliquot < 10) {
-            externalIdentifier.setValue(codeId+"-0"+currentAliquot);
-         } else {
-            externalIdentifier.setValue(codeId+"-"+currentAliquot);
-         }
-         externalIdentifier.setSpecimen(ts);
-         externalIdentifierCollection.add(externalIdentifier);
-
-         ts.setExternalIdentifierCollection(externalIdentifierCollection);
-
-         ts = (TissueSpecimen) appService.createObject(ts);
-         System.out.println("Object created successfully");
-         System.out.println("Tissue specimen added successfully: Lineage " +ts.getLineage()+
-                            " Label: "+ts.getLabel()+ " Id: "+ts.getObjectId());
-      } catch(Exception e) {
-         System.out.println("ImportTissueSpecimen.createAliquotTissueSpecimen()"+e.getMessage());
-         e.printStackTrace();
-      }
-      System.out.println("---------End ImportTissueSpecimen.createTissueSpecimen()---------");
-      return ts;
-   }
-
-   public static TissueSpecimen updateTissueSpecimen (TissueSpecimen tissueSpec, String codeId, int rowNo) {
-
-      System.out.println("---------START ImportTissueSpecimen.updateTissueSpecimen()---------");
-      TissueSpecimen ts = null; 
-
-      tissueSpec.setApplyChangesTo("ApplyAll");
-
-      Collection externalIdentifierCollection = new HashSet();
-      ExternalIdentifier externalIdentifier = new ExternalIdentifier();
-      externalIdentifier.setName("Code ID.");
-      externalIdentifier.setValue(codeId);
-      externalIdentifier.setSpecimen(tissueSpec);
-      externalIdentifierCollection.add(externalIdentifier);
-
-      tissueSpec.setExternalIdentifierCollection(externalIdentifierCollection);
-
-      try {
-         ts = (TissueSpecimen)appService.updateObject(tissueSpec); 
-         System.out.println("Object updated successfully");
-         System.out.println("Tissue specimen updated: collection status: " +ts.getCollectionStatus()+
-                            " Label: "+ts.getLabel()+ " Av.Qty: "+ts.getAvailableQuantity()+ " Id: "+ts.getObjectId());
-      } catch(Exception e) {
-         System.out.println("ImportTissueSpecimen.updateTissueSpecimen()"+e.getMessage());
-         e.printStackTrace();
-      }
-      System.out.println("---------End ImportTissueSpecimen.updateTissueSpecimen()---------");
-      return ts;
-   }
-
-   public static TissueSpecimen updateAliquotTissueSpecimen (TissueSpecimen tissueSpec, String codeId, int rowNo, int currentAliquot) {
-
-      System.out.println("---------START ImportTissueSpecimen.updateAliquotTissueSpecimen()---------");
-      TissueSpecimen ts = null;
-
-      tissueSpec.setApplyChangesTo("ApplyAll");
-
-      Collection externalIdentifierCollection = new HashSet();
-      ExternalIdentifier externalIdentifier = new ExternalIdentifier();
-      externalIdentifier.setName("Code ID.");
-      if (currentAliquot < 10) {
-         externalIdentifier.setValue(codeId+"-0"+currentAliquot);
-      } else {
-         externalIdentifier.setValue(codeId+"-"+currentAliquot);
-      }
-      externalIdentifier.setSpecimen(tissueSpec);
-      externalIdentifierCollection.add(externalIdentifier);
-
-      tissueSpec.setExternalIdentifierCollection(externalIdentifierCollection);
-
-      try {
-         ts = (TissueSpecimen)appService.updateObject(tissueSpec);
-         System.out.println("Object updated successfully");
-         System.out.println("Tissue specimen updated: collection status: " +ts.getCollectionStatus()+
-                            " Label: "+ts.getLabel()+ " Av.Qty: "+ts.getAvailableQuantity()+ " Id: "+ts.getObjectId());
-      } catch(Exception e) {
-         System.out.println("ImportTissueSpecimen.updateTissueSpecimen()"+e.getMessage());
-         e.printStackTrace();
-      }
-      System.out.println("---------End ImportTissueSpecimen.updateAliquotTissueSpecimen()---------");
-      return ts;
-   }
-
-
-   public static TissueSpecimen setTissueSpecimenAttributes (SpecimenCollectionGroup scg, String excel[][], int rowNo) {
-
-      String opDate	  = excel[rowNo][10];
-      String octs	  = excel[rowNo][17];
-      String pathStatus   = excel[rowNo][18];
-      String lnvial	  = excel[rowNo][19];
-      String tsite	  = excel[rowNo][20];
-      String tside	  = excel[rowNo][21];
-      String specType 	  = "";
-      Date createdOn	  = null; 
-      boolean octsVal = false;
-      double quantity = 0;
-
-      System.out.println("---------START ImportTissueSpecimen.setTissueSpecimenAttributes()---------");
-      //System.out.println("opDate: "+createdOn+ " codeId: "+codeId+ " octs: "+octs+ " specType: "+specType+
-      //                   " octsVal: "+octsVal+ " lnvial: "+lnvial+ " qty: "+quantity);
-      TissueSpecimen ts = new TissueSpecimen();
-
-      ts.setSpecimenClass("Tissue");
-      octsVal = Boolean.parseBoolean(octs);
-      specType = octsVal ? "Fixed Tissue" : "Frozen Tissue";
-      ts.setSpecimenType(specType);
-
-      SpecimenCharacteristics sc = ImportSpecimen.setSpChar(tsite,tside,rowNo);
-      ts.setSpecimenCharacteristics(sc);
-
-      ts.setPathologicalStatus(pathStatus);
-      try {
-         createdOn = CommonUtilities.convertDateFromExcel(opDate);
-         ts.setCreatedOn(createdOn);
-      } catch (ParseException pe) {
-         System.out.println("ERROR: could not parse date in String: " +createdOn);
-      }
-
-      quantity = Double.parseDouble(lnvial);
-      ts.setInitialQuantity(quantity);
-      ts.setAvailableQuantity(quantity);
-
-      //System.out.println("opDate: "+createdOn+ " codeId: "+codeId+ " octs: "+octs+ " specType: "+specType+
-      //                   " octsVal: "+octsVal+ " lnvial: "+lnvial+ " qty: "+quantity);
-
-      CollectionEventParameters cep = ImportSpecimenEventParameters.addCEP(scg, excel, rowNo);
-      cep.setSpecimen(ts);
-
-      ReceivedEventParameters rep = ImportSpecimenEventParameters.addREP(scg, excel, rowNo);
-      rep.setSpecimen(ts);
-
-      Collection seCollection = new HashSet();
-      seCollection.add(cep);
-      seCollection.add(rep);
-      ts.setSpecimenEventCollection(seCollection);
-
-      System.out.println("---------END ImportTissueSpecimen.setTissueSpecimenAttributes()---------");
-      return ts;
-   } 
-
-   public static void setLabelAndBarcode (String lineage, TissueSpecimen ts, String codeId, int rowNo, int currentAliquot) {
+   public static void setLabelAndBarcode (String lineage, TissueSpecimen ts, String codeId, int rowno, int currentAliquot) {
 
       System.out.println("---------START ImportTissueSpecimen.setLabelAndBarcode()---------");
       if ( (lineage.equals("New")) || (lineage.equals("Derived")) ) {
@@ -248,6 +55,7 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
       System.out.println("---------END ImportTissueSpecimen.setLabelAndBarcode()---------");
    } 
 
+
    public static TissueSpecimen getAliquotByLabel(String label) {
 
       System.out.println("---------START ImportTissueSpecimen.getAliquotByLabel()---------");
@@ -271,4 +79,204 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
       System.out.println("---------END ImportTissueSpecimen.getAliquotByLabel()---------");
       return returnedspecimen;
    }
+
+   public static void createTissueSpecimen (SpecimenCollectionGroup scg, String excel[][], int rowno) {
+
+      String codeId             = excel[rowno][16];
+      String accessdbdiagnosis = excel[rowno][22];
+
+      Specimen specimenObj = initTissueSpecimen("New",excel,rowno,0);
+      specimenObj.setSpecimenCollectionGroup(scg);
+      specimenObj.setLabel(codeId+"-New");
+      specimenObj.setIsAvailable(Boolean.TRUE);
+      specimenObj.setCollectionStatus("Collected");
+      specimenObj.setActivityStatus("Active");
+      Collection eidc1 = new HashSet();
+      ExternalIdentifier eid1 = new ExternalIdentifier();
+      eid1.setName("Code ID.");
+      eid1.setValue(codeId);
+      eid1.setSpecimen(specimenObj);
+      eidc1.add(eid1);
+      ExternalIdentifier eid2 = new ExternalIdentifier();
+      eid2.setName("Diagnosis1");
+      eid2.setValue(accessdbdiagnosis);
+      eid2.setSpecimen(specimenObj);
+      eidc1.add(eid2);
+      specimenObj.setExternalIdentifierCollection(eidc1);
+      System.out.println("Before Creating Parent Tissue Specimen");
+       try {
+           specimenObj = (TissueSpecimen) appService.createObject(specimenObj);
+           System.out.println("Spec:" + specimenObj.getLabel());
+        } catch (Exception e)   {
+                Logger.out.error(e.getMessage(), e);
+                e.printStackTrace();
+        }
+
+       System.out.println(" Parent Cell Domain Object is successfully added ---->    ID:: " + specimenObj.getId().toString());
+       System.out.println(" Parent Cell Domain Object is successfully added ---->    Name:: " + specimenObj.getLabel());
+
+       Specimen deriveSp = initTissueSpecimen("Derived",excel,rowno,0);
+       deriveSp.setLineage("Derived");
+       deriveSp.setLabel(codeId+"-Derived");
+       deriveSp.setSpecimenCollectionGroup(scg);
+       deriveSp.setParentSpecimen(specimenObj);
+       deriveSp.setIsAvailable(Boolean.TRUE);
+       deriveSp.setCollectionStatus("Collected");
+       deriveSp.setActivityStatus("Active");
+       Collection eidc2 = new HashSet();
+       ExternalIdentifier eid3 = new ExternalIdentifier();
+       eid3.setName("Code ID.");
+       eid3.setValue(codeId);
+       eid3.setSpecimen(deriveSp);
+       eidc2.add(eid3);
+       ExternalIdentifier eid4 = new ExternalIdentifier();
+       eid4.setName("Diagnosis1");
+       eid4.setValue(accessdbdiagnosis);
+       eid4.setSpecimen(deriveSp);
+       eidc2.add(eid4);
+       deriveSp.setExternalIdentifierCollection(eidc2);
+       System.out.println("Before Creating Derived Tissue Specimen");
+       try {
+          deriveSp = (TissueSpecimen) appService.createObject(deriveSp);
+          System.out.println("Spec:" + deriveSp.getLabel());
+        } catch (Exception e)   {
+                Logger.out.error(e.getMessage(), e);
+                e.printStackTrace();
+        }
+
+       System.out.println(" Derived Domain Object is successfully added ---->    ID:: " + deriveSp.getId().toString());
+       System.out.println(" Derived Domain Object is successfully added ---->    Name:: " + deriveSp.getLabel());
+
+       String lnvial	    = excel[rowno][19];
+       int  totalNoAliquots = Integer.parseInt(lnvial);
+       System.out.println("total no aliquots to be created = "+totalNoAliquots); 
+       for (int currentAliquot = 1; currentAliquot <= totalNoAliquots; currentAliquot++) {
+        Specimen ts1 = initTissueSpecimen("Aliquot",excel,rowno,currentAliquot);
+        ts1.setSpecimenCollectionGroup(scg);
+        ts1.setLineage("Aliquot");
+        ts1.setParentSpecimen(deriveSp);
+        if (currentAliquot < 10) {
+           ts1.setLabel(codeId+"-0"+currentAliquot);
+        } else {
+           ts1.setLabel(codeId+"-"+currentAliquot);
+        }
+        ts1.setIsAvailable(Boolean.TRUE);
+        ts1.setCollectionStatus("Collected");
+        ts1.setActivityStatus("Active");
+        Collection eidc3 = new HashSet();
+        ExternalIdentifier eid5 = new ExternalIdentifier();
+        eid5.setName("Code ID.");
+        eid5.setValue(codeId);
+        eid5.setSpecimen(ts1);
+        eidc3.add(eid5);
+        ExternalIdentifier eid6 = new ExternalIdentifier();
+        eid6.setName("Diagnosis1");
+        eid6.setValue(accessdbdiagnosis);
+        eid6.setSpecimen(ts1);
+        eidc3.add(eid6);
+        ts1.setExternalIdentifierCollection(eidc3);
+        System.out.println("Befor creating Aliquot Cell Specimen:"+currentAliquot);
+        try {
+                ts1 = (TissueSpecimen) appService.createObject(ts1);
+                System.out.println("Spec:" + ts1.getLabel());
+        } catch (Exception e)   {
+                Logger.out.error(e.getMessage(), e);
+                e.printStackTrace();
+        }
+       }
+   }
+ 
+   public static Specimen initTissueSpecimen(String lineage, String excel[][], int rowno, int currentAliquot) {
+
+      String opDate	  = excel[rowno][10];
+      String surgeon      = excel[rowno][11];
+      String colProc      = excel[rowno][12];
+      String colCont      = excel[rowno][13];
+      String accessionDate= excel[rowno][14];
+      String rcvdQuality  = excel[rowno][15];
+      String codeId       = excel[rowno][16];
+      String octs	  = excel[rowno][17];
+      String pathStatus   = excel[rowno][18];
+      String lnvial	  = excel[rowno][19];
+      String tsite	  = excel[rowno][20];
+      String tside	  = excel[rowno][21];
+      String specType 	  = "";
+      Date createdOn	  = new Date(); 
+      Date colDate        = new Date();
+      Date rcvdDate       = new Date();
+      boolean octsVal     = false;
+
+       System.out.println("Inside tissuespecimen");
+       TissueSpecimen ts= new TissueSpecimen();
+       ts.setSpecimenClass("Tissue");
+       if (lineage.equals("Aliquot")) { 
+         if (currentAliquot < 10) {
+           ts.setLabel(codeId+"-0"+currentAliquot);
+           ts.setBarcode(codeId+"-0"+currentAliquot);
+         } else {
+           ts.setLabel(codeId+"-"+currentAliquot);
+           ts.setBarcode(codeId+"-"+currentAliquot);
+         }
+       } else {
+         ts.setLabel(codeId+"-"+lineage);
+         ts.setBarcode(codeId+"-"+lineage);
+       }
+       ts.setActivityStatus("Active");
+       ts.setCollectionStatus("Complete");
+       ts.setSpecimenType("Frozen Tissue");
+       ts.setPathologicalStatus(pathStatus);
+
+       SpecimenCharacteristics specimenCharacteristics =  new SpecimenCharacteristics();
+       specimenCharacteristics.setTissueSite(tsite);
+       specimenCharacteristics.setTissueSide(tside);
+       ts.setSpecimenCharacteristics(specimenCharacteristics);
+
+       if (lineage.equals("Aliquot")) {
+        Double qty = 1.0;
+        ts.setInitialQuantity(qty);
+        ts.setAvailableQuantity(qty);
+      } else {
+        Double quantity = Double.parseDouble(lnvial);
+        ts.setInitialQuantity(quantity);
+        ts.setAvailableQuantity(quantity);
+      }
+       ts.setIsAvailable(new Boolean(true));
+
+       System.out.println("Setting parameters");
+
+       CollectionEventParameters collectionEventParameters = new CollectionEventParameters();
+       collectionEventParameters.setComment("Surgeon: "+surgeon);
+       collectionEventParameters.setSpecimen(ts);
+       User user = new User();
+       user.setId(new Long(1));
+       collectionEventParameters.setUser(user);
+       try  {
+         colDate = CommonUtilities.convertDateFromExcel(opDate);
+         collectionEventParameters.setTimestamp(colDate);
+       } catch (ParseException e1) {
+         System.out.println("ERROR: could not parse date in String: " +colDate);
+         e1.printStackTrace();
+       }
+       collectionEventParameters.setContainer(colCont);
+       collectionEventParameters.setCollectionProcedure(colProc);
+
+       ReceivedEventParameters receivedEventParameters = new ReceivedEventParameters();
+       receivedEventParameters.setUser(user);
+       try {
+         rcvdDate = CommonUtilities.convertDateFromExcel(accessionDate);
+         receivedEventParameters.setTimestamp(rcvdDate);
+       } catch (ParseException e) {
+         System.out.println("ERROR: could not parse date in String: " +accessionDate);
+         e.printStackTrace();
+       }
+       receivedEventParameters.setReceivedQuality("Acceptable");
+       receivedEventParameters.setSpecimen(ts);
+
+       Collection specimenEventCollection = new HashSet();
+       specimenEventCollection.add(collectionEventParameters);
+       specimenEventCollection.add(receivedEventParameters);
+       ts.setSpecimenEventCollection(specimenEventCollection);
+       return ts;
+    }
+
 } //end ImportTissueSpecimen()

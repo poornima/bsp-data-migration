@@ -9,6 +9,7 @@ import edu.wustl.catissuecore.domain.Site;
 import edu.wustl.catissuecore.domain.CollectionProtocolRegistration;
 import edu.wustl.catissuecore.domain.CollectionProtocol;
 import edu.wustl.catissuecore.domain.CollectionProtocolEvent;
+import edu.wustl.catissuecore.domain.Participant;
 import edu.wustl.catissuecore.domain.ConsentTier;
 import edu.wustl.catissuecore.domain.ConsentTierStatus;
 import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
@@ -100,6 +101,24 @@ public class ImportSCG extends CaTissueBaseTestCase {
       }
       System.out.println("---------END ImportSCG.updateSCG()---------");
       return uscg;
+   }
+
+   public static void createAnotherVisitSCG(Participant p, String[][] excel, int rowno) {
+  /*  
+      Collection cprCollection = p.getCollectionProtocolRegistrationCollection();  
+      Iterator cprItr = cprCollection.iterator();
+      while (cprItr.hasNext()) {
+           CollectionProtocolRegistration cpr = (CollectionProtocolRegistration)cprItr.next();
+           SpecimenCollectionGroup scg = new SpecimenCollectionGroup(cpr);
+           ConsentTier consentTier = (ConsentTier)consentTierItr.next();
+           ConsentTierResponse consentResponse = new ConsentTierResponse();
+           consentResponse.setConsentTier(consentTier);
+           consentResponse.setResponse("Yes");
+           consentTierResponseCollection.add(consentResponse);
+      }
+ */
+
+
    }
 
    public static SpecimenCollectionGroup getSCGById(long id) {

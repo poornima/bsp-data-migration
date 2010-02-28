@@ -35,7 +35,7 @@ public class CaTissueBaseTestCase extends BaseTestCase{
 	public void setUp(){
 		
 		//Logger.configure("");
-		//System.setProperty("javax.net.ssl.trustStore", "D://jboss_18080//server//default//conf//chap8.keystore");
+                //System.setProperty("javax.net.ssl.trustStore", "/home/catissue/apps/catissue/jboss-4.2.2.GA/server/default/conf/chap8.keystore");
 		appService = ApplicationServiceProvider.getApplicationService();
 		ClientSession cs = ClientSession.getInstance();
 		try

@@ -3,6 +3,7 @@ package edu.wustl.catissuecore.bizlogic.test;
 import java.text.ParseException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.Date;
 import java.util.List;
@@ -33,52 +34,20 @@ public class ImportSpecimen extends CaTissueBaseTestCase {
    public static void addSpecimens(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
        
        String codeId   = excel[rowNo][16];
-       String lnvial   = excel[rowNo][19];
-       int totalNoAliquots = Integer.parseInt(lnvial);
-       
+       String lnvial   = excel[rowNo][19].trim();
+       String icd0     = excel[rowNo][23];
+
        System.out.println("---------START ImportSpecimen.addSpecimens()---------");
-       if (codeId.startsWith("BF")) {
+       System.out.println("lnvial = "+lnvial);
+       if ( (codeId.startsWith("BF")) || (icd0.contains("1004")) ) {
          //Create Fluid Specimens
-
-         //Parent Fluid Specimen
-         FluidSpecimen pfs = ImportFluidSpecimen.createFluidSpecimen (null,"New",scg,excel,rowNo);
-
-         //Derived Fluid Specimen
-         FluidSpecimen dfs = ImportFluidSpecimen.createFluidSpecimen (pfs,"Derived",scg,excel,rowNo);
-
-         //Update Parent and Child Specimens
-         FluidSpecimen upfs = ImportFluidSpecimen.updateFluidSpecimen (pfs,codeId,rowNo);
-         FluidSpecimen udfs = ImportFluidSpecimen.updateFluidSpecimen (dfs,codeId,rowNo);
+        // ImportTissueSpecimen.createFluidSpecimen (scg,excel,rowNo);
        } else {
          //Create Tissue Specimens
-
-         //Parent Tissue Specimen
-         TissueSpecimen pts = ImportTissueSpecimen.createTissueSpecimen (null,"New",scg,excel,rowNo);
-
-         //Derived Tissue Specimen
-         TissueSpecimen dts = ImportTissueSpecimen.createTissueSpecimen (pts,"Derived",scg,excel,rowNo);
-
-         //Aliquot Tissue Specimens
-         for (int currentAliquot = 1; currentAliquot <= totalNoAliquots; currentAliquot++) {
-            TissueSpecimen ats = ImportTissueSpecimen.createAliquotTissueSpecimen (dts,"Aliquot",scg,excel,rowNo,currentAliquot);
-         }
-
-         //Update Parent and Child Specimens
-         TissueSpecimen upts = ImportTissueSpecimen.updateTissueSpecimen (pts,codeId,rowNo);
-         TissueSpecimen udts = ImportTissueSpecimen.updateTissueSpecimen (dts,codeId,rowNo);
+         ImportTissueSpecimen.createTissueSpecimen (scg,excel,rowNo);
        }
        System.out.println("---------END ImportSpecimen.addSpecimens()---------");
    } 
-
-   public static SpecimenCharacteristics setSpChar (String tsite, String tside, int rowNo) {
-
-      System.out.println("---------START ImportSpecimen.setSpChar()---------");
-      SpecimenCharacteristics sc =  new SpecimenCharacteristics();
-      sc.setTissueSite(tsite);
-      sc.setTissueSide(tside);
-      System.out.println("---------END ImportSpecimen.setSpChar()---------");
-      return sc;   
-   }   
 
   public static SpecimenPosition setSP (String excel[][], int rowNo) {
 
