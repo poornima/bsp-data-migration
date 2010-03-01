@@ -25,8 +25,10 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
 		try {
 			System.out.println("---------START ExcelTestCaseUtility.registerParticipants----------");
 			System.out.println("user.dir  " + System.getProperty("user.dir"));
-                        String[][] excel = new String[1][25];
-                        File file = new File("/home/catissue/bsp-import-data/tsite-correction-2010-03-01/p0018");
+			String excelFilePath = System.getProperty("user.dir");
+
+                        String[][] data = new String[1][25];
+                        File file = new File("/home/catissue/bsp-import-data/2010-02-27/p0001");
                         BufferedReader bufRdr = new BufferedReader(new FileReader(file));
                         String line = null;
                         int row = 0;
@@ -36,15 +38,24 @@ public class ExcelTestCaseUtility extends CaTissueBaseTestCase {
                              StringTokenizer st = new StringTokenizer(line,"\t");
                              while (st.hasMoreTokens()) {
                                 //get next token and store it in the array
-                                excel[row][col] = st.nextToken();
-                                System.out.println("data is: "+excel[row][col]);
+                                data[row][col] = st.nextToken();
+                                System.out.println("data is: "+data[row][col]);
                                 col++;
                              }
                              row++;
                          }
                          //close the file
                          bufRdr.close();
-                         new DataMigrationUtil().writeToCaTissue(excel, 1);
+			 //new DataMigrationUtil().writeToCaTissue(data);
+ 
+			 //+ "/excelFiles/dev-data-pd.xls";
+			// + "/excelFiles/dev-data-pd.csv";
+			 //+ "/excelFiles/dev-data-tc.xls";
+			 //+ "/excelFiles/PatientDemographics-Import-Data.xls";
+			//ExcelFileReader EX_CP = new ExcelFileReader();
+			//String allexcel[][] = EX_CP.setInfo(excelFilePath);
+                        //int rowCount = EX_CP.getRowCount();
+			//new DataMigrationUtil().writeToCaTissue(allexcel,rowCount);
 			System.out.println("---------END ExcelTestCaseUtility.registerParticipant-----------");
 		} catch (Exception e) {
 			System.out.println("Exception in registerParticipants");

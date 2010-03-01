@@ -38,9 +38,16 @@ public class ImportParticipant extends CaTissueBaseTestCase {
         String    raceName = "";
         Date      date;
 
+
         System.out.println("---------START ImportParticipant.initParticipant()---------");
+        
+        lastName = formatString(lastName);
+        firstName = formatString(firstName);
+        middleName = formatString(middleName);
+
         System.out.println("lastname=" +lastName+ " firstname=" +firstName+ " middlename=" +middleName+ " dob=" +dob+ " gender=" +genderFromAccess+ " hospitalOR=" +hospitalOR+ " medrecno="+medRecNo+ " race=" +raceFromAccess);
 
+            
             Participant participant = new Participant();
             participant.setLastName(lastName);
             participant.setFirstName(firstName);
@@ -136,6 +143,14 @@ public class ImportParticipant extends CaTissueBaseTestCase {
        race = "Unknown";
 
      return race;
+  }
+
+  public static String formatString (String s) {
+
+     String rstring = "";
+
+     rstring = s.replaceAll("[\"]", ""); 
+     return rstring; 
   }
 
   public static SpecimenCollectionGroup getParticipantSCG(Participant participant) {

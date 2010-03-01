@@ -84,6 +84,7 @@ public class ImportTissueSpecimen extends CaTissueBaseTestCase {
 
       String codeId             = excel[rowno][16];
       String accessdbdiagnosis = excel[rowno][22];
+      accessdbdiagnosis = accessdbdiagnosis.replaceAll("[\"]", ""); 
 
       Specimen specimenObj = initTissueSpecimen("New",excel,rowno,0);
       specimenObj.setSpecimenCollectionGroup(scg);

@@ -27,8 +27,6 @@ import edu.wustl.common.util.logger.Logger;
  */
 public class ImportSCG extends CaTissueBaseTestCase {
 
-   private static int row = 1;
-
    public static SpecimenCollectionGroup getCPRSCG(CollectionProtocolRegistration cpr) {
 
        SpecimenCollectionGroup scg = null;
@@ -68,10 +66,9 @@ public class ImportSCG extends CaTissueBaseTestCase {
 
    public static SpecimenCollectionGroup updateSCG(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
 
-      int row = rowNo;
-      String hospitalOR = excel[row][5];
-      String sprNum = excel[row][8];
-      String diagnosis = excel[row][9];
+      String hospitalOR = excel[rowNo][5];
+      String sprNum = excel[rowNo][8];
+      String diagnosis = excel[rowNo][9];
 
       System.out.println("---------START ImportSCG.updateSCG()---------");
       SpecimenCollectionGroup uscg = null;

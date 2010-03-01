@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="cagrid02.lab.ac.uab.edu" name="edu.wustl.catissuecore.bizlogic.test.CaTissueTestSuite" tests="1" time="2.28" timestamp="2010-02-28T20:48:46">
+<testsuite errors="0" failures="0" hostname="cagrid02.lab.ac.uab.edu" name="edu.wustl.catissuecore.bizlogic.test.CaTissueTestSuite" tests="1" time="1.91" timestamp="2010-03-01T15:55:52">
   <properties>
     <property name="java.runtime.name" value="Java(TM) 2 Runtime Environment, Standard Edition" />
     <property name="cobertura.dir" value="./classes/reports/coverage" />
@@ -73,137 +73,152 @@
     <property name="test.classes.dir" value="./classes" />
     <property name="sun.cpu.isalist" value="" />
   </properties>
-  <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="2.107">
-    <failure message="Falied" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: Falied
-	at edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase.testRegisterPart(Unknown Source)
-</failure>
-  </testcase>
-  <system-out><![CDATA[ERROR 14:48:46,612 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
- INFO 14:48:46,622 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 14:48:46,623 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 14:48:46,671 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 14:48:46,750 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 14:48:46,756 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
- INFO 14:48:46,758 (CollectionFactory) - JDK 1.4+ collections available
- INFO 14:48:46,761 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
- INFO 14:48:46,763 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
- INFO 14:48:46,764 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 14:48:46,766 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
- INFO 14:48:46,891 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
- INFO 14:48:46,915 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
- INFO 14:48:46,916 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
- INFO 14:48:46,919 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
- INFO 14:48:46,920 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
- INFO 14:48:46,932 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
- INFO 14:48:46,932 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
- INFO 14:48:46,933 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
- INFO 14:48:46,934 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
- INFO 14:48:46,934 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
- INFO 14:48:46,934 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+  <testcase classname="edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase" name="testRegisterPart" time="1.761" />
+  <system-out><![CDATA[ERROR 09:55:52,440 (ApplicationServiceProvider) - Fatal Error in Initailizing Either Client or Server Implementation of Application Service
+ INFO 09:55:52,449 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 09:55:52,450 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 09:55:52,493 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 09:55:52,562 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 09:55:52,567 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=23025815]
+ INFO 09:55:52,569 (CollectionFactory) - JDK 1.4+ collections available
+ INFO 09:55:52,572 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1386000]
+ INFO 09:55:52,573 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1662dc8]
+ INFO 09:55:52,574 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 09:55:52,576 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
+ INFO 09:55:52,690 (DefaultAopProxyFactory) - CGLIB2 available: proxyTargetClass feature enabled
+ INFO 09:55:52,713 (ApplicationServiceClientImpl) - RECORDSPERQUERY property found : 1000
+ INFO 09:55:52,714 (ApplicationServiceClientImpl) - MAXRECORDSPERQUERY property found : 5000
+ INFO 09:55:52,717 (ClientSession) - JVM/Classloader level security policy defined in CORESystem.properties file. Switching security policy to JVM/Classloader
+ INFO 09:55:52,718 (XmlBeanDefinitionReader) - Loading XML bean definitions from class path resource [remoteService.xml]
+ INFO 09:55:52,729 (AbstractRefreshableApplicationContext) - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]: org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy
+ INFO 09:55:52,730 (AbstractApplicationContext) - 1 beans defined in application context [org.springframework.context.support.ClassPathXmlApplicationContext;hashCode=6183504]
+ INFO 09:55:52,730 (AbstractApplicationContext) - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1b9240e]
+ INFO 09:55:52,731 (AbstractApplicationContext) - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@1ee4648]
+ INFO 09:55:52,732 (DefaultListableBeanFactory) - Pre-instantiating singletons in factory [org.springframework.beans.factory.support.DefaultListableBeanFactory defining beans [remoteService]; root of BeanFactory hierarchy]
+ INFO 09:55:52,732 (AbstractBeanFactory) - Creating shared instance of singleton bean 'remoteService'
 ---------START ExcelTestCaseUtility.registerParticipants----------
 user.dir  /home/catissue/src/bsp-data-migration
-START Excel file ReaderConstructor
-END Excel file ReaderConstructor
----------START ExcelFileReader.setInfo()---------
-No of rows ---2
-No of columns----25
-excel length 3
----------END ExcelFileReader.setInfo()---------
+data is: Lewis
+data is: David
+data is: """"""
+data is: 12-16-1947 0:00:00
+data is: M
+data is: UAH
+data is: 1637467
+data is: Black
+data is: NP-00-04284
+data is: Oligodendroblastoma
+data is: 03-01-2000 0:00:00
+data is: Guthrie
+data is: Surgical Resection
+data is: Sterile Specimen Container
+data is: 11-14-2004
+data is: Acceptable
+data is: 000301019
+data is: 0
+data is: Malignant
+data is: 3
+data is: Brain, NOS
+data is: Left
+data is: "ANAPLASTIC OLIGODENDROGLIOMA, RECURRENT"
+data is: 52
+data is: 9451/3
+lastname = Lewis firstname = David middlename = """""" dob = 12-16-1947 0:00:00 gender = M hospitalOR = UAH medrecno = 1637467 race = Black surgpathno = NP-00-04284 diagnosis = Oligodendroblastoma opdate = 03-01-2000 0:00:00 surgeon = Guthrie colProc = Surgical Resection colcont = Sterile Specimen Container accession = 11-14-2004 rcvqlty = Acceptable codeId = 000301019 octs = 0 pathStatus = Malignant lnvial = 3 tsite = Brain, NOS tside = Left accessdd diag = "ANAPLASTIC OLIGODENDROGLIOMA, RECURRENT"
 ---------START DataMigrationUtil.writeToCaTissue()---------
-Total no. of rows: 2
-----------START Processing for row number 1---------------
- WARN 14:48:47,274 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-Date from excel is: 07-17-1976 Converted Date is Sat Jul 17 00:00:00 CDT 1976
- INFO 14:48:47,278 (ImportParticipant) -  searching domain object
- WARN 14:48:47,651 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:48:47,658 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:48:47,660 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:48:47,667 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:48:47,679 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:48:47,689 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- Domain Object is successfully Found ---->  :: Kerrie Breedlove
-participant = edu.wustl.catissuecore.domain.Participant@d3db51
- Pt Obj is not null block: participant = edu.wustl.catissuecore.domain.Participant@d3db51
----------START ImportSCG.createAnotherVisitSCG()---------
- WARN 14:48:47,699 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:52,828 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Date from excel is: 12-16-1947 0:00:00 Converted Date is Tue Dec 16 00:00:00 CST 1947
+ INFO 09:55:52,833 (ImportParticipant) -  searching domain object
+participant = null
+ Pt Obj is null block: participant = null
+---------START ImportParticipant.initParticipant()---------
+lastname=Lewis firstname=David middlename= dob=12-16-1947 0:00:00 gender=M hospitalOR=UAH medrecno=1637467 race=Black
+Date from excel is: 12-16-1947 0:00:00 Converted Date is Tue Dec 16 00:00:00 CST 1947
+---------START ImportSite.getSite()---------
+ WARN 09:55:52,881 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Searching Domain Object........
+ WARN 09:55:52,973 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ Domain Object is successfully Found ---->  :: UAH 4 Collection Site
+---------END ImportSite.getSite()---------
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportCPR.initCPR()---------
+ WARN 09:55:52,984 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:52,987 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:52,987 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Searching Domain Object........
+ WARN 09:55:53,057 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Domain Object found is ---->  :: Import Brain SPORE,1,import-bsp
+CP is Import Brain SPORE
+Date from excel is: 03-01-2000 0:00:00 Converted Date is Wed Mar 01 00:00:00 CST 2000
+********Consent Tier Collection is not null
 ---------START ImportSCG.createSCG()---------
+ WARN 09:55:53,065 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 ---------END ImportSCG.createSCG()---------
+Returned CPR is: edu.wustl.catissuecore.domain.CollectionProtocolRegistration@10ab323
+---------END ImportCPR.initCPR()---------
+ WARN 09:55:53,190 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:53,210 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:53,227 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:53,242 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+Object created successfully
+Participant Added successfully .. id is 13First Name is: David Last Name is: Lewis
+---------START ImportCPR.registerParticipantToCP()---------
+---------START ImportParticipant.getParticipantSCG()---------
+---------END ImportParticipant.getParticipantSCG()---------
+---------START ImportSCG.updateSCG()---------
 ---------START ImportSite.getSite()---------
 Searching Domain Object........
  Domain Object is successfully Found ---->  :: UAH 4 Collection Site
 ---------END ImportSite.getSite()---------
 ---------START ImportSpecimenEventParameters.addCEP()---------
- WARN 14:48:47,745 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:48:47,747 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-Date from excel is: 04-28-2003 Converted Date is Mon Apr 28 00:00:00 CDT 2003
+Date from excel is: 03-01-2000 0:00:00 Converted Date is Wed Mar 01 00:00:00 CST 2000
 ---------END ImportSpecimenEventParameters.addCEP()---------
 ---------START ImportSpecimenEventParameters.addREP()---------
- WARN 14:48:47,784 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-Date from excel is: 12-18-2003 Converted Date is Thu Dec 18 00:00:00 CST 2003
+Date from excel is: 11-14-2004 Converted Date is Sun Nov 14 00:00:00 CST 2004
 ---------END ImportSpecimenEventParameters.addREP()---------
- WARN 14:48:48,299 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
-new scg created = Import Brain SPORE_13_31 collection status = Complete
----------END ImportSCG.createAnotherVisitSCG()---------
+Specimen Collection Status: true
+---------END ImportSCG.updateSCG()---------
 ---------START ImportSpecimen.addSpecimens()---------
-lnvial = 2
+lnvial = 3
 Inside tissuespecimen
- WARN 14:48:48,318 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
- WARN 14:48:48,318 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:53,680 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
+ WARN 09:55:53,680 (LoggerConfig) - Application specific logger configuration is not done. Please use Logger.configureLogger(path) before using getLogger()
 Setting parameters
-Date from excel is: 04-28-2003 Converted Date is Mon Apr 28 00:00:00 CDT 2003
-Date from excel is: 12-18-2003 Converted Date is Thu Dec 18 00:00:00 CST 2003
+Date from excel is: 03-01-2000 0:00:00 Converted Date is Wed Mar 01 00:00:00 CST 2000
+Date from excel is: 11-14-2004 Converted Date is Sun Nov 14 00:00:00 CST 2004
 Before Creating Parent Tissue Specimen
-ERROR 14:48:48,644 (ImportTissueSpecimen) - Problem while inserting data/changes to database.
-gov.nih.nci.system.applicationservice.ApplicationException: Problem while inserting data/changes to database.
-	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.handleException(ApplicationServiceServerImpl.java:472)
-	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.callDelegator(ApplicationServiceServerImpl.java:426)
-	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.createObject(ApplicationServiceServerImpl.java:209)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:585)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:287)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:181)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:148)
-	at org.springframework.remoting.support.RemoteInvocationTraceInterceptor.invoke(RemoteInvocationTraceInterceptor.java:68)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:170)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:176)
-	at $Proxy77.createObject(Unknown Source)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:585)
-	at org.springframework.remoting.support.RemoteInvocation.invoke(RemoteInvocation.java:179)
-	at org.springframework.remoting.support.DefaultRemoteInvocationExecutor.invoke(DefaultRemoteInvocationExecutor.java:32)
-	at org.springframework.remoting.support.RemoteInvocationBasedExporter.invoke(RemoteInvocationBasedExporter.java:70)
-	at org.springframework.remoting.support.RemoteInvocationBasedExporter.invokeAndCreateResult(RemoteInvocationBasedExporter.java:106)
-	at org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter.handleRequest(HttpInvokerServiceExporter.java:80)
-	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:44)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:684)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:625)
-	at org.springframework.web.servlet.FrameworkServlet.serviceWrapper(FrameworkServlet.java:386)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:355)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:803)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.jboss.web.tomcat.filters.ReplyHeaderFilter.doFilter(ReplyHeaderFilter.java:96)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:230)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
-	at org.jboss.web.tomcat.security.SecurityAssociationValve.invoke(SecurityAssociationValve.java:179)
-	at org.jboss.web.tomcat.security.JaccContextValve.invoke(JaccContextValve.java:84)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
-	at org.jboss.web.tomcat.service.jca.CachedConnectionValve.invoke(CachedConnectionValve.java:157)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:262)
-	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:844)
-	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
-	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:446)
-	at java.lang.Thread.run(Thread.java:595)
-Exception in registerParticipants
+Spec:000301019-New
+ Parent Cell Domain Object is successfully added ---->    ID:: 155
+ Parent Cell Domain Object is successfully added ---->    Name:: 000301019-New
+Inside tissuespecimen
+Setting parameters
+Date from excel is: 03-01-2000 0:00:00 Converted Date is Wed Mar 01 00:00:00 CST 2000
+Date from excel is: 11-14-2004 Converted Date is Sun Nov 14 00:00:00 CST 2004
+Before Creating Derived Tissue Specimen
+Spec:000301019-Derived
+ Derived Domain Object is successfully added ---->    ID:: 156
+ Derived Domain Object is successfully added ---->    Name:: 000301019-Derived
+total no aliquots to be created = 3
+Inside tissuespecimen
+Setting parameters
+Date from excel is: 03-01-2000 0:00:00 Converted Date is Wed Mar 01 00:00:00 CST 2000
+Date from excel is: 11-14-2004 Converted Date is Sun Nov 14 00:00:00 CST 2004
+Befor creating Aliquot Cell Specimen:1
+Spec:000301019-01
+Inside tissuespecimen
+Setting parameters
+Date from excel is: 03-01-2000 0:00:00 Converted Date is Wed Mar 01 00:00:00 CST 2000
+Date from excel is: 11-14-2004 Converted Date is Sun Nov 14 00:00:00 CST 2004
+Befor creating Aliquot Cell Specimen:2
+Spec:000301019-02
+Inside tissuespecimen
+Setting parameters
+Date from excel is: 03-01-2000 0:00:00 Converted Date is Wed Mar 01 00:00:00 CST 2000
+Date from excel is: 11-14-2004 Converted Date is Sun Nov 14 00:00:00 CST 2004
+Befor creating Aliquot Cell Specimen:3
+Spec:000301019-03
+---------END ImportSpecimen.addSpecimens()---------
+---------END DataMigrationUtil.writeToCaTissue()---------
+---------END ExcelTestCaseUtility.registerParticipant-----------
 ]]></system-out>
   <system-err><![CDATA[log4j:ERROR setFile(null,true) call failed.
 java.io.FileNotFoundException: /server/default/log/query.log (Permission denied)
@@ -260,101 +275,6 @@ java.io.FileNotFoundException: /server/default/log/hibernatesql.log (Permission 
 	at gov.nih.nci.system.applicationservice.ApplicationServiceProvider.<clinit>(ApplicationServiceProvider.java:18)
 	at edu.wustl.catissuecore.bizlogic.test.CaTissueBaseTestCase.setUp(Unknown Source)
 	at junit.framework.TestCase.runBare(TestCase.java:128)
-	at junit.framework.TestResult$1.protect(TestResult.java:110)
-	at junit.framework.TestResult.runProtected(TestResult.java:128)
-	at junit.framework.TestResult.run(TestResult.java:113)
-	at junit.framework.TestCase.run(TestCase.java:120)
-	at junit.framework.TestSuite.runTest(TestSuite.java:228)
-	at junit.framework.TestSuite.run(TestSuite.java:223)
-	at junit.framework.TestSuite.runTest(TestSuite.java:228)
-	at junit.framework.TestSuite.run(TestSuite.java:223)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:421)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:912)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:766)
-gov.nih.nci.system.applicationservice.ApplicationException: Problem while inserting data/changes to database.
-	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.handleException(ApplicationServiceServerImpl.java:472)
-	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.callDelegator(ApplicationServiceServerImpl.java:426)
-	at gov.nih.nci.system.comm.server.ApplicationServiceServerImpl.createObject(ApplicationServiceServerImpl.java:209)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:585)
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:287)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:181)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:148)
-	at org.springframework.remoting.support.RemoteInvocationTraceInterceptor.invoke(RemoteInvocationTraceInterceptor.java:68)
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:170)
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:176)
-	at $Proxy77.createObject(Unknown Source)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:585)
-	at org.springframework.remoting.support.RemoteInvocation.invoke(RemoteInvocation.java:179)
-	at org.springframework.remoting.support.DefaultRemoteInvocationExecutor.invoke(DefaultRemoteInvocationExecutor.java:32)
-	at org.springframework.remoting.support.RemoteInvocationBasedExporter.invoke(RemoteInvocationBasedExporter.java:70)
-	at org.springframework.remoting.support.RemoteInvocationBasedExporter.invokeAndCreateResult(RemoteInvocationBasedExporter.java:106)
-	at org.springframework.remoting.httpinvoker.HttpInvokerServiceExporter.handleRequest(HttpInvokerServiceExporter.java:80)
-	at org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter.handle(SimpleControllerHandlerAdapter.java:44)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:684)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:625)
-	at org.springframework.web.servlet.FrameworkServlet.serviceWrapper(FrameworkServlet.java:386)
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:355)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:710)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:803)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.jboss.web.tomcat.filters.ReplyHeaderFilter.doFilter(ReplyHeaderFilter.java:96)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:235)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:230)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:175)
-	at org.jboss.web.tomcat.security.SecurityAssociationValve.invoke(SecurityAssociationValve.java:179)
-	at org.jboss.web.tomcat.security.JaccContextValve.invoke(JaccContextValve.java:84)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:102)
-	at org.jboss.web.tomcat.service.jca.CachedConnectionValve.invoke(CachedConnectionValve.java:157)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:262)
-	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:844)
-	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:583)
-	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:446)
-	at java.lang.Thread.run(Thread.java:595)
-java.lang.NullPointerException
-	at edu.wustl.catissuecore.bizlogic.test.ImportTissueSpecimen.createTissueSpecimen(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.ImportSpecimen.addSpecimens(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.writeToCaTissue(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.ExcelTestCaseUtility.registerParticipants(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase.testRegisterPart(Unknown Source)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:585)
-	at junit.framework.TestCase.runTest(TestCase.java:164)
-	at junit.framework.TestCase.runBare(TestCase.java:130)
-	at junit.framework.TestResult$1.protect(TestResult.java:110)
-	at junit.framework.TestResult.runProtected(TestResult.java:128)
-	at junit.framework.TestResult.run(TestResult.java:113)
-	at junit.framework.TestCase.run(TestCase.java:120)
-	at junit.framework.TestSuite.runTest(TestSuite.java:228)
-	at junit.framework.TestSuite.run(TestSuite.java:223)
-	at junit.framework.TestSuite.runTest(TestSuite.java:228)
-	at junit.framework.TestSuite.run(TestSuite.java:223)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.run(JUnitTestRunner.java:421)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.launch(JUnitTestRunner.java:912)
-	at org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner.main(JUnitTestRunner.java:766)
-java.lang.NullPointerException
-	at edu.wustl.catissuecore.bizlogic.test.ImportTissueSpecimen.createTissueSpecimen(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.ImportSpecimen.addSpecimens(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.DataMigrationUtil.writeToCaTissue(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.ExcelTestCaseUtility.registerParticipants(Unknown Source)
-	at edu.wustl.catissuecore.bizlogic.test.ExcelDataMigrationTestCase.testRegisterPart(Unknown Source)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:585)
-	at junit.framework.TestCase.runTest(TestCase.java:164)
-	at junit.framework.TestCase.runBare(TestCase.java:130)
 	at junit.framework.TestResult$1.protect(TestResult.java:110)
 	at junit.framework.TestResult.runProtected(TestResult.java:128)
 	at junit.framework.TestResult.run(TestResult.java:113)
