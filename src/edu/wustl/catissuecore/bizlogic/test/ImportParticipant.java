@@ -40,11 +40,6 @@ public class ImportParticipant extends CaTissueBaseTestCase {
 
 
         System.out.println("---------START ImportParticipant.initParticipant()---------");
-        
-        lastName = formatString(lastName);
-        firstName = formatString(firstName);
-        middleName = formatString(middleName);
-
         System.out.println("lastname=" +lastName+ " firstname=" +firstName+ " middlename=" +middleName+ " dob=" +dob+ " gender=" +genderFromAccess+ " hospitalOR=" +hospitalOR+ " medrecno="+medRecNo+ " race=" +raceFromAccess);
 
             
