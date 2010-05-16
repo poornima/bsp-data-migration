@@ -67,6 +67,7 @@ public class DataMigrationUtil {
 	public void registerAndCollectSCG(String excel[][]) throws Exception {
 
 		System.out.println("---------START DataMigrationUtil.registerAndCollectSCG()---------");
+		System.out.println("---------START DataMigrationUtil.registerAndCollectSCG()---------");
 		appService = ApplicationServiceProvider.getApplicationService();
 		String cpShortTitle = excel[rowNo][0];
 		// Step 1 : Get the Collection protocol whose short title is specified in the source
