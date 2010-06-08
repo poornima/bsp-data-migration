@@ -10,6 +10,7 @@ import edu.wustl.catissuecore.domain.SpecimenCollectionGroup;
 import edu.wustl.catissuecore.domain.CollectionEventParameters;
 import edu.wustl.catissuecore.domain.ReceivedEventParameters;
 import edu.wustl.catissuecore.domain.SpecimenEventParameters;
+import edu.wustl.catissuecore.domain.DisposalEventParameters;
 import edu.wustl.catissuecore.domain.AbstractSpecimen;
 import edu.wustl.catissuecore.domain.Specimen;
 import edu.wustl.catissuecore.domain.FluidSpecimen;
@@ -20,6 +21,7 @@ import edu.wustl.catissuecore.domain.ExternalIdentifier;
 import edu.wustl.catissuecore.domain.User;
 import edu.wustl.common.util.Utility;
 import edu.wustl.common.util.logger.Logger;
+import edu.wustl.common.util.global.Status;
 
 /**
  * This class contains the functionality of migrating the domain data
@@ -80,14 +82,14 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
       return returnedspecimen;
    }
 
-   public static void createFluidSpecimen (SpecimenCollectionGroup scg, String excel[][], int rowno) {
+   public static void createFluidSpecimen (SpecimenCollectionGroup scg, String excel[][], int rowno) throws Exception {
 
       String codeId             = excel[rowno][16];
       String accessdbdiagnosis = excel[rowno][22];
 
       Specimen specimenObj = initFluidSpecimen("New",excel,rowno,0);
       specimenObj.setSpecimenCollectionGroup(scg);
-      specimenObj.setLabel(codeId+"-New");
+      specimenObj.setLabel(codeId);
       specimenObj.setIsAvailable(Boolean.TRUE);
       specimenObj.setCollectionStatus("Collected");
       specimenObj.setActivityStatus("Active");
@@ -115,38 +117,6 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
        System.out.println(" Parent Fluid Domain Object is successfully added ---->    ID:: " + specimenObj.getId().toString());
        System.out.println(" Parent Fluid Domain Object is successfully added ---->    Name:: " + specimenObj.getLabel());
 
-       Specimen deriveSp = initFluidSpecimen("Derived",excel,rowno,0);
-       deriveSp.setLineage("Derived");
-       deriveSp.setLabel(codeId+"-Derived");
-       deriveSp.setSpecimenCollectionGroup(scg);
-       deriveSp.setParentSpecimen(specimenObj);
-       deriveSp.setIsAvailable(Boolean.TRUE);
-       deriveSp.setCollectionStatus("Collected");
-       deriveSp.setActivityStatus("Active");
-       Collection eidc2 = new HashSet();
-       ExternalIdentifier eid3 = new ExternalIdentifier();
-       eid3.setName("Code ID.");
-       eid3.setValue(codeId);
-       eid3.setSpecimen(deriveSp);
-       eidc2.add(eid3);
-       ExternalIdentifier eid4 = new ExternalIdentifier();
-       eid4.setName("Diagnosis1");
-       eid4.setValue(accessdbdiagnosis);
-       eid4.setSpecimen(deriveSp);
-       eidc2.add(eid4);
-       deriveSp.setExternalIdentifierCollection(eidc2);
-       System.out.println("Before Creating Derived Fluid Specimen");
-       try {
-          deriveSp = (FluidSpecimen) appService.createObject(deriveSp);
-          System.out.println("Spec:" + deriveSp.getLabel());
-        } catch (Exception e)   {
-                Logger.out.error(e.getMessage(), e);
-                e.printStackTrace();
-        }
-
-       System.out.println(" Derived Domain Object is successfully added ---->    ID:: " + deriveSp.getId().toString());
-       System.out.println(" Derived Domain Object is successfully added ---->    Name:: " + deriveSp.getLabel());
-
        String lnvial	    = excel[rowno][19];
        int  totalNoAliquots = Integer.parseInt(lnvial);
        System.out.println("total no aliquots to be created = "+totalNoAliquots); 
@@ -154,7 +124,7 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
         Specimen ts1 = initFluidSpecimen("Aliquot",excel,rowno,currentAliquot);
         ts1.setSpecimenCollectionGroup(scg);
         ts1.setLineage("Aliquot");
-        ts1.setParentSpecimen(deriveSp);
+        ts1.setParentSpecimen(specimenObj);
         if (currentAliquot < 10) {
            ts1.setLabel(codeId+"-0"+currentAliquot);
         } else {
@@ -184,9 +154,30 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
                 e.printStackTrace();
         }
        }
+       System.out.println("After Creating Aliquots");
+       DisposalEventParameters disposalEvent = new DisposalEventParameters();
+       disposalEvent.setSpecimen(specimenObj);
+       disposalEvent.setTimestamp(new Date(System.currentTimeMillis()));
+       User user = new User();
+       user.setId(new Long(1));//admin
+       disposalEvent.setUser(user);
+       disposalEvent.setReason("Disposing Specimen");
+       disposalEvent.setComment("Dispose Event");
+       disposalEvent.setActivityStatus(Status.ACTIVITY_STATUS_CLOSED.toString());
+       System.out.println("Before Creating DisposeEvent");
+       try {
+            disposalEvent = (DisposalEventParameters) appService.createObject(disposalEvent);
+            System.out.println("Succesfully closed parent specimen "+specimenObj.getLabel());
+       } catch (Exception e) {
+            System.out.println("cannot create dispose event object");
+            e.printStackTrace();
+       }
+       System.out.println("After Creating DisposeEvent");
+
    }
  
-   public static Specimen initFluidSpecimen(String lineage, String excel[][], int rowno, int currentAliquot) {
+   //public static Specimen initFluidSpecimen(String lineage, String excel[][], int rowno, int currentAliquot) {
+   public static Specimen initFluidSpecimen(String lineage, String excel[][], int rowno, int currentAliquot) throws Exception {
 
       String opDate	  = excel[rowno][10];
       String surgeon      = excel[rowno][11];
@@ -200,6 +191,7 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
       String lnvial	  = excel[rowno][19];
       String tsite	  = excel[rowno][20];
       String tside	  = excel[rowno][21];
+      String accessdbdiagnosis = excel[rowno][22];
       String specType 	  = "";
       Date createdOn	  = new Date(); 
       Date colDate        = new Date();
@@ -218,12 +210,26 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
            ts.setBarcode(codeId+"-"+currentAliquot);
          }
        } else {
-         ts.setLabel(codeId+"-"+lineage);
-         ts.setBarcode(codeId+"-"+lineage);
+         ts.setLabel(codeId);
+         ts.setBarcode(codeId);
        }
        ts.setActivityStatus("Active");
        ts.setCollectionStatus("Complete");
-       ts.setSpecimenType("Whole Blood");
+
+       //set specimen type 
+       if (accessdbdiagnosis.contains("UNKNOWN BF") || accessdbdiagnosis.equals("U")) 
+         ts.setSpecimenType("Bio Fluid");
+       else if (accessdbdiagnosis.contains("CSF"))
+         ts.setSpecimenType("Cerebrospinal Fluid");
+       else if (accessdbdiagnosis.contains("CYST FLUID"))
+         ts.setSpecimenType("Cyst Fluid");
+       else if (accessdbdiagnosis.contains("PLASMA"))
+         ts.setSpecimenType("Plasma");
+       else if (accessdbdiagnosis.contains("BLOOD"))
+         ts.setSpecimenType("Whole Blood");
+       else if (accessdbdiagnosis.contains("SERUM"))
+         ts.setSpecimenType("Serum");
+
        ts.setPathologicalStatus(pathStatus);
 
        SpecimenCharacteristics specimenCharacteristics =  new SpecimenCharacteristics();
@@ -250,25 +256,27 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
        User user = new User();
        user.setId(new Long(1));
        collectionEventParameters.setUser(user);
-       try  {
+       //try  {
          colDate = CommonUtilities.convertDateFromExcel(opDate);
          collectionEventParameters.setTimestamp(colDate);
-       } catch (ParseException e1) {
+       /*} catch (ParseException e1) {
          System.out.println("ERROR: could not parse date in String: " +colDate);
          e1.printStackTrace();
        }
+       */
        collectionEventParameters.setContainer(colCont);
        collectionEventParameters.setCollectionProcedure(colProc);
 
        ReceivedEventParameters receivedEventParameters = new ReceivedEventParameters();
        receivedEventParameters.setUser(user);
-       try {
+       //try {
          rcvdDate = CommonUtilities.convertDateFromExcel(accessionDate);
          receivedEventParameters.setTimestamp(rcvdDate);
-       } catch (ParseException e) {
+       /*} catch (ParseException e) {
          System.out.println("ERROR: could not parse date in String: " +accessionDate);
          e.printStackTrace();
        }
+       */
        receivedEventParameters.setReceivedQuality("Acceptable");
        receivedEventParameters.setSpecimen(ts);
 
