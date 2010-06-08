@@ -117,44 +117,90 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
        System.out.println(" Parent Fluid Domain Object is successfully added ---->    ID:: " + specimenObj.getId().toString());
        System.out.println(" Parent Fluid Domain Object is successfully added ---->    Name:: " + specimenObj.getLabel());
 
-       String lnvial	    = excel[rowno][19];
-       int  totalNoAliquots = Integer.parseInt(lnvial);
-       System.out.println("total no aliquots to be created = "+totalNoAliquots); 
-       for (int currentAliquot = 1; currentAliquot <= totalNoAliquots; currentAliquot++) {
-        Specimen ts1 = initFluidSpecimen("Aliquot",excel,rowno,currentAliquot);
-        ts1.setSpecimenCollectionGroup(scg);
-        ts1.setLineage("Aliquot");
-        ts1.setParentSpecimen(specimenObj);
-        if (currentAliquot < 10) {
-           ts1.setLabel(codeId+"-0"+currentAliquot);
+       // check for BF specimens with diagnosis 
+       // "BLOOD/SPORE BLOOD" and for these 
+       // from the year 2006, divide the single 
+       // BF specimen into 14 samples. These 14 are:
+       // 1-6: Plasma, 7-10: PBL, 11-12: Serum, 13-14: DNA
+       // First create derivatives of types Plasma,
+       // PBL (white blood cells), Serum, and DNA
+       // Then create aliquots for the above derivatives    
+          
+        Boolean flag = checkFor2006BFSpecimen(excel);
+
+        if (flag == true) {
+
+           Specimen ts1 = initFluidSpecimen("Derivative",excel,rowno,currentAliquot);
+           ts1.setSpecimenCollectionGroup(scg);
+           ts1.setLineage("Derivative");
+           ts1.setParentSpecimen(specimenObj);
+           ts1.setLabel(codeId+"-"+"Derivative");
+           ts1.setIsAvailable(Boolean.TRUE);
+           ts1.setCollectionStatus("Collected");
+           ts1.setActivityStatus("Active");
+           Collection eidc3 = new HashSet();
+           ExternalIdentifier eid5 = new ExternalIdentifier();
+           eid5.setName("Code ID.");
+           eid5.setValue(codeId);
+           eid5.setSpecimen(ts1);
+           eidc3.add(eid5);
+           ExternalIdentifier eid6 = new ExternalIdentifier();
+           eid6.setName("Diagnosis1");
+           eid6.setValue(accessdbdiagnosis);
+           eid6.setSpecimen(ts1);
+           eidc3.add(eid6);
+           ts1.setExternalIdentifierCollection(eidc3);
+           System.out.println("Befor creating Derivative Fluid Specimen:"+ts1);
+           try {
+                 ts1 = (FluidSpecimen) appService.createObject(ts1);
+                 System.out.println("Spec:" + ts1.getLabel());
+           } catch (Exception e)   {
+                 Logger.out.error(e.getMessage(), e);
+                 e.printStackTrace();
+           }
+           System.out.println("After Creating Derivative");
         } else {
-           ts1.setLabel(codeId+"-"+currentAliquot);
-        }
-        ts1.setIsAvailable(Boolean.TRUE);
-        ts1.setCollectionStatus("Collected");
-        ts1.setActivityStatus("Active");
-        Collection eidc3 = new HashSet();
-        ExternalIdentifier eid5 = new ExternalIdentifier();
-        eid5.setName("Code ID.");
-        eid5.setValue(codeId);
-        eid5.setSpecimen(ts1);
-        eidc3.add(eid5);
-        ExternalIdentifier eid6 = new ExternalIdentifier();
-        eid6.setName("Diagnosis1");
-        eid6.setValue(accessdbdiagnosis);
-        eid6.setSpecimen(ts1);
-        eidc3.add(eid6);
-        ts1.setExternalIdentifierCollection(eidc3);
-        System.out.println("Befor creating Aliquot Fluid Specimen:"+currentAliquot);
-        try {
-                ts1 = (FluidSpecimen) appService.createObject(ts1);
-                System.out.println("Spec:" + ts1.getLabel());
-        } catch (Exception e)   {
-                Logger.out.error(e.getMessage(), e);
-                e.printStackTrace();
-        }
-       }
-       System.out.println("After Creating Aliquots");
+
+          String lnvial	    = excel[rowno][19];
+          int  totalNoAliquots = Integer.parseInt(lnvial);
+          System.out.println("total no aliquots to be created = "+totalNoAliquots); 
+          for (int currentAliquot = 1; currentAliquot <= totalNoAliquots; currentAliquot++) {
+             Specimen ts1 = initFluidSpecimen("Aliquot",excel,rowno,currentAliquot);
+             ts1.setSpecimenCollectionGroup(scg);
+             ts1.setLineage("Aliquot");
+             ts1.setParentSpecimen(specimenObj);
+             if (currentAliquot < 10) {
+                ts1.setLabel(codeId+"-0"+currentAliquot);
+             } else {
+                ts1.setLabel(codeId+"-"+currentAliquot);
+             }
+             ts1.setIsAvailable(Boolean.TRUE);
+             ts1.setCollectionStatus("Collected");
+             ts1.setActivityStatus("Active");
+             Collection eidc3 = new HashSet();
+             ExternalIdentifier eid5 = new ExternalIdentifier();
+             eid5.setName("Code ID.");
+             eid5.setValue(codeId);
+             eid5.setSpecimen(ts1);
+             eidc3.add(eid5);
+             ExternalIdentifier eid6 = new ExternalIdentifier();
+             eid6.setName("Diagnosis1");
+             eid6.setValue(accessdbdiagnosis);
+             eid6.setSpecimen(ts1);
+             eidc3.add(eid6);
+             ts1.setExternalIdentifierCollection(eidc3);
+             System.out.println("Befor creating Aliquot Fluid Specimen:"+currentAliquot);
+             try {
+                  ts1 = (FluidSpecimen) appService.createObject(ts1);
+                  System.out.println("Spec:" + ts1.getLabel());
+             } catch (Exception e)   {
+                  Logger.out.error(e.getMessage(), e);
+                  e.printStackTrace();
+             }
+          }
+          System.out.println("After Creating Aliquots");
+       } // else
+ 
        DisposalEventParameters disposalEvent = new DisposalEventParameters();
        disposalEvent.setSpecimen(specimenObj);
        disposalEvent.setTimestamp(new Date(System.currentTimeMillis()));
@@ -285,6 +331,38 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
        specimenEventCollection.add(receivedEventParameters);
        ts.setSpecimenEventCollection(specimenEventCollection);
        return ts;
+    }
+
+    public static Specimen createBFSpecimenDerivatives (String excel[][]) {
+
+      String codeId      	 = excel[rowno][16];
+      String accessdbdiagnosis	 = excel[rowno][22];
+ 
+      Boolean flag = checkFor2006BFSpecimen(excel);
+
+      if (flag == true) {
+        
+ 
+      }
+     
+
+
+    }
+
+    public static Boolean checkFor2006BFSpecimen (String excel[][]) {
+
+      String codeId      	 = excel[rowno][16];
+      String accessdbdiagnosis	 = excel[rowno][22];
+      Boolean flag = false;
+ 
+      String codeIdSubStr = codeId.substring(2);
+      if (codeIdSubStr.startsWith("06"))
+       flag = true;
+      else
+       flag = false;
+ 
+      return flag; 
+
     }
 
 } //end ImportFluidSpecimen()
