@@ -69,6 +69,7 @@ public class ImportSCG extends CaTissueBaseTestCase {
       String hospitalOR = excel[rowNo][5];
       String sprNum = excel[rowNo][8];
       String diagnosis = excel[rowNo][9];
+      String accessdbdiagnosis = excel[rowNo][22];
 
       System.out.println("---------START ImportSCG.updateSCG()---------");
       SpecimenCollectionGroup uscg = null;
@@ -79,7 +80,12 @@ public class ImportSCG extends CaTissueBaseTestCase {
          Site site = ImportSite.getSite(hospitalOR);
          scg.setSpecimenCollectionSite(site);
          scg.setSurgicalPathologyNumber(sprNum);
-         scg.setClinicalStatus("Operative");
+         if (accessdbdiagnosis.contains("PRIMARY"))
+           scg.setClinicalStatus("Primary");
+         else if (accessdbdiagnosis.contains("RECURRRENT"))
+           scg.setClinicalStatus("Recurrent");
+         else (accessdbdiagnosis.contains("RECURRRENT"))
+           scg.setClinicalStatus("Not Specified");
          scg.setCollectionStatus("Complete");
 
          ImportSpecimenEventParameters.addSEP(scg, excel, rowNo);

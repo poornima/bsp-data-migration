@@ -31,7 +31,7 @@ import edu.wustl.common.util.logger.Logger;
  */
 public class ImportSpecimen extends CaTissueBaseTestCase {
 
-   public static void addSpecimens(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
+   public static void addSpecimens(SpecimenCollectionGroup scg, String excel[][], int rowNo) throws Exception {
        
        String codeId   = excel[rowNo][16];
        String lnvial   = excel[rowNo][19].trim();
