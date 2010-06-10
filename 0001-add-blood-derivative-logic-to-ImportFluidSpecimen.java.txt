@@ -1,0 +1,703 @@
+From 4e98bfe33aad396863b2291e809f6e289f2143b9 Mon Sep 17 00:00:00 2001
+From: Poornima Pochana <ppreddy@uab.edu>
+Date: Wed, 9 Jun 2010 16:41:06 -0500
+Subject: [CHANGE] add blood derivative logic to ImportFluidSpecimen.java
+Organization: UAB
+Cc: ppreddy@uab.edu
+
+modify Clinical status to include Primary,
+Recurrent terms in ImportSCG.java
+pending: add the derivative logic to create
+molecular and cell specimens
+
+Signed-off-by: Poornima Pochana <ppreddy@uab.edu>
+---
+ .../bizlogic/test/ImportFluidSpecimen.class        |  Bin 7678 -> 9906 bytes
+ .../bizlogic/test/ImportSpecimen.class             |  Bin 2613 -> 2661 bytes
+ .../bizlogic/test/ImportFluidSpecimen.java         |  392 ++++++++++++++------
+ .../catissuecore/bizlogic/test/ImportSCG.java      |    8 +-
+ .../catissuecore/bizlogic/test/ImportSpecimen.java |    2 +-
+ 5 files changed, 281 insertions(+), 121 deletions(-)
+
+diff --git a/classes/edu/wustl/catissuecore/bizlogic/test/ImportFluidSpecimen.class b/classes/edu/wustl/catissuecore/bizlogic/test/ImportFluidSpecimen.class
+index c29bf0e7957f40295c32392cf881a48d7e009f13..e8556cc98f16eb0d6a539780b3bbb2c7564b1e7f 100644
+GIT binary patch
+literal 9906
+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
+
+literal 7678
+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
+Mbkj5VHy{4K2J$m$?EnA(
+
+diff --git a/classes/edu/wustl/catissuecore/bizlogic/test/ImportSpecimen.class b/classes/edu/wustl/catissuecore/bizlogic/test/ImportSpecimen.class
+index 5c9d26a162f9f5e74ef17e5f83ea2608290dad4c..aee872e547a876672e587c291229bde424b30598 100644
+GIT binary patch
+delta 519
+zcmX|;TTc@~6vuzlR%SYxl%y7U-H`a=gH;P&s`Y|`SG*xA-q*U;rOR$<w*^#06culY
+zX5V<_BN$(dF+Te#eDP}-cZ~7n+~#-wb7s!x(y!9;kKbRu0XuoG*~YMDgxz`euvf89
+zQ)R#8fToXOMa}wy)*MnCw&W4bC`UEN7*mWZj@$5r<fNu(wThgQoYoB3WPmf83C=3c
+zS&j3G3!2&l7wyrcHJ3C~TvlAMomUmpws_6L*KKq|anlmF6t^XJB<{zriv>NlQ1@D~
+zAB7#s-J~L>3w6UiJjs1Sg9pjFsOEjc3{Amc@-sKMU62pLp6>=u%`pVb8bUllW^~*T
+z(UQy=+LR?7L!1m{n%OSB<U^*Cou`@lp=3$*FB=wElsq&%;;~>;JDRWl)mut0aOzRe
+zoegc_2`T!N6~i-DB+m`2ybx@ejH9;O@KQ32T|e~Nj^DBTOFK)S^H1&-Yj(!hhBvGU
+zif-V~b)(p66{3!B-)&po@-A7;Zj?69xIMQVxM8FG|6e|B&8_D|Ci$*f{X5cK=Md?>
+M^X#IsF_IU503A(d{r~^~
+
+delta 473
+zcmXYr$xake6o$Xs4SjFj++flH*;ZV-P-z@n+W`d!1P4@9a44{alA@~Vt_E?S9T?P|
+zDHkqH*ts=sjPU_n@dmE+F^qkPoAaOHJO4SqyT5j~e*XRT1L)(OWj7^DKl?onaL{nb
+za+o8UvZX-Da8&e|go@#~kS8oBIb|8(wBd|lP|_jISxZs8ik#D&xAaKS!v)JQ7Y!rg
+zF>1JEsSI;jMpq<UwTyAia9uWU7{;Y}Q{Y>Y-8M`JF=@D?xvRPN{`+z^sK&eQI|8OO
+z(~bvJv(KvRJ#@@4tLV*s6?*q5yeM7_gUGM=j*v%=Ii?i3fgwl4ye4)e?A6p93t1^Q
+zm#@>vKIQuJDYI?em2K%AEk~0@&649W%Zko=vQ*yod(uAOPbX1xK9<H)o;jYg;%Kp=
+zdEt1;E5**SG^qzO)ixQYK^Rx-e%KKHwfs`>|J$vyCO@t_Hds>>gD6~RCaGWRN*ZAr
+fCfg_8@HYF9-~2Mt@v%dx?2oB+dhDZbv+AjTj`Uld
+
+diff --git a/src/edu/wustl/catissuecore/bizlogic/test/ImportFluidSpecimen.java b/src/edu/wustl/catissuecore/bizlogic/test/ImportFluidSpecimen.java
+index 155e2d8..4a956bd 100644
+--- a/src/edu/wustl/catissuecore/bizlogic/test/ImportFluidSpecimen.java
++++ b/src/edu/wustl/catissuecore/bizlogic/test/ImportFluidSpecimen.java
+@@ -31,57 +31,6 @@ import edu.wustl.common.util.global.Status;
+  */
+ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
+ 
+-   public static void setLabelAndBarcode (String lineage, FluidSpecimen ts, String codeId, int rowno, int currentAliquot) {
+-
+-      System.out.println("---------START ImportFluidSpecimen.setLabelAndBarcode()---------");
+-      if ( (lineage.equals("New")) || (lineage.equals("Derived")) ) {
+-         ts.setLabel(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+-         ts.setBarcode(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+-         //ts.setLabel(codeId+"-"+lineage);
+-         //ts.setBarcode(codeId+"-"+lineage);
+-      } else if (lineage.equals("Aliquot")) {
+-         System.out.println("currentAliquot = "+currentAliquot);
+-         ts.setLabel(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+-         ts.setBarcode(codeId+UniqueKeyGeneratorUtil.getUniqueKey()+lineage);
+-/*
+-         if (currentAliquot < 10) {
+-            ts.setLabel(codeId+"-0"+currentAliquot);
+-            ts.setBarcode(codeId+"-0"+currentAliquot);
+-         } else {
+-            ts.setLabel(codeId+"-"+currentAliquot);
+-            ts.setBarcode(codeId+"-"+currentAliquot);
+-         }   
+-*/
+-         //System.out.println("currentAliquot = "+currentAliquot+ " Label = "+codeId+currentAliquot);
+-      }
+-      System.out.println("---------END ImportFluidSpecimen.setLabelAndBarcode()---------");
+-   } 
+-
+-
+-   public static Specimen getAliquotByLabel(String label) {
+-
+-      System.out.println("---------START ImportFluidSpecimen.getAliquotByLabel()---------");
+-      FluidSpecimen returnedspecimen = null; 
+-      FluidSpecimen specimen = new FluidSpecimen();
+-      specimen.setLabel(label);
+-      Logger.out.info(" searching domain object");
+-      try {
+-          List resultList = appService.search(FluidSpecimen.class, specimen);
+-          for (Iterator resultsIterator = resultList.iterator(); resultsIterator.hasNext();) {
+-             returnedspecimen = (FluidSpecimen) resultsIterator.next();
+-             System.out.println("Aliquot found is: " + returnedspecimen.getLabel() + " Id: " + returnedspecimen.getId());
+-             Logger.out.info(" Domain Object is successfully Found ---->  :: " + returnedspecimen.getLabel());
+-          }
+-          assertTrue("Specimen found", true);
+-      } catch (Exception e) {
+-          Logger.out.error(e.getMessage(), e);
+-          e.printStackTrace();
+-          assertFalse("Could not find Aliquot by label", true);
+-      }
+-      System.out.println("---------END ImportFluidSpecimen.getAliquotByLabel()---------");
+-      return returnedspecimen;
+-   }
+-
+    public static void createFluidSpecimen (SpecimenCollectionGroup scg, String excel[][], int rowno) throws Exception {
+ 
+       String codeId             = excel[rowno][16];
+@@ -117,50 +66,16 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
+        System.out.println(" Parent Fluid Domain Object is successfully added ---->    ID:: " + specimenObj.getId().toString());
+        System.out.println(" Parent Fluid Domain Object is successfully added ---->    Name:: " + specimenObj.getLabel());
+ 
+-       // check for BF specimens with diagnosis 
+-       // "BLOOD/SPORE BLOOD" and for these 
+-       // from the year 2006, divide the single 
+-       // BF specimen into 14 samples. These 14 are:
+-       // 1-6: Plasma, 7-10: PBL, 11-12: Serum, 13-14: DNA
+-       // First create derivatives of types Plasma,
+-       // PBL (white blood cells), Serum, and DNA
++       // check for BF specimens with diagnosis "BLOOD/SPORE BLOOD" and for these from the year 2006, divide the single 
++       // BF specimen into 14 samples. These 14 are:: 1-6: Plasma, 7-10: PBL, 11-12: Serum, 13-14: DNA
++       // First create derivatives of types Plasma, PBL (white blood cells), Serum, and DNA
+        // Then create aliquots for the above derivatives    
+           
+-        Boolean flag = checkFor2006BFSpecimen(excel);
+-
++        Boolean flag = checkFor2006BFSpecimen(excel,rowno);
+         if (flag == true) {
+-
+-           Specimen ts1 = initFluidSpecimen("Derivative",excel,rowno,currentAliquot);
+-           ts1.setSpecimenCollectionGroup(scg);
+-           ts1.setLineage("Derivative");
+-           ts1.setParentSpecimen(specimenObj);
+-           ts1.setLabel(codeId+"-"+"Derivative");
+-           ts1.setIsAvailable(Boolean.TRUE);
+-           ts1.setCollectionStatus("Collected");
+-           ts1.setActivityStatus("Active");
+-           Collection eidc3 = new HashSet();
+-           ExternalIdentifier eid5 = new ExternalIdentifier();
+-           eid5.setName("Code ID.");
+-           eid5.setValue(codeId);
+-           eid5.setSpecimen(ts1);
+-           eidc3.add(eid5);
+-           ExternalIdentifier eid6 = new ExternalIdentifier();
+-           eid6.setName("Diagnosis1");
+-           eid6.setValue(accessdbdiagnosis);
+-           eid6.setSpecimen(ts1);
+-           eidc3.add(eid6);
+-           ts1.setExternalIdentifierCollection(eidc3);
+-           System.out.println("Befor creating Derivative Fluid Specimen:"+ts1);
+-           try {
+-                 ts1 = (FluidSpecimen) appService.createObject(ts1);
+-                 System.out.println("Spec:" + ts1.getLabel());
+-           } catch (Exception e)   {
+-                 Logger.out.error(e.getMessage(), e);
+-                 e.printStackTrace();
+-           }
+-           System.out.println("After Creating Derivative");
++         createBFSpecimens(specimenObj, scg, excel, rowno);
+         } else {
+-
++           //just create Aliquots based on lnvial
+           String lnvial	    = excel[rowno][19];
+           int  totalNoAliquots = Integer.parseInt(lnvial);
+           System.out.println("total no aliquots to be created = "+totalNoAliquots); 
+@@ -222,7 +137,6 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
+ 
+    }
+  
+-   //public static Specimen initFluidSpecimen(String lineage, String excel[][], int rowno, int currentAliquot) {
+    public static Specimen initFluidSpecimen(String lineage, String excel[][], int rowno, int currentAliquot) throws Exception {
+ 
+       String opDate	  = excel[rowno][10];
+@@ -302,27 +216,15 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
+        User user = new User();
+        user.setId(new Long(1));
+        collectionEventParameters.setUser(user);
+-       //try  {
+-         colDate = CommonUtilities.convertDateFromExcel(opDate);
+-         collectionEventParameters.setTimestamp(colDate);
+-       /*} catch (ParseException e1) {
+-         System.out.println("ERROR: could not parse date in String: " +colDate);
+-         e1.printStackTrace();
+-       }
+-       */
++       colDate = CommonUtilities.convertDateFromExcel(opDate);
++       collectionEventParameters.setTimestamp(colDate);
+        collectionEventParameters.setContainer(colCont);
+        collectionEventParameters.setCollectionProcedure(colProc);
+ 
+        ReceivedEventParameters receivedEventParameters = new ReceivedEventParameters();
+        receivedEventParameters.setUser(user);
+-       //try {
+-         rcvdDate = CommonUtilities.convertDateFromExcel(accessionDate);
+-         receivedEventParameters.setTimestamp(rcvdDate);
+-       /*} catch (ParseException e) {
+-         System.out.println("ERROR: could not parse date in String: " +accessionDate);
+-         e.printStackTrace();
+-       }
+-       */
++       rcvdDate = CommonUtilities.convertDateFromExcel(accessionDate);
++       receivedEventParameters.setTimestamp(rcvdDate);
+        receivedEventParameters.setReceivedQuality("Acceptable");
+        receivedEventParameters.setSpecimen(ts);
+ 
+@@ -333,26 +235,278 @@ public class ImportFluidSpecimen extends CaTissueBaseTestCase {
+        return ts;
+     }
+ 
+-    public static Specimen createBFSpecimenDerivatives (String excel[][]) {
+ 
+-      String codeId      	 = excel[rowno][16];
+-      String accessdbdiagnosis	 = excel[rowno][22];
+- 
+-      Boolean flag = checkFor2006BFSpecimen(excel);
++   public static void createBFSpecimens(Specimen specimenObj, SpecimenCollectionGroup scg, String excel[][], int rowno) throws Exception {
+ 
+-      if (flag == true) {
+-        
+- 
++      String opDate	  = excel[rowno][10];
++      String surgeon      = excel[rowno][11];
++      String colProc      = excel[rowno][12];
++      String colCont      = excel[rowno][13];
++      String accessionDate= excel[rowno][14];
++      String rcvdQuality  = excel[rowno][15];
++      String codeId       = excel[rowno][16];
++      String octs	  = excel[rowno][17];
++      String pathStatus   = excel[rowno][18];
++      String lnvial	  = excel[rowno][19];
++      String tsite	  = excel[rowno][20];
++      String tside	  = excel[rowno][21];
++      String accessdbdiagnosis = excel[rowno][22];
++      String specType 	  = "";
++      Date createdOn	  = new Date(); 
++      Date colDate        = new Date();
++      Date rcvdDate       = new Date();
++      boolean octsVal     = false;
++      
++      Specimen ts1 = initFluidDerivatives("Derivative","Plasma",excel,rowno,0);
++      createDrvAlqAndDispose(specimenObj, ts1, scg, "Plasma", excel, rowno); 
++      Specimen ts2 = initFluidDerivatives("Derivative","Serum",excel,rowno,0);
++      createDrvAlqAndDispose(specimenObj, ts2, scg, "Serum", excel, rowno); 
++
++   }
++    
++   public static void createDrvAlqAndDispose (Specimen parentspecimen, Specimen derivedspecimen, SpecimenCollectionGroup scg, String specimenType, String excel[][], int rowno) throws Exception {
++
++      String opDate       = excel[rowno][10];
++      String surgeon      = excel[rowno][11];
++      String colProc      = excel[rowno][12];
++      String colCont      = excel[rowno][13];
++      String accessionDate= excel[rowno][14];
++      String rcvdQuality  = excel[rowno][15];
++      String codeId       = excel[rowno][16];
++      String octs         = excel[rowno][17];
++      String pathStatus   = excel[rowno][18];
++      String lnvial       = excel[rowno][19];
++      String tsite        = excel[rowno][20];
++      String tside        = excel[rowno][21];
++      String accessdbdiagnosis = excel[rowno][22];
++      String specType     = "";
++      Date createdOn      = new Date();
++      Date colDate        = new Date();
++      Date rcvdDate       = new Date();
++      boolean octsVal     = false;
++
++      derivedspecimen.setSpecimenCollectionGroup(scg);
++      derivedspecimen.setLineage("Derivative");
++      derivedspecimen.setParentSpecimen(parentspecimen); 
++      derivedspecimen.setIsAvailable(Boolean.TRUE);
++      derivedspecimen.setCollectionStatus("Collected");
++      derivedspecimen.setActivityStatus("Active");
++      Collection eidc1 = new HashSet();
++      ExternalIdentifier eid1 = new ExternalIdentifier();
++      eid1.setName("Code ID.");
++      eid1.setValue(codeId);
++      eid1.setSpecimen(derivedspecimen);
++      eidc1.add(eid1);
++      ExternalIdentifier eid2 = new ExternalIdentifier();
++      eid2.setName("Diagnosis1");
++      eid2.setValue(accessdbdiagnosis);
++      eid2.setSpecimen(derivedspecimen);
++      eidc1.add(eid2);
++      derivedspecimen.setExternalIdentifierCollection(eidc1);
++      System.out.println("Before Creating Derivative Fluid Specimen");
++      try {
++           derivedspecimen = (FluidSpecimen) appService.createObject(derivedspecimen);
++           System.out.println("Spec:" + derivedspecimen.getLabel());
++      } catch (Exception e)   {
++                Logger.out.error(e.getMessage(), e);
++                e.printStackTrace();
++      }
++
++      System.out.println(" Parent Fluid Domain Object is successfully added ---->    ID:: " + derivedspecimen.getId().toString());
++      System.out.println(" Parent Fluid Domain Object is successfully added ---->    Name:: " + derivedspecimen.getLabel());
++      int  totalNoAliquots = 0;
++      if (specimenType.equals("Plasma")) 
++        totalNoAliquots = 6;
++      else if (specimenType.equals("PBL")) 
++        totalNoAliquots = 4;
++      else if ( (specimenType.equals("Serum"))||(specimenType.equals("DNA")) ) 
++        totalNoAliquots = 2;
++      
++      System.out.println("total no aliquots to be created = "+totalNoAliquots);
++      for (int currentAliquot = 1; currentAliquot <= totalNoAliquots; currentAliquot++) {
++          Specimen ts2 = initFluidDerivatives("Aliquot",specimenType,excel,rowno,currentAliquot);
++          ts2.setSpecimenCollectionGroup(scg);
++          ts2.setLineage("Aliquot");
++          ts2.setParentSpecimen(derivedspecimen);
++          if (currentAliquot < 10) {
++            ts2.setLabel(codeId+"-0"+currentAliquot);
++          } else {
++            ts2.setLabel(codeId+"-"+currentAliquot);
++          }
++          ts2.setIsAvailable(Boolean.TRUE);
++          ts2.setCollectionStatus("Collected");
++          ts2.setActivityStatus("Active");
++          Collection eidc3 = new HashSet();
++          ExternalIdentifier eid5 = new ExternalIdentifier();
++          eid5.setName("Code ID.");
++          eid5.setValue(codeId);
++          eid5.setSpecimen(ts2);
++          eidc3.add(eid5);
++          ExternalIdentifier eid6 = new ExternalIdentifier();
++          eid6.setName("Diagnosis1");
++          eid6.setValue(accessdbdiagnosis);
++          eid6.setSpecimen(ts2);
++          eidc3.add(eid6);
++          ts2.setExternalIdentifierCollection(eidc3);
++          System.out.println("Befor creating Aliquot Fluid Specimen:"+currentAliquot);
++          try {
++              ts2 = (FluidSpecimen) appService.createObject(ts2);
++              System.out.println("Spec:" + ts2.getLabel());
++          } catch (Exception e)   {
++              Logger.out.error(e.getMessage(), e);
++              e.printStackTrace();
++          }
++      }
++      System.out.println("After Creating Aliquots");
++      System.out.println("Disposing Parent Specimen");
++      disposeSpecimen(parentspecimen);
++      System.out.println("Disposing Derivative Specimen");
++      disposeSpecimen(derivedspecimen);
++    }
++
++    public static void disposeSpecimen (Specimen specimenObj) {  
++      DisposalEventParameters disposalEvent = new DisposalEventParameters();
++      disposalEvent.setSpecimen(specimenObj);
++      disposalEvent.setTimestamp(new Date(System.currentTimeMillis()));
++      User user = new User();
++      user.setId(new Long(1));//admin
++      disposalEvent.setUser(user);
++      disposalEvent.setReason("Disposing Specimen");
++      disposalEvent.setComment("Dispose Event");
++      disposalEvent.setActivityStatus(Status.ACTIVITY_STATUS_CLOSED.toString());
++      System.out.println("Before Creating DisposeEvent");
++      try {
++           disposalEvent = (DisposalEventParameters) appService.createObject(disposalEvent);
++           System.out.println("Succesfully closed parent specimen "+specimenObj.getLabel());
++      } catch (Exception e) {
++           System.out.println("cannot create dispose event object");
++           e.printStackTrace();
+       }
+-     
++      System.out.println("After Creating DisposeEvent");
++    }
+ 
++   public static Specimen initFluidDerivatives (String lineage, String specimenType, String excel[][], int rowno, int currentAliquot) throws Exception {
+ 
++      String opDate	  = excel[rowno][10];
++      String surgeon      = excel[rowno][11];
++      String colProc      = excel[rowno][12];
++      String colCont      = excel[rowno][13];
++      String accessionDate= excel[rowno][14];
++      String rcvdQuality  = excel[rowno][15];
++      String codeId       = excel[rowno][16];
++      String octs	  = excel[rowno][17];
++      String pathStatus   = excel[rowno][18];
++      String lnvial	  = excel[rowno][19];
++      String tsite	  = excel[rowno][20];
++      String tside	  = excel[rowno][21];
++      String accessdbdiagnosis = excel[rowno][22];
++      String specType 	  = "";
++      Date createdOn	  = new Date(); 
++      Date colDate        = new Date();
++      Date rcvdDate       = new Date();
++      boolean octsVal     = false;
++
++       System.out.println("Inside fluidspecimen");
++       FluidSpecimen ts= new FluidSpecimen();
++       ts.setSpecimenClass("Fluid");
++       if (lineage.equals("Aliquot")) { 
++         if (currentAliquot < 10) {
++           ts.setLabel(codeId+"-0"+currentAliquot);
++           ts.setBarcode(codeId+"-0"+currentAliquot);
++         } else {
++           ts.setLabel(codeId+"-"+currentAliquot);
++           ts.setBarcode(codeId+"-"+currentAliquot);
++         }
++       } else if (lineage.equals("Derivative")) {
++           if (specimenType.equals("Plasma")) {
++             ts.setLabel(codeId+"-plasma");
++             ts.setBarcode(codeId+"-Plasma");
++           } else if (specimenType.equals("PBL")) { 
++             ts.setLabel(codeId+"-pbl");
++             ts.setBarcode(codeId+"-pbl");
++           } else if (specimenType.equals("Serum")) { 
++             ts.setLabel(codeId+"-serum");
++             ts.setBarcode(codeId+"-serum");
++           } else if (specimenType.equals("DNA")) { 
++             ts.setLabel(codeId+"-dna");
++             ts.setBarcode(codeId+"-dna");
++           } 
++       } else { 
++         ts.setLabel(codeId);
++         ts.setBarcode(codeId);
++       }
++       ts.setActivityStatus("Active");
++       ts.setCollectionStatus("Complete");
++
++       //set specimen type 
++       ts.setSpecimenType(specimenType);
++       if (accessdbdiagnosis.contains("METASTATIC"))
++         ts.setPathologicalStatus("Metastatic");
++       else
++         ts.setPathologicalStatus("Malignant");
++
++       SpecimenCharacteristics specimenCharacteristics =  new SpecimenCharacteristics();
++       specimenCharacteristics.setTissueSite(tsite);
++       specimenCharacteristics.setTissueSide(tside);
++       ts.setSpecimenCharacteristics(specimenCharacteristics);
++
++       if (lineage.equals("Aliquot")) {
++         Double qty = 1.0;
++         ts.setInitialQuantity(qty);
++         ts.setAvailableQuantity(qty);
++       } else if (lineage.equals("Derivative")) {
++          if (specimenType.equals("Plasma")) {
++            Double qty = 6.0;
++            ts.setInitialQuantity(qty);
++            ts.setAvailableQuantity(qty);
++          } else if (specimenType.equals("PBL")) {
++            Double qty = 4.0;
++            ts.setInitialQuantity(qty);
++            ts.setAvailableQuantity(qty);
++          } else if ((specimenType.equals("Serum")) || (specimenType.equals("DNA")) ) {
++            Double qty = 2.0;
++            ts.setInitialQuantity(qty);
++            ts.setAvailableQuantity(qty);
++          } 
++       } else {
++         Double quantity = Double.parseDouble(lnvial);
++         ts.setInitialQuantity(quantity);
++         ts.setAvailableQuantity(quantity);
++       }
++       ts.setIsAvailable(new Boolean(true));
++
++       System.out.println("Setting parameters");
++
++       CollectionEventParameters collectionEventParameters = new CollectionEventParameters();
++       collectionEventParameters.setComment("Surgeon: "+surgeon);
++       collectionEventParameters.setSpecimen(ts);
++       User user = new User();
++       user.setId(new Long(1));
++       collectionEventParameters.setUser(user);
++       colDate = CommonUtilities.convertDateFromExcel(opDate);
++       collectionEventParameters.setTimestamp(colDate);
++       collectionEventParameters.setContainer(colCont);
++       collectionEventParameters.setCollectionProcedure(colProc);
++
++       ReceivedEventParameters receivedEventParameters = new ReceivedEventParameters();
++       receivedEventParameters.setUser(user);
++       rcvdDate = CommonUtilities.convertDateFromExcel(accessionDate);
++       receivedEventParameters.setTimestamp(rcvdDate);
++       receivedEventParameters.setReceivedQuality("Acceptable");
++       receivedEventParameters.setSpecimen(ts);
++
++       Collection specimenEventCollection = new HashSet();
++       specimenEventCollection.add(collectionEventParameters);
++       specimenEventCollection.add(receivedEventParameters);
++       ts.setSpecimenEventCollection(specimenEventCollection);
++
++       return ts;
+     }
+ 
+-    public static Boolean checkFor2006BFSpecimen (String excel[][]) {
++
++    public static Boolean checkFor2006BFSpecimen (String excel[][], int rowno) {
+ 
+       String codeId      	 = excel[rowno][16];
+-      String accessdbdiagnosis	 = excel[rowno][22];
+       Boolean flag = false;
+  
+       String codeIdSubStr = codeId.substring(2);
+diff --git a/src/edu/wustl/catissuecore/bizlogic/test/ImportSCG.java b/src/edu/wustl/catissuecore/bizlogic/test/ImportSCG.java
+index 5fa52c4..3b4bdd8 100644
+--- a/src/edu/wustl/catissuecore/bizlogic/test/ImportSCG.java
++++ b/src/edu/wustl/catissuecore/bizlogic/test/ImportSCG.java
+@@ -69,6 +69,7 @@ public class ImportSCG extends CaTissueBaseTestCase {
+       String hospitalOR = excel[rowNo][5];
+       String sprNum = excel[rowNo][8];
+       String diagnosis = excel[rowNo][9];
++      String accessdbdiagnosis = excel[rowNo][22];
+ 
+       System.out.println("---------START ImportSCG.updateSCG()---------");
+       SpecimenCollectionGroup uscg = null;
+@@ -79,7 +80,12 @@ public class ImportSCG extends CaTissueBaseTestCase {
+          Site site = ImportSite.getSite(hospitalOR);
+          scg.setSpecimenCollectionSite(site);
+          scg.setSurgicalPathologyNumber(sprNum);
+-         scg.setClinicalStatus("Operative");
++         if (accessdbdiagnosis.contains("PRIMARY"))
++           scg.setClinicalStatus("Primary");
++         else if (accessdbdiagnosis.contains("RECURRRENT"))
++           scg.setClinicalStatus("Recurrent");
++         else (accessdbdiagnosis.contains("RECURRRENT"))
++           scg.setClinicalStatus("Not Specified");
+          scg.setCollectionStatus("Complete");
+ 
+          ImportSpecimenEventParameters.addSEP(scg, excel, rowNo);
+diff --git a/src/edu/wustl/catissuecore/bizlogic/test/ImportSpecimen.java b/src/edu/wustl/catissuecore/bizlogic/test/ImportSpecimen.java
+index 219a3a6..7d38765 100644
+--- a/src/edu/wustl/catissuecore/bizlogic/test/ImportSpecimen.java
++++ b/src/edu/wustl/catissuecore/bizlogic/test/ImportSpecimen.java
+@@ -31,7 +31,7 @@ import edu.wustl.common.util.logger.Logger;
+  */
+ public class ImportSpecimen extends CaTissueBaseTestCase {
+ 
+-   public static void addSpecimens(SpecimenCollectionGroup scg, String excel[][], int rowNo) {
++   public static void addSpecimens(SpecimenCollectionGroup scg, String excel[][], int rowNo) throws Exception {
+        
+        String codeId   = excel[rowNo][16];
+        String lnvial   = excel[rowNo][19].trim();
+-- 
+1.6.0.2
+
